@@ -8,7 +8,7 @@
 * Profiling code- how to identify the 'problem areas' or potential slow-running areas in code
 * Speeding up code 1: Ahead-Of-Time (AOT) compilation with Cython
 * Speeding up code 2: Just-In-Time (JIT) compilation with numba
-** Speeding up code 3: parallel programming with `multiprocessing` and moving code to clusters
+* Speeding up code 3: parallel programming with `multiprocessing` and moving code to clusters
 * Speeding up code 4: An alternative Python- pypy
 
 
