@@ -27,11 +27,7 @@ Add `@profile` decorators in front of the functions you want to profile. Then:
 
 `python -m memory_profiler julia.py`
 
-This should show an unexpected memory use in the `calculate_z_serial_purepython` function:
-
-```
-sdfgsfdgsdfg
-```
+This should show an unexpected memory use in the `calculate_z_serial_purepython` function.
 
 It might be useful then to visualise this memory change over time and plot the result. `memory_profiler` has a utility called `mprof` which can be used to sample memory usage and plot the results. Fortunately it is lightweight and barely affects the runtime.
 
