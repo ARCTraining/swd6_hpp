@@ -18,7 +18,7 @@ Basically, Cython is regular Python but (if we do it properly) with C data types
 
 Let's start with a simple example. In a suitable directory (this `cython` one is good), create a file called `helloworld.pyx`:
 
-	print "Hello World"
+	print ("Hello World")
 	
 Now we need to create a file `setup.py` which instructs Python how to create the C version of the `helloworld.pyx` file:
 
@@ -31,7 +31,7 @@ Now we need to create a file `setup.py` which instructs Python how to create the
 	
 We now need to use this to build the Cython (compiled Python) version of `helloworld.pyx`:
 
-	`python setup.py build_ext --inplace`
+	python setup.py build_ext --inplace
 	
 This will create a file called `helloworld.so` (`so` means a shared object file) on a Linux machine or a Mac and a `.pyd` file on a Windows machine.
 
