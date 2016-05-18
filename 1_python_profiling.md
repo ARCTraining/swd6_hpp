@@ -178,7 +178,7 @@ Line #      Hits         Time  Per Hit   % Time  Line Contents
     21         4            4      1.0      3.3          i=i+1
     22         4            3      0.8      2.5          m=2*i+3
     23         1           14     14.0     11.6      return [2]+[x for x in s if x]
-    ```
+ ```
 
 
 #### Simple improvement example
@@ -211,12 +211,12 @@ Replace the square root computation with the `sqrt()` function from the `math` l
 
 An example python script is given in `profiling_pi.py` in the `codes` directory.
 
-##### Task 4:
+##### Task 3:
 Use both `cProfile` and `line_profiler` to profile the example code `julia.py` (it generates a plot of the Julia set). It is a CPU-bound program.
 
 Attempt to determine where the code spends most of its time. Are there any optimisations you can suggest to improve run-time?
 
-##### Task 5: Visualising profiling runs
+##### Task 4: Visualising profiling runs
 `snakeviz` is a visulaisation tool for the output files created by `cProfile`. It can be installed by either:
 
 * `conda install snakeviz` (if you are using Anaconda Python)
