@@ -1,4 +1,4 @@
-##Using numba to make your code faster
+##  Using numba to make your code faster
 
 Whereas Cython can be used to create and build a compiled C version of a module (or any chunk of Python code) as a separate build event, **numba** uses a process called **Just In Time** compilation (or **jit**) to compile the required part of a Python program as and when it is needed.
 
@@ -28,10 +28,10 @@ Consider this [pairwise distance](http://scikit-learn.org/stable/modules/generat
 	            
 This is used in an example program in this directory `pairwise_pure.py`. 
 
-####Exercise 1
+#### Exercise 1
 Time how long this takes to execute and record the result.
 
-###Using numba
+### Using numba
 
 Once numba is installed, it takes just three additional lines to interface the code with the LLVM compiler:
 
