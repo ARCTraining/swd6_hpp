@@ -2,7 +2,7 @@
 
 Both Cython and Numba work by creating a *compiled* version of part of your code that is then called by the main program. As compiled code usually executes must more quickly than interpreted code, this is an easy gain to improve the execution time of your code.
 
-###Which should I use?
+### Which should I use?
 
 I just need a quick way to improve speed: Use **numba**
 
@@ -12,7 +12,7 @@ I need to write faster code that uses numpy arrays: Use **numba**
 
 I need to use advanced Python features: Use **Cython**
 
-###How do I use Cython?
+### How do I use Cython?
 
 Basically, Cython is regular Python but (if we do it properly) with C data types defined. We write **type annotated code**.
 
