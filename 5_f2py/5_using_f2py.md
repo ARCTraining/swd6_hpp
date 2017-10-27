@@ -12,11 +12,11 @@ all relevant information needed to create wrapper functions.
 * Optionally, F2PY created signature files can be edited to optimize wrappers functions, make them “smarter” and more “Pythonic”.
 * F2PY reads a signature file and writes a Python C/API module containing Fortran/C/Python bindings.
 * F2PY compiles all sources and builds an extension module containing the wrappers.
-In building extension modules, F2PY uses numpy_distutils that supports a number of Fortran 77/90/95 compilers, including GNU and Intel.
+In building extension modules, F2PY uses `numpy_distutils` that supports a number of Fortran 77/90/95 compilers, including GNU and Intel.
 
 Depending on a particular situation, these steps can be carried out either by just in one command or step-by-step, some steps can be omitted or combined with others.
 
-Three typical approaches of using F2PY are described. All use the following F77 code as an example (in the codes directory as `fib1.f`):
+Three typical approaches of using F2PY are described. All use the following F77 code as an example (in the codes directory as `fib1.f`). This works just as well with F90 etc.:
 
       C FILE: FIB1.F
             SUBROUTINE FIB(A,N)
@@ -38,12 +38,14 @@ Three typical approaches of using F2PY are described. All use the following F77 
       C END FILE FIB1.F
 
 ### Method 1: The quick way
-The quickest way to wrap the Fortran subroutine FIB to Python is to run
+The quickest way to wrap the Fortran subroutine `fib` to Python is to run
 
     f2py -c fib1.f -m fib1
 
 This command builds (see -c flag, execute f2py without arguments to see the explanation of command line options)
-an extension module `fib1.so` (see -m flag) to the current directory. In Python the Fortran subroutine FIB is accessible via fib1.fib:
+an extension module `fib1.so` (see -m flag) to the current directory, just as Cython produces a 
+
+In Python the Fortran subroutine FIB is accessible via fib1.fib:
 
     >>>
     >>> import numpy
