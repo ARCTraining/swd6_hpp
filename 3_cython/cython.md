@@ -43,7 +43,7 @@ To use this file, start the Python interpreter and import as a Python module:
 The two step setup process can be complicated. If the module you want to create does not include any complex C, you can use the `pyximport` module to build and load `.pyx` files automatically on import without having to write a `setup.py`.
 
 
-####Exercise 1:
+#### Exercise 1:
 From the official Python documentation, a simple fibonacci function is defined as:
 
 	def fib(n):
@@ -105,7 +105,12 @@ and
 	
 The `cdef` statement is used to define some local C variables that are then used later in the function. This is to ensure that the most efficient data types are used throughout.
 
-Suitable C data typ
+Suitable C data types are:
+
+**int** - integer: a whole number.
+**float** - floating point value: ie a number with a fractional part.
+**double** - a double-precision floating point value.
+**char** - a single character.
 
 #### Exercise 3
 
