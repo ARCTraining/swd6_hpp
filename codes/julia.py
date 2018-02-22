@@ -5,7 +5,6 @@ import time
 x1, x2, y1, y2 = -1.8, 1.8, -1.8, 1.8
 c_real, c_imag = -0.62772, -.42193
 
-@profile
 def calculate_z_serial_purepython(maxiter, zs, cs):
     """Calculate output list using Julia update rule"""
     output = [0] * len(zs)
@@ -19,7 +18,6 @@ def calculate_z_serial_purepython(maxiter, zs, cs):
         output[i] = n
     return output
 
-@profile
 def calc_pure_python(draw_output, desired_width, max_iterations):
     """Create a list of complex co-ordinates (zs) and complex parameters (cs), build Julia set and display"""
     x_step = (float(x2 - x1) / float(desired_width))
