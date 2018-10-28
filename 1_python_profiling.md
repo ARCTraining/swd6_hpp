@@ -25,14 +25,14 @@ Two steps before profiling would be to ensure you're getting the right answers, 
 * How do I use `line_profiler`?
 * How do I interpret the results?
 * How can I use these results to make my code run faster?
-* 
+
 ### Getting ready
 
 In this session, we will use two profiling tools:
 
 * `cProfile`
 * `line_profiler`
-* 
+
 The `line_profiler` module is not installed as part of the base Anaconda (or any other) Python installation. You will need to use the conda package manager to install this onto your computers.
 
 At the command prompt, enter:
@@ -223,5 +223,8 @@ Attempt to determine where the code spends most of its time. Are there any optim
 * `pip install snakeviz`
 
 More details are at the [Snakeviz](https://jiffyclub.github.io/snakeviz/) website.
+
+A simpler alternative to Snakeviz is [PyHeat](https://github.com/csurfer/pyheat) which overlays a 'time heatmap'
+on the code.
 
 Create profile files for two or three of your codes using `cProfile` and follow the instructions to visualise using `snakeviz`. Is this more useful than the text/ table based visualisation tools?
