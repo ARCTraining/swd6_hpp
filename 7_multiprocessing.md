@@ -14,7 +14,7 @@ parallelised, it doesn’t matter how many CPUs you throw at it; overall, it sti
 * Multicore
 * Multinode (MPI, which we won't discuss here...)
 
-##### Embarassingly Parallel
+#### Embarassingly Parallel
 Embarassing because embarrassingly easy to make this run in parallel.
 
 **Embarassingly parallel** is where each unit of computation is completely independent of the others. For instance, if you're batch processing a set of images and you only care about one image at a time.
@@ -22,6 +22,7 @@ Embarassing because embarrassingly easy to make this run in parallel.
 This is the easiest case to deal with. Perhaps you have a bunch of files to process? Or you need to run a model across a range of a range of parameters, and each run is independent? We can run one job per computer, or perhaps a couple per computer (but isolated from one other) to get the speed we need.
 
 *Embarassingly Parallel in Python* 
+
 Simplest: Just run multiple Python instances at the same time (e.g. one per dataset).
 
 ```
@@ -92,16 +93,14 @@ def process_file(filename):
 
 pool = Pool(processes=8)
 input_files = ['data_1.dat', '...', 'data_8.dat']
-```
 
-# This line runs in parallel, returning an array from each process
+# This line runs in parallel, returning an array from each process**
 intermediate_results = pool.map(process_file, input_files) 
 
 # This line integrates results, which is a serial process
 # (unlike embarassingly parallel)
 final_result = my_summary_analysis(intermediate_results)
-
-
+```
 
 #### Estimating Pi Using the Monte Carlo Method
 We can estimate pi by throwing thousands of imaginary darts into a “dartboard” represented by a unit circle. 
