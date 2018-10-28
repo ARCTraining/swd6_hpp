@@ -33,7 +33,7 @@ A high-level managed interface to share Python objects between processes.
 Allows sharing of primitive datatypes (e.g., integers, floats, and bytes) between processes after they have forked.
 
 #### Estimating Pi Using the Monte Carlo Method
-We can estimate pi by throwing thousands of imaginary darts into a “dartboard” rep‐ resented by a unit circle. 
+We can estimate pi by throwing thousands of imaginary darts into a “dartboard” represented by a unit circle. 
 The relationship between the number of darts falling inside the circle’s edge and outside it will allow us to approximate pi.
 This is an ideal first problem as we can split the total workload evenly across a number of processes, each one running 
 on a separate CPU. Each process will end at the same time as the workload for each is equal, so we can investigate the 
