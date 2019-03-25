@@ -50,7 +50,7 @@ From the official Python documentation, a simple fibonacci function is defined a
 	    """Print the Fibonacci series up to n."""
 	    a, b = 0, 1
 	    while b < n:
-	        print b,
+	        print (b,)
 	        a, b = b, a + b
 	        
 Create a simple program that uses this function to print the Fibonacci numbers up to 2000, eg:
