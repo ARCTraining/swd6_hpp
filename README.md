@@ -4,7 +4,7 @@
 * The perceived problems with Python; interpreted vs. compiled languages
 * The Python language vs. the Python environment: Python, CPython and PyPy
 
-### Morning session 
+### First session 
 * Profiling code- how to identify the 'problem areas' or potential slow-running areas in code
 * Speeding up code 1: Ahead-Of-Time (AOT) compilation with Cython
 * Speeding up code 2: Just-In-Time (JIT) compilation with numba
@@ -12,7 +12,7 @@
 * Speeding up code 4: An alternative Python- pypy
 
 
-### Afternoon session 
+### Second session 
 * Speeding up code 5: The benefits of numpy
 * Performance differences between Python lists, arrays and Numpy arrays
 * Introduction to Computer architecture: why caches, threads and processes are important
