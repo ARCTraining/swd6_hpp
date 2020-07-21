@@ -17,7 +17,7 @@ O(N^2) represents an algorithm whose performance is directly proportional to the
 of the size of the input data set. 
 
 This is common with algorithms that involve nested iterations 
-over the data set. Deeper nested iterations will result in O(N3), O(N4) etc.
+over the data set. Deeper nested iterations will result in O(N^3), O(N^4) etc.
 
 ## O(2^N)
 O(2^N) denotes an algorithm whose growth doubles with each addition to the input data set. 
