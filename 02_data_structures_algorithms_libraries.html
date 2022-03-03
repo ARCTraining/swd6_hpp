@@ -136,10 +136,15 @@ const thebe_selector_output = ".output, .cell_output"
      GPUs
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_solutions.html">
+     Solutions
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="07_summary.html">
+  <a class="reference internal" href="08_summary.html">
    Summary
   </a>
  </li>
@@ -331,6 +336,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solutions">
+   <span class="xref std std-ref">
+    Solutions
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#key-points">
    Key Points
   </a>
@@ -456,6 +468,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solutions">
+   <span class="xref std std-ref">
+    Solutions
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#key-points">
    Key Points
   </a>
@@ -495,7 +514,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
 <span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
-    <span class="o">%</span><span class="k">pip</span> install algorithms
+    <span class="o">%</span><span class="k">pip</span> install --quiet algorithms
 </pre></div>
 </div>
 </div>
@@ -546,7 +565,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>39.2 ms ± 2.26 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40.5 ms ± 1.19 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -559,7 +578,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>69.7 ns ± 2.31 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>66.8 ns ± 0.0953 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -586,7 +605,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>75.2 µs ± 2.1 µs per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>71.9 µs ± 54.8 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -601,7 +620,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>63.5 µs ± 4 µs per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>57.5 µs ± 173 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -642,7 +661,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.36 ms ± 34.6 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.41 ms ± 1.12 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -658,7 +677,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>257 ns ± 7.15 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>247 ns ± 0.339 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -688,7 +707,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.88 ms ± 25.3 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.88 ms ± 1.48 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -712,38 +731,19 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.29 µs ± 55.7 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.47 µs ± 14 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre></div>
 </div>
 </div>
 </div>
-<div class="admonition-question admonition">
-<p class="admonition-title">Question</p>
+<div class="admonition-question-1 admonition">
+<p class="admonition-title">Question 1</p>
 <p>Which of the following uses less memory and how can you check?</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">np.float16</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">np.float32</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">np.float64</span></code></p></li>
 </ul>
-</div>
-<div class="dropdown admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Use the <code class="docutils literal notranslate"><span class="pre">nbytes</span></code> attribute.</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>Single precision floats have 32 bits (i.e., <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.single"><code class="docutils literal notranslate"><span class="pre">np.single</span></code></a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32"><code class="docutils literal notranslate"><span class="pre">np.float32</span></code></a>).</p>
-<p>This is equal to 4 bytes, as <a class="reference external" href="https://en.wikipedia.org/wiki/Byte">1 byte is 8 bits</a>.</p>
-<p>You can check this using:</p>
-<p><code class="docutils literal notranslate"><span class="pre">np.float32(1.0).nbytes</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">4</span></code></p>
-<p>Half precision floats have (you guessed it) half of this (i.e., <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.half"><code class="docutils literal notranslate"><span class="pre">np.half</span></code></a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float16"><code class="docutils literal notranslate"><span class="pre">np.float16</span></code></a>):</p>
-<p><code class="docutils literal notranslate"><span class="pre">np.float16(1.0).nbytes</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">2</span></code></p>
-<p>And double precision floats (i.e., <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.double"><code class="docutils literal notranslate"><span class="pre">np.double</span></code></a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64"><code class="docutils literal notranslate"><span class="pre">np.float64</span></code></a>):</p>
-<p><code class="docutils literal notranslate"><span class="pre">np.float64(1.0).nbytes</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">8</span></code></p>
-<p>In some situations, you may be able to significantly reduce your memory usage by using half or single precision arrays.</p>
 </div>
 </div>
 </div>
@@ -773,7 +773,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>564 ns ± 12.8 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>535 ns ± 0.13 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -793,7 +793,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99.4 ns ± 0.841 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>111 ns ± 0.0536 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -836,7 +836,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>117 ms ± 2.21 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>119 ms ± 2.15 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -866,7 +866,7 @@ c. Repeat b, all the way up for this half.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.09 ms ± 130 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.23 ms ± 22.7 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
@@ -894,7 +894,7 @@ c. Repeat b, all the way up for this half.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>64.7 µs ± 660 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>76.3 µs ± 34.1 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -910,7 +910,7 @@ c. Repeat b, all the way up for this half.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.38 µs ± 99 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.42 µs ± 8.65 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -931,36 +931,14 @@ d. Set</p>
 <p><code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">=</span> <span class="pre">np.random.choice(100,</span> <span class="pre">80)</span></code></p>
 <p>Are there any other ways of doing it?</p>
 </div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>A suitable data structure for finding or removing duplicate values is:</p>
-<p>d. Set</p>
-<p>This is because <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">sets</a> are unordered collections of distinct hashable objects.</p>
-<p>You can call it via <code class="docutils literal notranslate"><span class="pre">set(array)</span></code>.</p>
-<p>Another approach would be to use the NumPy features. For example, when creating a random array, you can specific whether the random choice gets replaced or not via:</p>
-<p><code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">=</span> <span class="pre">np.random.choice(100,</span> <span class="pre">80,</span> <span class="pre">replace=False)</span></code></p>
-</div>
 <div class="admonition-exercise-2 admonition">
 <p class="admonition-title">Exercise 2</p>
 <p>In the exercise from the profiling lesson, we saw an example of <code class="docutils literal notranslate"><span class="pre">two_sum</span></code> i.e., finding two numbers from an array of unique integers that add up to a target sum.</p>
 <p>What would be a good approach for generalising this sum of two numbers to three, four, or n numbers?</p>
 </div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>Many algorithms are already implemented for you.</p>
-<p>For example, the <a class="reference external" href="https://github.com/keon/algorithms"><code class="docutils literal notranslate"><span class="pre">algorithm</span></code></a> library has an <a class="reference external" href="https://github.com/keon/algorithms/blob/master/algorithms/arrays/n_sum.py"><code class="docutils literal notranslate"><span class="pre">n_sum</span></code></a> method.</p>
-<p>This generalises the function to any value of n.</p>
-<p>For example, here is a “six_sum”:</p>
-<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">algorithms.arrays</span> <span class="pre">import</span> <span class="pre">n_sum</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">=</span> <span class="pre">np.random.choice(100,</span> <span class="pre">80,</span> <span class="pre">replace=False)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">=</span> <span class="pre">23</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">n_sum(6,</span> <span class="pre">array,</span> <span class="pre">target)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">[[0,</span> <span class="pre">1,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">6,</span> <span class="pre">9],</span></code><br />
-<code class="docutils literal notranslate"> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">7,</span> <span class="pre">8],</span></code><br />
-<code class="docutils literal notranslate"> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">8],</span></code><br />
-<code class="docutils literal notranslate"> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7]]</span></code></p>
-<p>Try it for yourself or any one of the other <a class="reference external" href="https://github.com/keon/algorithms#list-of-implementations">many examples</a>.</p>
 </div>
+<div class="section" id="solutions">
+<h2><a class="reference internal" href="07_solutions.html#data-structures-and-algorithms"><span class="std std-ref">Solutions</span></a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="key-points">
 <h2>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">¶</a></h2>

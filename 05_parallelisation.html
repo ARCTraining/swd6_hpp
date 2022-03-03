@@ -136,10 +136,15 @@ const thebe_selector_output = ".output, .cell_output"
      GPUs
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_solutions.html">
+     Solutions
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="07_summary.html">
+  <a class="reference internal" href="08_summary.html">
    Summary
   </a>
  </li>
@@ -405,6 +410,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solutions">
+   <span class="xref std std-ref">
+    Solutions
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#key-points">
    Key Points
   </a>
@@ -614,6 +626,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solutions">
+   <span class="xref std std-ref">
+    Solutions
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#key-points">
    Key Points
   </a>
@@ -662,7 +681,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
 <span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
-    <span class="o">%</span><span class="k">pip</span> install dask[dataframe] ray
+    <span class="o">%</span><span class="k">pip</span> install --quiet dask[dataframe] ray
 </pre></div>
 </div>
 </div>
@@ -769,7 +788,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-8fedfedb-9af9-11ec-902e-000d3a5c1f95</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-a524fe88-9b0e-11ec-9060-000d3a1bf310</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -798,7 +817,7 @@ const thebe_selector_output = ".output, .cell_output"
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">ac282068</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">963fb591</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
@@ -835,11 +854,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-00932c6b-c942-4c92-89fc-e0a916b298fc</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-12b172e8-dc43-4491-babc-61de18cbbee7</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:41425
+                        <strong>Comm:</strong> tcp://127.0.0.1:42231
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 2
@@ -881,7 +900,7 @@ const thebe_selector_output = ".output, .cell_output"
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:38733
+                            <strong>Comm: </strong> tcp://127.0.0.1:39197
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -889,7 +908,7 @@ const thebe_selector_output = ".output, .cell_output"
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:40359/status" target="_blank">http://127.0.0.1:40359/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:45133/status" target="_blank">http://127.0.0.1:45133/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.39 GiB
@@ -897,13 +916,13 @@ const thebe_selector_output = ".output, .cell_output"
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:45071
+                            <strong>Nanny: </strong> tcp://127.0.0.1:33059
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /home/runner/work/swd6_hpp/swd6_hpp/docs/dask-worker-space/worker-ize3m96l
+                            <strong>Local directory: </strong> /home/runner/work/swd6_hpp/swd6_hpp/docs/dask-worker-space/worker-taj5tygj
                         </td>
                     </tr>
 
@@ -926,7 +945,7 @@ const thebe_selector_output = ".output, .cell_output"
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:44207
+                            <strong>Comm: </strong> tcp://127.0.0.1:38831
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -934,7 +953,7 @@ const thebe_selector_output = ".output, .cell_output"
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:39621/status" target="_blank">http://127.0.0.1:39621/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:37513/status" target="_blank">http://127.0.0.1:37513/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.39 GiB
@@ -942,13 +961,13 @@ const thebe_selector_output = ".output, .cell_output"
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:40127
+                            <strong>Nanny: </strong> tcp://127.0.0.1:40435
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /home/runner/work/swd6_hpp/swd6_hpp/docs/dask-worker-space/worker-3jemta2i
+                            <strong>Local directory: </strong> /home/runner/work/swd6_hpp/swd6_hpp/docs/dask-worker-space/worker-rqvwmee1
                         </td>
                     </tr>
 
@@ -1242,22 +1261,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="admonition-question admonition">
-<p class="admonition-title">Question</p>
+<div class="admonition-question-1 admonition">
+<p class="admonition-title">Question 1</p>
 <p>What did our Dask Dashboard show?</p>
-</div>
-<div class="dropdown admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Look at the rectangles in the Task Stream.</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>Our specific results show us that:</p>
-<ul class="simple">
-<li><p>All workers were full with numerical tasks (i.e., no white/red blocks).</p></li>
-<li><p>This utilises the CPU cores well.</p></li>
-<li><p>Also, the CPU percentage for the workers increased to ~100 % during the computation.</p></li>
-</ul>
 </div>
 <p>If you want a shareable report of this interactive dashboard, you can use the <a class="reference external" href="http://distributed.dask.org/en/latest/diagnosing-performance.html#performance-reports">performance report</a> context manager.</p>
 <div class="cell docutils container">
@@ -1524,38 +1530,9 @@ mpirun -np <span class="m">8</span> python example_dask_mpi_sge.py
 <h5><strong>Distributed profiling and diagnostics</strong><a class="headerlink" href="#distributed-profiling-and-diagnostics" title="Permalink to this headline">¶</a></h5>
 <p>View the Dask performance report <a class="reference external" href="https://gistcdn.githack.com/lukeconibear/5551a7a54279c8f0267d32061d73fba1/raw/59d1a1b5be18bf6d3ceb29591613d2f98398c63d/dask-report_mpi.html">here</a>.</p>
 <p>You can see the 6 workers, and the diagnostics look similar to that for the local machine.</p>
-<div class="admonition-question admonition">
-<p class="admonition-title">Question</p>
+<div class="admonition-question-2 admonition">
+<p class="admonition-title">Question 2</p>
 <p>How can we check that the job used the CPU cores efficiently?</p>
-</div>
-<div class="dropdown admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Use <a class="reference external" href="https://arcdocs.leeds.ac.uk/usage/troubleshooting.html#queue-accounting-data"><code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">JOBID</span></code></a> on the job.</p>
-<p>Then look at the time spent computing things (<code class="docutils literal notranslate"><span class="pre">cpu</span></code>) compared to the total time taken up (<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots</span></code>).</p>
-<p><code class="docutils literal notranslate"><span class="pre">slots</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">8</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">1102s</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">cpu</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">6623.054s</span></code></p>
-<p>What does this comparison tell us?</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>After the job has finished, we can find information on the job using <code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">JOBID</span></code>, where <code class="docutils literal notranslate"><span class="pre">JOBID</span></code> is the unique ID for your job.</p>
-<p>The result is a large table of information. The important variables here are:</p>
-<p><code class="docutils literal notranslate"><span class="pre">slots</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">8</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">1102s</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">cpu</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">6623.054s</span></code></p>
-<p>We can calculate the efficiency of the job by dividing how long the cores were computing things (<code class="docutils literal notranslate"><span class="pre">cpu</span></code>) by the total amount of time they used up (<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots</span></code>). This efficiency should be as close to 100 % as possible.</p>
-<p>For example:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">cpu</span> <span class="pre">/</span> <span class="pre">(ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">6623</span> <span class="pre">/</span> <span class="pre">(1102</span> <span class="pre">*</span> <span class="pre">8)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">75</span> <span class="pre">%</span></code></p>
-<p>The efficiency here of 75 % is pretty good, though why is this not higher? The Task stream was full with computation the whole time, right?</p>
-<p>Well, the reason is because Dask’s scheduler and client are each pinned to their own process. This left only 6 workers for the computation. If we recalculate the efficiency without these 2 processes then the difference is Dask’s overhead:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">6623</span> <span class="pre">/</span> <span class="pre">(1102</span> <span class="pre">*</span> <span class="pre">6)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">%</span></code></p>
-<p>Hence, the worker efficiency was 100 %, while the overall efficiency with Dask’s overheads was 75 %. So, although Dask’s overheads were assigned a compute node each, they didn’t use up much of these resources (i.e., while they were managing the workers).</p>
-<p>It would be better if Dask’s overheads were run elsewhere (e.g., the login nodes), so the compute nodes only handled this efficient use of resources.</p>
-<p>This alternative does exist. It’s <code class="docutils literal notranslate"><span class="pre">Dask-Jobqueue</span></code> and we’re exploring that next.</p>
 </div>
 </div>
 </div>
@@ -1720,8 +1697,8 @@ python example_dask_jobqueue_sge.py
 <p>Similar as for Dask-MPI, you can view the Dask performance report <a class="reference external" href="https://gistcdn.githack.com/lukeconibear/5ae2b1a731541155b993265a8c4a12a9/raw/a8a59aa659c3f64aaccfaf9cb6866ad5527c8ed4/dask-report_jobqueue.html">here</a>.</p>
 <p>The Dask-Jobqueue method create and schedules the workers <em>within</em> the Python script. This additional overhead takes extra time relative to Dask-MPI.</p>
 <p>The other difference is that here for Dask-Jobqueue, all 8 requested workers were used directly on the computation.</p>
-<div class="admonition-question admonition">
-<p class="admonition-title">Question</p>
+<div class="admonition-question-3 admonition">
+<p class="admonition-title">Question 3</p>
 <p>How well did this job use the resources (use the output from <code class="docutils literal notranslate"><span class="pre">qacct</span></code> below, which is from one of the workers)?</p>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ $ qacct -j <span class="nv">3526684</span>
@@ -1771,20 +1748,6 @@ arid         undefined
 ar_sub_time  undefined
 category     -U admiralty,feps-cpu,feps-gpu -l <span class="nv">disk</span><span class="o">=</span>48G,env<span class="o">=</span>centos7,h_rt<span class="o">=</span><span class="m">3600</span>,h_vmem<span class="o">=</span>48G,node_type<span class="o">=</span>40core-192G,project<span class="o">=</span>feps-cpu -pe smp <span class="m">1</span>
 </pre></div>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>Instead of one big job with all the workers (as for Dask-MPI), Dask-Jobqueue submits individual workers.</p>
-<p>Similar to before (i.e., using <code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">JOBID</span></code>), we can check the efficiency of each of these individually.</p>
-<p>The results for each worker are:</p>
-<p><code class="docutils literal notranslate"><span class="pre">slots</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">1</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">766</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">cpu</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">728.840s</span></code></p>
-<p>Hence, the efficiency of each worker is:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">cpu</span> <span class="pre">/</span> <span class="pre">(ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">729</span> <span class="pre">/</span> <span class="pre">(766</span> <span class="pre">*</span> <span class="pre">1)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">95</span> <span class="pre">%</span></code></p>
-<p>This is a nice use of HPC resources.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2137,37 +2100,17 @@ E0225 15:57:14.715875414 1690940 fork_posix.cc:70]           Fork support is onl
 <p class="admonition-title">Exercise 1</p>
 <p>Why does parallelisation speed up code?</p>
 </div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>Parallelisation divides a large problem into many smaller ones and solves them simultaneously.</p>
-<p>This divides up the time/space complexity.</p>
-</div>
 <div class="admonition-exercise-2 admonition">
 <p class="admonition-title">Exercise 2</p>
 <p>What are there multiple of to split the work over?</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<ul class="simple">
-<li><p>Multiple processes</p></li>
-<li><p>Multiple threads</p></li>
-</ul>
 </div>
 <div class="admonition-exercise-3 admonition">
 <p class="admonition-title">Exercise 3</p>
 <p>If you need to share memory, would you use MPI or OpenMP?</p>
 </div>
-<div class="dropdown admonition">
-<p class="admonition-title">Soltuion</p>
-<p>OpenMP is often suitable for shared memory problems.</p>
-</div>
 <div class="admonition-exercise-4 admonition">
 <p class="admonition-title">Exercise 4</p>
 <p>Which Dask library can be tailored to a variety of resource managers (e.g., SGE, SLURM)?</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Soltuion</p>
-<p>Dask-Jobqueue</p>
 </div>
 <div class="admonition-exercise-5 admonition">
 <p class="admonition-title">Exercise 5</p>
@@ -2188,46 +2131,6 @@ E0225 15:57:14.715875414 1690940 fork_posix.cc:70]           Fork support is onl
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">10_000_000</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
-</div>
-<div class="dropdown admonition hint">
-<p class="admonition-title">Hint</p>
-<p>If you’re not in COLAB, then you could profile them with <code class="docutils literal notranslate"><span class="pre">%%timeit</span></code>.</p>
-<p>Otherwise, you could guess, thinking about overheads and chunks.</p>
-<p>Note, if you’ve closed the Dask client, you may need to restart it:</p>
-<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">dask.distributed</span> <span class="pre">import</span> <span class="pre">Client</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">client</span> <span class="pre">=</span> <span class="pre">Client()</span></code></p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>Dask introduces overhead to parallelise work (i.e., the scheduler and client).</p>
-<p>Hence, Dask is inefficient (i.e., the workers are under-utilised) when doing lots of very small computations.</p>
-<p>Consider using <a class="reference external" href="https://docs.dask.org/en/stable/array-chunks.html">fewer, larger chunks</a> to reduce this overhead.</p>
-<p>Also, consider if parallelisation is really needed.</p>
-<p>For this example:</p>
-<p><strong>Example 1</strong>: Many, small chunks.<br />
-<code class="docutils literal notranslate"><span class="pre">%%timeit</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">da.random.random(10_000_000,</span> <span class="pre">chunks=(1_000,))</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x.sum().compute()</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">12.4</span> <span class="pre">s</span> <span class="pre">±</span> <span class="pre">2.04</span> <span class="pre">s</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">1</span> <span class="pre">loop</span> <span class="pre">each)</span></code></p>
-<p><strong>Example 2</strong>: Fewer, large chunks.<br />
-<code class="docutils literal notranslate"><span class="pre">%%timeit</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">da.random.random(10_000_000,</span> <span class="pre">chunks=(100_000,))</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x.sum().compute()</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">129</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">4.96</span> <span class="pre">ms</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">10</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
-<p>So, for this example fewer big chunks (each of size 100_000) improved things.</p>
-<p>There is even a feature that let’s Dask <a class="reference external" href="https://docs.dask.org/en/stable/array-chunks.html#automatic-chunking">automatically decide on the chunk size</a>.</p>
-<p>This improves things further:<br />
-<code class="docutils literal notranslate"><span class="pre">%%timeit</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">da.random.random(10_000_000,</span> <span class="pre">chunks='auto')</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x.sum().compute()</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">71.6</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">868</span> <span class="pre">µs</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">10</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
-<p>However, compared to NumPy, Dask only makes things slower for this problem (due to its overheads).</p>
-<p><strong>Example 3:</strong> Use NumPy.<br />
-<code class="docutils literal notranslate"><span class="pre">%%timeit</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">np.random.random(10_000_000)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x.sum()</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">60</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">6.7</span> <span class="pre">ms</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">10</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
-<p>This demonstrates that NumPy is already performant for some tasks, and that parallelisation is sometimes not needed.</p>
 </div>
 <div class="admonition-exercise-6 admonition">
 <p class="admonition-title">Exercise 6</p>
@@ -2280,18 +2183,6 @@ arid         undefined
 ar_sub_time  undefined
 category     -U admiralty,feps-cpu,feps-gpu -l <span class="nv">env</span><span class="o">=</span>centos7,h_rt<span class="o">=</span><span class="m">600</span>,h_vmem<span class="o">=</span>24G,node_type<span class="o">=</span>40core-192G,project<span class="o">=</span>feps-cpu -pe smp <span class="m">8</span>
 </pre></div>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p><code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">JOBID</span></code> tells us that:</p>
-<p><code class="docutils literal notranslate"><span class="pre">slots</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">8</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">21s</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">cpu</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">146.665s</span></code></p>
-<p>Hence, the efficiency is:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">cpu</span> <span class="pre">/</span> <span class="pre">(ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">147</span> <span class="pre">/</span> <span class="pre">(21</span> <span class="pre">*</span> <span class="pre">8)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">88</span> <span class="pre">%</span></code></p>
-<p>That’s good.</p>
 </div>
 <div class="admonition-exercise-7 admonition">
 <p class="admonition-title">Exercise 7</p>
@@ -2346,21 +2237,9 @@ ar_sub_time  undefined
 category     -U admiralty,feps-cpu,feps-gpu -l <span class="nv">env</span><span class="o">=</span>centos7,h_rt<span class="o">=</span><span class="m">600</span>,h_vmem<span class="o">=</span>24G,node_type<span class="o">=</span>40core-192G,project<span class="o">=</span>feps-cpu -pe smp <span class="m">8</span>
 </pre></div>
 </div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p><code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">JOBID</span></code> tells us that:</p>
-<p><code class="docutils literal notranslate"><span class="pre">slots</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">8</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">126s</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">cpu</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">131.792s</span></code></p>
-<p>Hence, the efficiency is:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">cpu</span> <span class="pre">/</span> <span class="pre">(ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">131</span> <span class="pre">/</span> <span class="pre">(126</span> <span class="pre">*</span> <span class="pre">8)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">13</span> <span class="pre">%</span></code></p>
-<p>That’s very low.</p>
-<p>The likely cause of this low efficiency is that all of the work is being pinned to one process, instead of being distributed across all 8.</p>
-<p>(There are other ways to check this e.g., using <code class="docutils literal notranslate"><span class="pre">top</span></code> on the compute nodes, using <code class="docutils literal notranslate"><span class="pre">ps</span></code>.)</p>
-<p>One solution to try is to set an environment variable that stops processes being pinned (remember, we saw this earlier). To do this, add the following command to the submission bash script <code class="docutils literal notranslate"><span class="pre">unset</span> <span class="pre">GOMP_CPU_AFFINITY</span></code>.</p>
 </div>
+<div class="section" id="solutions">
+<h2><a class="reference internal" href="07_solutions.html#parallelisation"><span class="std std-ref">Solutions</span></a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="key-points">
 <h2>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">¶</a></h2>

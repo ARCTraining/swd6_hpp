@@ -136,10 +136,15 @@ const thebe_selector_output = ".output, .cell_output"
      GPUs
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_solutions.html">
+     Solutions
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="07_summary.html">
+  <a class="reference internal" href="08_summary.html">
    Summary
   </a>
  </li>
@@ -337,6 +342,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solutions">
+   <span class="xref std std-ref">
+    Solutions
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#key-points">
    Key Points
   </a>
@@ -473,6 +485,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solutions">
+   <span class="xref std std-ref">
+    Solutions
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#key-points">
    Key Points
   </a>
@@ -602,7 +621,7 @@ Gary
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.63 s ± 35.7 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.67 s ± 13.2 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -629,7 +648,7 @@ Gary
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>510 ms ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>495 ms ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -643,26 +662,19 @@ Gary
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>27.5 ms ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25 ms ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
 </pre></div>
 </div>
 </div>
 </div>
-<div class="admonition-question admonition">
-<p class="admonition-title">Question</p>
+<div class="admonition-question-1 admonition">
+<p class="admonition-title">Question 1</p>
 <p>For the function below (<code class="docutils literal notranslate"><span class="pre">fast_add</span></code>):</p>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;njit</span></code><br />
 <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">fast_add(x,</span> <span class="pre">y):</span></code><br />
 <code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code></p>
 <p>What will happen when it is called with:<br />
 <code class="docutils literal notranslate"><span class="pre">fast_add(1,</span> <span class="pre">(2,))</span></code></p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>A <code class="docutils literal notranslate"><span class="pre">TypingError</span></code> is returned.</p>
-<p>This is because Numba is trying to compile a function that adds an integer to a tuple.</p>
-<p>Take care with types.</p>
-<p>Ensure that the function works first, before adding Numba to make it faster.</p>
 </div>
 </div>
 <div class="section" id="signatures">
@@ -742,7 +754,7 @@ Gary
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>90.6 ms ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>88.7 ms ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -756,7 +768,7 @@ Gary
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.5 ms ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.7 ms ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -897,7 +909,7 @@ Gary
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>314 ms ± 7.09 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>332 ms ± 1.45 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -924,7 +936,7 @@ Gary
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>162 ms ± 2.21 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>170 ms ± 4.07 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -942,10 +954,6 @@ Gary
 <li><p>CPython</p></li>
 </ul>
 </div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>CPython</p>
-</div>
 <div class="admonition-exercise-2 admonition">
 <p class="admonition-title">Exercise 2</p>
 <p>Which Numba compilation mode has higher performance?</p>
@@ -954,46 +962,21 @@ Gary
 <li><p><code class="docutils literal notranslate"><span class="pre">nopython</span></code></p></li>
 </ul>
 </div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p><code class="docutils literal notranslate"><span class="pre">nopython</span></code></p>
-</div>
 <div class="admonition-exercise-3 admonition">
 <p class="admonition-title">Exercise 3</p>
 <p>How do I compile a function in Numba using <code class="docutils literal notranslate"><span class="pre">no-python</span></code> mode?</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>Wrap the function in the <code class="docutils literal notranslate"><span class="pre">&#64;njit</span></code> (or <code class="docutils literal notranslate"><span class="pre">&#64;jit(nopython=True)</span></code>) decorator.</p>
 </div>
 <div class="admonition-exercise-4 admonition">
 <p class="admonition-title">Exercise 4</p>
 <p>What is the keyword argument that enables Numba compiled functions to run over multiple CPUs?</p>
 </div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p><code class="docutils literal notranslate"><span class="pre">parallel=True</span></code></p>
-</div>
 <div class="admonition-exercise-5 admonition">
 <p class="admonition-title">Exercise 5</p>
 <p>Create your own Numba vectorised function that calculates the cube root of an array over all elements.</p>
 </div>
-<div class="dropdown admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Have a look at the similar exercise from the Vectorisation lesson.</p>
 </div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>Using the Numba <code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code> decorator and the <code class="docutils literal notranslate"><span class="pre">math</span></code> library:</p>
-<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">numba</span> <span class="pre">import</span> <span class="pre">vectorize</span>&#160; <span class="pre">#</span> <span class="pre">I'm</span> <span class="pre">the</span> <span class="pre">only</span> <span class="pre">change</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">NumPy</span> <span class="pre">ufunc</span> <span class="pre">exercise</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">my_cube_root(array):</span></code><br />
-<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">math.pow(array,</span> <span class="pre">1/3)</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">my_cube_root(big_array)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">27.7</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">643</span> <span class="pre">µs</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">10</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
-<p>Numba is a nice way to get performant numerical code.</p>
-</div>
+<div class="section" id="solutions">
+<h2><a class="reference internal" href="07_solutions.html#compilers"><span class="std std-ref">Solutions</span></a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="key-points">
 <h2>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">¶</a></h2>

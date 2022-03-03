@@ -1,0 +1,1380 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solutions &#8212; SWD6: High Performance Python</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Summary" href="08_summary.html" />
+    <link rel="prev" title="GPUs" href="06_GPUs.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SWD6: High Performance Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   SWD6: High Performance Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
+   Overview
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_profiling.html">
+     Profiling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_data_structures_algorithms_libraries.html">
+     Data Structures, Algorithms, and Libraries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_vectorisation.html">
+     Vectorisation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_compilers.html">
+     Compilers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_parallelisation.html">
+     Parallelisation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_GPUs.html">
+     GPUs
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Solutions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_summary.html">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/07_solutions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/lukeconibear/swd6_hpp"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/lukeconibear/swd6_hpp/issues/new?title=Issue%20on%20page%20%2F07_solutions.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lukeconibear/swd6_hpp/main?urlpath=tree/docs/07_solutions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#profiling">
+   Profiling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercises">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-structures-algorithms-and-libraries">
+   Data Structures, Algorithms, and Libraries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#questions">
+     Questions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vectorisation">
+   Vectorisation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Questions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compilers">
+   Compilers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Questions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parallelisation">
+   Parallelisation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Questions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gpus">
+   GPUs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Solutions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#profiling">
+   Profiling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercises">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-structures-algorithms-and-libraries">
+   Data Structures, Algorithms, and Libraries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#questions">
+     Questions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vectorisation">
+   Vectorisation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Questions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compilers">
+   Compilers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Questions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parallelisation">
+   Parallelisation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Questions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gpus">
+   GPUs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="solutions">
+<h1>Solutions<a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="profiling">
+<span id="id1"></span><h2>Profiling<a class="headerlink" href="#profiling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-exercise-1 admonition">
+<p class="admonition-title">Exercise 1</p>
+<p>What is profiling and why is it useful?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 1</p>
+<p>Profiling analyses your code in terms of speed or memory.</p>
+<p>This helps identify where the bottlenecks are (<em>why and where is it slow?</em>) and how much potential there is for improvement.</p>
+</div>
+<div class="admonition-exercise-2 admonition">
+<p class="admonition-title">Exercise 2</p>
+<p>What profiling tool times the execution of a cell in a Jupyter Notebook?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 2</p>
+<p><code class="docutils literal notranslate"><span class="pre">%%timeit</span></code></p>
+</div>
+<div class="admonition-exercise-3 admonition">
+<p class="admonition-title">Exercise 3</p>
+<p>Below are two approaches for filling up an empty NumPy array.</p>
+<p>Which approach is faster and why?</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fill_array_approach_1</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">new_point</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+        <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">new_point</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">array</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fill_array_approach_2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+        <span class="n">new_point</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+        <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_point</span>
+
+    <span class="k">return</span> <span class="n">array</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 3</p>
+<p>Approach 2 is about 10x faster.</p>
+<p>For example, over 1,000 data points:</p>
+<p><code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">fill_array_approach_1(1_000)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">2.7</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">177</span> <span class="pre">µs</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">100</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">fill_array_approach_2(1_000)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">251</span> <span class="pre">µs</span> <span class="pre">±</span> <span class="pre">4.75</span> <span class="pre">µs</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">1,000</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
+<p>This is because approach 2 creates one empty array of the required size in memory once, before filling it up in a loop.</p>
+<p>In contrast, approach 1 creates a new array <em>each time</em> by appending the new point.</p>
+</div>
+<div class="admonition-exercise-4 admonition">
+<p class="admonition-title">Exercise 4</p>
+<p>Below are two methods that find two numbers from an array of unique integers that add up to a target sum.</p>
+<p>If the target can’t be made, then an empty list is returned.</p>
+<p>Each element in the array can only be used once.</p>
+<p>Which method is faster and why?</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">two_sum_brute_force</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>  
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A brute force approach to find two numbers from an array that add up to a target.</span>
+<span class="sd">    </span>
+<span class="sd">    Steps</span>
+<span class="sd">    1. Loop through the array twice, adding up pairs of array elements.</span>
+<span class="sd">    2. Compare each of these sums to the target.</span>
+<span class="sd">    3. Return the pair that sums to the target, if one exists.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">index_one</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">index_two</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">index_one</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">array</span><span class="p">[</span><span class="n">index_one</span><span class="p">]</span> <span class="o">+</span> <span class="n">array</span><span class="p">[</span><span class="n">index_two</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span>  <span class="c1"># check sum of pair</span>
+                <span class="ow">and</span> <span class="n">index_one</span> <span class="o">!=</span> <span class="n">index_two</span>  <span class="c1"># can&#39;t use the same element twice</span>
+            <span class="p">):</span>
+                <span class="k">return</span> <span class="p">[</span><span class="n">index_one</span><span class="p">,</span> <span class="n">index_two</span><span class="p">]</span>  <span class="c1"># return the target pair</span>
+
+    <span class="k">return</span> <span class="p">[]</span>  <span class="c1"># return an empty list if the target pair isn&#39;t found</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">two_sum_cache</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Use caching to find two numbers from an array that add up to a target.</span>
+<span class="sd">    </span>
+<span class="sd">    Steps</span>
+<span class="sd">    1. Create a dictionary of cached differences relative to the target sum.</span>
+<span class="sd">    2. Loop through the array once, adding each index and difference to the cache.</span>
+<span class="sd">    3. If the required difference of a new array element is already in the cache, </span>
+<span class="sd">       then you&#39;ve found a matching pair, which you can return.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cache_differences</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+        <span class="n">difference</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">element</span>  <span class="c1"># calculate the target difference for this element</span>
+        <span class="k">if</span> <span class="n">difference</span> <span class="ow">in</span> <span class="n">cache_differences</span><span class="p">:</span>  <span class="c1"># if we have the matching pair</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="n">cache_differences</span><span class="p">[</span><span class="n">difference</span><span class="p">]]</span>  <span class="c1"># return the target pair</span>
+        <span class="n">cache_differences</span><span class="p">[</span><span class="n">element</span><span class="p">]</span> <span class="o">=</span> <span class="n">index</span>  <span class="c1"># if we don&#39;t have a match, add to the cache</span>
+
+    <span class="k">return</span> <span class="p">[]</span>  <span class="c1"># return an empty list if the target pair isn&#39;t found</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">1_000</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">target</span> <span class="o">=</span> <span class="mi">250</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 4</p>
+<p>The cached version is faster.</p>
+<p>This is because it only needs to loop through the array once.</p>
+<p>So, for the brute force method, the time complexity is O(n^2) and the space complexity is O(1).</p>
+<p>And for the cached method, the time complexity is O(n) and the space complexity is O(n). This is because the cache itself (i.e., the dictionary) takes up space up to the size of the array.</p>
+<p>For example, using the array and target above:</p>
+<p><code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">two_sum_brute_force(array,</span> <span class="pre">target)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">272</span> <span class="pre">µs</span> <span class="pre">±</span> <span class="pre">12.4</span> <span class="pre">µs</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">1,000</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">two_sum_cache(array,</span> <span class="pre">target)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">31.8</span> <span class="pre">µs</span> <span class="pre">±</span> <span class="pre">8.57</span> <span class="pre">µs</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">10,000</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
+</div>
+</div>
+</div>
+<div class="section" id="data-structures-algorithms-and-libraries">
+<span id="data-structures-and-algorithms"></span><h2>Data Structures, Algorithms, and Libraries<a class="headerlink" href="#data-structures-algorithms-and-libraries" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="questions">
+<h3>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-question-1 admonition">
+<p class="admonition-title">Question 1</p>
+<p>Which of the following uses less memory and how can you check?</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.float16</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.float32</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.float64</span></code></p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 1</p>
+<p>Single precision floats have 32 bits (i.e., <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.single"><code class="docutils literal notranslate"><span class="pre">np.single</span></code></a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float32"><code class="docutils literal notranslate"><span class="pre">np.float32</span></code></a>).</p>
+<p>This is equal to 4 bytes, as <a class="reference external" href="https://en.wikipedia.org/wiki/Byte">1 byte is 8 bits</a>.</p>
+<p>You can check this using:</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.float32(1.0).nbytes</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">4</span></code></p>
+<p>Half precision floats have (you guessed it) half of this (i.e., <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.half"><code class="docutils literal notranslate"><span class="pre">np.half</span></code></a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float16"><code class="docutils literal notranslate"><span class="pre">np.float16</span></code></a>):</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.float16(1.0).nbytes</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">2</span></code></p>
+<p>And double precision floats (i.e., <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.double"><code class="docutils literal notranslate"><span class="pre">np.double</span></code></a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64"><code class="docutils literal notranslate"><span class="pre">np.float64</span></code></a>):</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.float64(1.0).nbytes</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">8</span></code></p>
+<p>In some situations, you may be able to significantly reduce your memory usage by using half or single precision arrays.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Exercises<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-exercise-1 admonition">
+<p class="admonition-title">Exercise 1</p>
+<p>What data structure would be suitable for finding or removing duplicate values?</p>
+<p>a. List<br />
+b. Dictionary<br />
+c. Queue<br />
+d. Set</p>
+<p>Test out your answer on the following array:</p>
+<p><code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">=</span> <span class="pre">np.random.choice(100,</span> <span class="pre">80)</span></code></p>
+<p>Are there any other ways of doing it?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 1</p>
+<p>A suitable data structure for finding or removing duplicate values is:</p>
+<p>d. Set</p>
+<p>This is because <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset">sets</a> are unordered collections of distinct hashable objects.</p>
+<p>You can call it via <code class="docutils literal notranslate"><span class="pre">set(array)</span></code>.</p>
+<p>Another approach would be to use the NumPy features. For example, when creating a random array, you can specific whether the random choice gets replaced or not via:</p>
+<p><code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">=</span> <span class="pre">np.random.choice(100,</span> <span class="pre">80,</span> <span class="pre">replace=False)</span></code></p>
+</div>
+<div class="admonition-exercise-2 admonition">
+<p class="admonition-title">Exercise 2</p>
+<p>In the exercise from the profiling lesson, we saw an example of <code class="docutils literal notranslate"><span class="pre">two_sum</span></code> i.e., finding two numbers from an array of unique integers that add up to a target sum.</p>
+<p>What would be a good approach for generalising this sum of two numbers to three, four, or n numbers?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 2</p>
+<p>Many algorithms are already implemented for you.</p>
+<p>For example, the <a class="reference external" href="https://github.com/keon/algorithms"><code class="docutils literal notranslate"><span class="pre">algorithm</span></code></a> library has an <a class="reference external" href="https://github.com/keon/algorithms/blob/master/algorithms/arrays/n_sum.py"><code class="docutils literal notranslate"><span class="pre">n_sum</span></code></a> method.</p>
+<p>This generalises the function to any value of n.</p>
+<p>For example, here is a “six_sum”:</p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">algorithms.arrays</span> <span class="pre">import</span> <span class="pre">n_sum</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">=</span> <span class="pre">np.random.choice(100,</span> <span class="pre">80,</span> <span class="pre">replace=False)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">=</span> <span class="pre">23</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">n_sum(6,</span> <span class="pre">array,</span> <span class="pre">target)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">[[0,</span> <span class="pre">1,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">6,</span> <span class="pre">9],</span></code><br />
+<code class="docutils literal notranslate"> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">7,</span> <span class="pre">8],</span></code><br />
+<code class="docutils literal notranslate"> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">8],</span></code><br />
+<code class="docutils literal notranslate"> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7]]</span></code></p>
+<p>Try it for yourself or any one of the other <a class="reference external" href="https://github.com/keon/algorithms#list-of-implementations">many examples</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="vectorisation">
+<span id="id3"></span><h2>Vectorisation<a class="headerlink" href="#vectorisation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>Questions<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-question-1 admonition">
+<p class="admonition-title">Question 1</p>
+<p>If something doesn’t vary for a given loop, should it be inside or outside of that loop?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 1</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Loop_invariant">Loop-invariants</a> should be move <em>outside</em> of loops.</p>
+<p>This is because loops are slow in Python (<a class="reference external" href="https://www.python.org/">CPython</a>, default interpreter).</p>
+<p>Loops are slow because loops type−check and dispatch functions per cycle.</p>
+<p>Try to avoid them where can (e.g., using NumPy ufuncs, aggregations, broadcasting, etc.).</p>
+</div>
+<div class="admonition-question-2 admonition">
+<p class="admonition-title">Question 2</p>
+<p>Can you run the unvectorised <code class="docutils literal notranslate"><span class="pre">my_function</span></code> directly on the same inputs (i.e., all of x)?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 2</p>
+<p>No, a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> is returned.</p>
+<p>As the function has not yet been vectorised, it cannot operate across arrays with more than 1 element.</p>
+<p>To check that it does work for 1 element, you could try: <code class="docutils literal notranslate"><span class="pre">my_function(x[0],</span> <span class="pre">mean,</span> <span class="pre">sigma)</span></code>.</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>Exercises<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-exercise-1 admonition">
+<p class="admonition-title">Exercise 1</p>
+<p>What is broadcasting?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 1</p>
+<p>Broadcasting allows for operations with different shaped arrays.</p>
+</div>
+<div class="admonition-exercise-2 admonition">
+<p class="admonition-title">Exercise 2</p>
+<p>What is vectorisation?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 2</p>
+<p>Vectorisation allows the code to operate on multiple array elements at once, rather than looping through them one at a time.</p>
+</div>
+<div class="admonition-exercise-3 admonition">
+<p class="admonition-title">Exercise 3</p>
+<p>How would you replace the <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/02.03-computation-on-arrays-ufuncs.html"><code class="docutils literal notranslate"><span class="pre">compute_reciprocals</span></code></a> function below with a vectorised version?</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_reciprocals</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Divides 1 by an array of values.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+        <span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        
+    <span class="k">return</span> <span class="n">output</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">big_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
+<span class="o">%</span><span class="k">timeit</span> compute_reciprocals(big_array)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.16 s ± 5.61 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 3</p>
+<p>You can either use the <code class="docutils literal notranslate"><span class="pre">np.divide</span></code> ufunc as follows:</p>
+<p><code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">np.divide(1.0,</span> <span class="pre">big_array)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">1.29</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">124</span> <span class="pre">µs</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">1,000</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
+<p>Or you could just use <code class="docutils literal notranslate"><span class="pre">/</span></code>, which  works on every element by overloading the operator (similar to broadcasting):</p>
+<p><code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">(1.0</span> <span class="pre">/</span> <span class="pre">big_array)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">1.19</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">103</span> <span class="pre">µs</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">1,000</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
+</div>
+<div class="admonition-exercise-4 admonition">
+<p class="admonition-title">Exercise 4</p>
+<p>Create your own vectorised ufunc that calculates the cube root of an array over all elements.</p>
+</div>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Here is an unvectorised version (i.e., it has a for loop):</p>
+<p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">my_cube_root(array):</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">output</span> <span class="pre">=</span> <span class="pre">np.empty(len(array))</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(len(array)):</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">output[i]</span> <span class="pre">=</span> <span class="pre">array[i]</span> <span class="pre">**</span> <span class="pre">(1</span> <span class="pre">/</span> <span class="pre">3)</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160; </code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">output</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">my_cube_root(big_array)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">1.77</span> <span class="pre">s</span> <span class="pre">±</span> <span class="pre">152</span> <span class="pre">ms</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">1</span> <span class="pre">loop</span> <span class="pre">each)</span></code></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 4</p>
+<p><strong>Option 1:</strong><br />
+You could use the <code class="docutils literal notranslate"><span class="pre">np.vectorize</span></code> decorator:</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">numpy</span> <span class="pre">import</span> <span class="pre">vectorize</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">my_cube_root(array):</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">math.pow(array,</span> <span class="pre">1/3)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">my_cube_root(big_array)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">213</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">33.1</span> <span class="pre">ms</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">10</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
+<p><strong>Option 2:</strong><br />
+You could overload the <code class="docutils literal notranslate"><span class="pre">**</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code> symbols:</p>
+<p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">my_cube_root(array):</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">array</span> <span class="pre">**</span> <span class="pre">(1</span> <span class="pre">/</span> <span class="pre">3)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">my_cube_root(big_array)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">36</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">864</span> <span class="pre">µs</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">10</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
+<p><strong>Option 3:</strong><br />
+You could use the optimised ufuncs from NumPy or SciPy (recommended):</p>
+<p><code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">np.cbrt(big_array)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">13.9</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">1.51</span> <span class="pre">ms</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">100</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">scipy.special</span> <span class="pre">import</span> <span class="pre">cbrt</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">cbrt(big_array)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">18.9</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">1.9</span> <span class="pre">ms</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">100</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
+</div>
+</div>
+</div>
+<div class="section" id="compilers">
+<span id="id6"></span><h2>Compilers<a class="headerlink" href="#compilers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>Questions<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-question-1 admonition">
+<p class="admonition-title">Question 1</p>
+<p>For the function below (<code class="docutils literal notranslate"><span class="pre">fast_add</span></code>):</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;njit</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">fast_add(x,</span> <span class="pre">y):</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code></p>
+<p>What will happen when it is called with:<br />
+<code class="docutils literal notranslate"><span class="pre">fast_add(1,</span> <span class="pre">(2,))</span></code></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 1</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">TypingError</span></code> is returned.</p>
+<p>This is because Numba is trying to compile a function that adds an integer to a tuple.</p>
+<p>Take care with types.</p>
+<p>Ensure that the function works first, before adding Numba to make it faster.</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>Exercises<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-exercise-1 admonition">
+<p class="admonition-title">Exercise 1</p>
+<p>What is the default Python distribution?</p>
+<ul class="simple">
+<li><p>Cython</p></li>
+<li><p>PyPy</p></li>
+<li><p>CPython</p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 1</p>
+<p>CPython</p>
+</div>
+<div class="admonition-exercise-2 admonition">
+<p class="admonition-title">Exercise 2</p>
+<p>Which Numba compilation mode has higher performance?</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nopython</span></code></p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 2</p>
+<p><code class="docutils literal notranslate"><span class="pre">nopython</span></code></p>
+</div>
+<div class="admonition-exercise-3 admonition">
+<p class="admonition-title">Exercise 3</p>
+<p>How do I compile a function in Numba using <code class="docutils literal notranslate"><span class="pre">no-python</span></code> mode?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 3</p>
+<p>Wrap the function in the <code class="docutils literal notranslate"><span class="pre">&#64;njit</span></code> (or <code class="docutils literal notranslate"><span class="pre">&#64;jit(nopython=True)</span></code>) decorator.</p>
+</div>
+<div class="admonition-exercise-4 admonition">
+<p class="admonition-title">Exercise 4</p>
+<p>What is the keyword argument that enables Numba compiled functions to run over multiple CPUs?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 4</p>
+<p><code class="docutils literal notranslate"><span class="pre">parallel=True</span></code></p>
+</div>
+<div class="admonition-exercise-5 admonition">
+<p class="admonition-title">Exercise 5</p>
+<p>Create your own Numba vectorised function that calculates the cube root of an array over all elements.</p>
+</div>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Have a look at the similar exercise from the Vectorisation lesson.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 5</p>
+<p>Using the Numba <code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code> decorator and the <code class="docutils literal notranslate"><span class="pre">math</span></code> library:</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">numba</span> <span class="pre">import</span> <span class="pre">vectorize</span>&#160; <span class="pre">#</span> <span class="pre">I'm</span> <span class="pre">the</span> <span class="pre">only</span> <span class="pre">change</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">NumPy</span> <span class="pre">ufunc</span> <span class="pre">exercise</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">my_cube_root(array):</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">math.pow(array,</span> <span class="pre">1/3)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">my_cube_root(big_array)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">27.7</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">643</span> <span class="pre">µs</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">10</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
+<p>Numba is a nice way to get performant numerical code.</p>
+</div>
+</div>
+</div>
+<div class="section" id="parallelisation">
+<span id="id9"></span><h2>Parallelisation<a class="headerlink" href="#parallelisation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h3>Questions<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-question-1 admonition">
+<p class="admonition-title">Question 1</p>
+<p>What did our Dask Dashboard show?</p>
+</div>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Look at the rectangles in the Task Stream.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 1</p>
+<p>Our specific results show us that:</p>
+<ul class="simple">
+<li><p>All workers were full with numerical tasks (i.e., no white/red blocks).</p></li>
+<li><p>This utilises the CPU cores well.</p></li>
+<li><p>Also, the CPU percentage for the workers increased to ~100 % during the computation.</p></li>
+</ul>
+</div>
+<div class="admonition-question-2 admonition">
+<p class="admonition-title">Question 2</p>
+<p>How can we check that the job used the CPU cores efficiently?</p>
+</div>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Use <a class="reference external" href="https://arcdocs.leeds.ac.uk/usage/troubleshooting.html#queue-accounting-data"><code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">JOBID</span></code></a> on the job.</p>
+<p>Then look at the time spent computing things (<code class="docutils literal notranslate"><span class="pre">cpu</span></code>) compared to the total time taken up (<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots</span></code>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">slots</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">8</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">1102s</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">cpu</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">6623.054s</span></code></p>
+<p>What does this comparison tell us?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 2</p>
+<p>After the job has finished, we can find information on the job using <code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">JOBID</span></code>, where <code class="docutils literal notranslate"><span class="pre">JOBID</span></code> is the unique ID for your job.</p>
+<p>The result is a large table of information. The important variables here are:</p>
+<p><code class="docutils literal notranslate"><span class="pre">slots</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">8</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">1102s</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">cpu</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">6623.054s</span></code></p>
+<p>We can calculate the efficiency of the job by dividing how long the cores were computing things (<code class="docutils literal notranslate"><span class="pre">cpu</span></code>) by the total amount of time they used up (<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots</span></code>). This efficiency should be as close to 100 % as possible.</p>
+<p>For example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">cpu</span> <span class="pre">/</span> <span class="pre">(ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">6623</span> <span class="pre">/</span> <span class="pre">(1102</span> <span class="pre">*</span> <span class="pre">8)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">75</span> <span class="pre">%</span></code></p>
+<p>The efficiency here of 75 % is pretty good, though why is this not higher? The Task stream was full with computation the whole time, right?</p>
+<p>Well, the reason is because Dask’s scheduler and client are each pinned to their own process. This left only 6 workers for the computation. If we recalculate the efficiency without these 2 processes then the difference is Dask’s overhead:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">6623</span> <span class="pre">/</span> <span class="pre">(1102</span> <span class="pre">*</span> <span class="pre">6)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">%</span></code></p>
+<p>Hence, the worker efficiency was 100 %, while the overall efficiency with Dask’s overheads was 75 %. So, although Dask’s overheads were assigned a compute node each, they didn’t use up much of these resources (i.e., while they were managing the workers).</p>
+<p>It would be better if Dask’s overheads were run elsewhere (e.g., the login nodes), so the compute nodes only handled this efficient use of resources.</p>
+<p>This alternative does exist. It’s <code class="docutils literal notranslate"><span class="pre">Dask-Jobqueue</span></code> and we’re exploring that next.</p>
+</div>
+<div class="admonition-question-3 admonition">
+<p class="admonition-title">Question 3</p>
+<p>How well did this job use the resources (use the output from <code class="docutils literal notranslate"><span class="pre">qacct</span></code> below, which is from one of the workers)?</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ $ qacct -j <span class="nv">3526684</span>
+<span class="o">==============================================================</span>
+qname        feps-cpu.q          
+hostname     d13s0b1.arc4.leeds.ac.uk
+group        EAR                 
+owner        earlacoa            
+project      feps-cpu            
+department   defaultdepartment   
+jobname      dask-worker         
+jobnumber    <span class="m">3526684</span>             
+taskid       undefined
+account      sge                 
+priority     <span class="m">0</span>                   
+qsub_time    Fri Feb <span class="m">25</span> <span class="m">16</span>:25:14 <span class="m">2022</span>
+start_time   Fri Feb <span class="m">25</span> <span class="m">16</span>:25:35 <span class="m">2022</span>
+end_time     Fri Feb <span class="m">25</span> <span class="m">16</span>:38:21 <span class="m">2022</span>
+granted_pe   smp                 
+slots        <span class="m">1</span>                   
+failed       <span class="m">100</span> : assumedly after job
+exit_status  <span class="m">137</span>                  <span class="o">(</span>Killed<span class="o">)</span>
+ru_wallclock 766s
+ru_utime     <span class="m">0</span>.040s
+ru_stime     <span class="m">0</span>.045s
+ru_maxrss    <span class="m">4</span>.879KB
+ru_ixrss     <span class="m">0</span>.000B
+ru_ismrss    <span class="m">0</span>.000B
+ru_idrss     <span class="m">0</span>.000B
+ru_isrss     <span class="m">0</span>.000B
+ru_minflt    <span class="m">15248</span>               
+ru_majflt    <span class="m">0</span>                   
+ru_nswap     <span class="m">0</span>                   
+ru_inblock   <span class="m">0</span>                   
+ru_oublock   <span class="m">16</span>                  
+ru_msgsnd    <span class="m">0</span>                   
+ru_msgrcv    <span class="m">0</span>                   
+ru_nsignals  <span class="m">0</span>                   
+ru_nvcsw     <span class="m">208</span>                 
+ru_nivcsw    <span class="m">38</span>                  
+cpu          <span class="m">728</span>.840s
+mem          <span class="m">6</span>.774TBs
+io           <span class="m">43</span>.651MB
+iow          <span class="m">0</span>.000s
+maxvmem      <span class="m">18</span>.891GB
+arid         undefined
+ar_sub_time  undefined
+category     -U admiralty,feps-cpu,feps-gpu -l <span class="nv">disk</span><span class="o">=</span>48G,env<span class="o">=</span>centos7,h_rt<span class="o">=</span><span class="m">3600</span>,h_vmem<span class="o">=</span>48G,node_type<span class="o">=</span>40core-192G,project<span class="o">=</span>feps-cpu -pe smp <span class="m">1</span>
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 3</p>
+<p>Instead of one big job with all the workers (as for Dask-MPI), Dask-Jobqueue submits individual workers.</p>
+<p>Similar to before (i.e., using <code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">JOBID</span></code>), we can check the efficiency of each of these individually.</p>
+<p>The results for each worker are:</p>
+<p><code class="docutils literal notranslate"><span class="pre">slots</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">1</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">766</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">cpu</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">728.840s</span></code></p>
+<p>Hence, the efficiency of each worker is:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">cpu</span> <span class="pre">/</span> <span class="pre">(ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">729</span> <span class="pre">/</span> <span class="pre">(766</span> <span class="pre">*</span> <span class="pre">1)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">95</span> <span class="pre">%</span></code></p>
+<p>This is a nice use of HPC resources.</p>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>Exercises<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-exercise-1 admonition">
+<p class="admonition-title">Exercise 1</p>
+<p>Why does parallelisation speed up code?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 1</p>
+<p>Parallelisation divides a large problem into many smaller ones and solves them simultaneously.</p>
+<p>This divides up the time/space complexity.</p>
+</div>
+<div class="admonition-exercise-2 admonition">
+<p class="admonition-title">Exercise 2</p>
+<p>What are there multiple of to split the work over?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 2</p>
+<ul class="simple">
+<li><p>Multiple processes</p></li>
+<li><p>Multiple threads</p></li>
+</ul>
+</div>
+<div class="admonition-exercise-3 admonition">
+<p class="admonition-title">Exercise 3</p>
+<p>If you need to share memory, would you use MPI or OpenMP?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 3</p>
+<p>OpenMP is often suitable for shared memory problems.</p>
+</div>
+<div class="admonition-exercise-4 admonition">
+<p class="admonition-title">Exercise 4</p>
+<p>Which Dask library can be tailored to a variety of resource managers (e.g., SGE, SLURM)?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 4</p>
+<p>Dask-Jobqueue</p>
+</div>
+<div class="admonition-exercise-5 admonition">
+<p class="admonition-title">Exercise 5</p>
+<p>Which is of the 3 examples below is most efficient and why?</p>
+<p><em>Note, the <code class="docutils literal notranslate"><span class="pre">chunks</span></code> keyword argument is the <strong>size</strong> of each chunk.</em></p>
+</div>
+<p><strong>Example 1:</strong> Many, small chunks.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">10_000_000</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">1_000</span><span class="p">,))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Example 2:</strong> Fewer, large chunks.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">10_000_000</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">100_000</span><span class="p">,))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Example 3:</strong> Use NumPy.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">10_000_000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you’re not in COLAB, then you could profile them with <code class="docutils literal notranslate"><span class="pre">%%timeit</span></code>.</p>
+<p>Otherwise, you could guess, thinking about overheads and chunks.</p>
+<p>Note, if you’ve closed the Dask client, you may need to restart it:</p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">dask.distributed</span> <span class="pre">import</span> <span class="pre">Client</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">client</span> <span class="pre">=</span> <span class="pre">Client()</span></code></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 5</p>
+<p>Dask introduces overhead to parallelise work (i.e., the scheduler and client).</p>
+<p>Hence, Dask is inefficient (i.e., the workers are under-utilised) when doing lots of very small computations.</p>
+<p>Consider using <a class="reference external" href="https://docs.dask.org/en/stable/array-chunks.html">fewer, larger chunks</a> to reduce this overhead.</p>
+<p>Also, consider if parallelisation is really needed.</p>
+<p>For this example:</p>
+<p><strong>Example 1</strong>: Many, small chunks.<br />
+<code class="docutils literal notranslate"><span class="pre">%%timeit</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">da.random.random(10_000_000,</span> <span class="pre">chunks=(1_000,))</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x.sum().compute()</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">12.4</span> <span class="pre">s</span> <span class="pre">±</span> <span class="pre">2.04</span> <span class="pre">s</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">1</span> <span class="pre">loop</span> <span class="pre">each)</span></code></p>
+<p><strong>Example 2</strong>: Fewer, large chunks.<br />
+<code class="docutils literal notranslate"><span class="pre">%%timeit</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">da.random.random(10_000_000,</span> <span class="pre">chunks=(100_000,))</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x.sum().compute()</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">129</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">4.96</span> <span class="pre">ms</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">10</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
+<p>So, for this example fewer big chunks (each of size 100_000) improved things.</p>
+<p>There is even a feature that let’s Dask <a class="reference external" href="https://docs.dask.org/en/stable/array-chunks.html#automatic-chunking">automatically decide on the chunk size</a>.</p>
+<p>This improves things further:<br />
+<code class="docutils literal notranslate"><span class="pre">%%timeit</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">da.random.random(10_000_000,</span> <span class="pre">chunks='auto')</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x.sum().compute()</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">71.6</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">868</span> <span class="pre">µs</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">10</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
+<p>However, compared to NumPy, Dask only makes things slower for this problem (due to its overheads).</p>
+<p><strong>Example 3:</strong> Use NumPy.<br />
+<code class="docutils literal notranslate"><span class="pre">%%timeit</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">np.random.random(10_000_000)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x.sum()</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">60</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">6.7</span> <span class="pre">ms</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">10</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
+<p>This demonstrates that NumPy is already performant for some tasks, and that parallelisation is sometimes not needed.</p>
+</div>
+<div class="admonition-exercise-6 admonition">
+<p class="admonition-title">Exercise 6</p>
+<p>How well did the job below use the HPC resources?</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ qacct -j <span class="nv">3524073</span>
+<span class="o">==============================================================</span>
+qname        feps-cpu.q          
+hostname     d9s9b4.arc4.leeds.ac.uk
+group        EAR                 
+owner        earlacoa            
+project      feps-cpu            
+department   defaultdepartment   
+jobname      example_bodo_mpi_sge.bash
+jobnumber    <span class="m">3524073</span>             
+taskid       undefined
+account      sge                 
+priority     <span class="m">0</span>                   
+qsub_time    Thu Feb <span class="m">24</span> <span class="m">12</span>:48:24 <span class="m">2022</span>
+start_time   Thu Feb <span class="m">24</span> <span class="m">12</span>:48:34 <span class="m">2022</span>
+end_time     Thu Feb <span class="m">24</span> <span class="m">12</span>:48:55 <span class="m">2022</span>
+granted_pe   smp                 
+slots        <span class="m">8</span>                   
+failed       <span class="m">0</span>    
+exit_status  <span class="m">0</span>                   
+ru_wallclock 21s
+ru_utime     <span class="m">139</span>.030s
+ru_stime     <span class="m">7</span>.635s
+ru_maxrss    <span class="m">1</span>.687MB
+ru_ixrss     <span class="m">0</span>.000B
+ru_ismrss    <span class="m">0</span>.000B
+ru_idrss     <span class="m">0</span>.000B
+ru_isrss     <span class="m">0</span>.000B
+ru_minflt    <span class="m">764941</span>              
+ru_majflt    <span class="m">2</span>                   
+ru_nswap     <span class="m">0</span>                   
+ru_inblock   <span class="m">0</span>                   
+ru_oublock   <span class="m">80</span>                  
+ru_msgsnd    <span class="m">0</span>                   
+ru_msgrcv    <span class="m">0</span>                   
+ru_nsignals  <span class="m">0</span>                   
+ru_nvcsw     <span class="m">38884</span>               
+ru_nivcsw    <span class="m">665</span>                 
+cpu          <span class="m">146</span>.665s
+mem          <span class="m">112</span>.727GBs
+io           <span class="m">166</span>.518MB
+iow          <span class="m">0</span>.000s
+maxvmem      <span class="m">12</span>.973GB
+arid         undefined
+ar_sub_time  undefined
+category     -U admiralty,feps-cpu,feps-gpu -l <span class="nv">env</span><span class="o">=</span>centos7,h_rt<span class="o">=</span><span class="m">600</span>,h_vmem<span class="o">=</span>24G,node_type<span class="o">=</span>40core-192G,project<span class="o">=</span>feps-cpu -pe smp <span class="m">8</span>
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 6</p>
+<p><code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">JOBID</span></code> tells us that:</p>
+<p><code class="docutils literal notranslate"><span class="pre">slots</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">8</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">21s</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">cpu</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">146.665s</span></code></p>
+<p>Hence, the efficiency is:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">cpu</span> <span class="pre">/</span> <span class="pre">(ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">147</span> <span class="pre">/</span> <span class="pre">(21</span> <span class="pre">*</span> <span class="pre">8)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">88</span> <span class="pre">%</span></code></p>
+<p>That’s good.</p>
+</div>
+<div class="admonition-exercise-7 admonition">
+<p class="admonition-title">Exercise 7</p>
+<p>How well did this job used the HPC resources?</p>
+<p>If it wasn’t ideal, what went wrong and what might fix it?</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ qacct -j <span class="nv">3524046</span>
+<span class="o">==============================================================</span>
+qname        feps-cpu.q          
+hostname     d9s9b4.arc4.leeds.ac.uk
+group        EAR                 
+owner        earlacoa            
+project      feps-cpu            
+department   defaultdepartment   
+jobname      example_bodo_mpi_sge.bash
+jobnumber    <span class="m">3524046</span>             
+taskid       undefined
+account      sge                 
+priority     <span class="m">0</span>                   
+qsub_time    Thu Feb <span class="m">24</span> <span class="m">12</span>:34:54 <span class="m">2022</span>
+start_time   Thu Feb <span class="m">24</span> <span class="m">12</span>:35:08 <span class="m">2022</span>
+end_time     Thu Feb <span class="m">24</span> <span class="m">12</span>:37:14 <span class="m">2022</span>
+granted_pe   smp                 
+slots        <span class="m">8</span>                   
+failed       <span class="m">0</span>    
+exit_status  <span class="m">0</span>                   
+ru_wallclock 126s
+ru_utime     <span class="m">125</span>.250s
+ru_stime     <span class="m">6</span>.542s
+ru_maxrss    <span class="m">1</span>.689MB
+ru_ixrss     <span class="m">0</span>.000B
+ru_ismrss    <span class="m">0</span>.000B
+ru_idrss     <span class="m">0</span>.000B
+ru_isrss     <span class="m">0</span>.000B
+ru_minflt    <span class="m">758663</span>              
+ru_majflt    <span class="m">2</span>                   
+ru_nswap     <span class="m">0</span>                   
+ru_inblock   <span class="m">0</span>                   
+ru_oublock   <span class="m">80</span>                  
+ru_msgsnd    <span class="m">0</span>                   
+ru_msgrcv    <span class="m">0</span>                   
+ru_nsignals  <span class="m">0</span>                   
+ru_nvcsw     <span class="m">35039</span>               
+ru_nivcsw    <span class="m">30366</span>               
+cpu          <span class="m">131</span>.792s
+mem          <span class="m">102</span>.207GBs
+io           <span class="m">166</span>.212MB
+iow          <span class="m">0</span>.000s
+maxvmem      <span class="m">13</span>.432GB
+arid         undefined
+ar_sub_time  undefined
+category     -U admiralty,feps-cpu,feps-gpu -l <span class="nv">env</span><span class="o">=</span>centos7,h_rt<span class="o">=</span><span class="m">600</span>,h_vmem<span class="o">=</span>24G,node_type<span class="o">=</span>40core-192G,project<span class="o">=</span>feps-cpu -pe smp <span class="m">8</span>
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 7</p>
+<p><code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">JOBID</span></code> tells us that:</p>
+<p><code class="docutils literal notranslate"><span class="pre">slots</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">8</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">126s</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">cpu</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">131.792s</span></code></p>
+<p>Hence, the efficiency is:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">cpu</span> <span class="pre">/</span> <span class="pre">(ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">131</span> <span class="pre">/</span> <span class="pre">(126</span> <span class="pre">*</span> <span class="pre">8)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">13</span> <span class="pre">%</span></code></p>
+<p>That’s very low.</p>
+<p>The likely cause of this low efficiency is that all of the work is being pinned to one process, instead of being distributed across all 8.</p>
+<p>(There are other ways to check this e.g., using <code class="docutils literal notranslate"><span class="pre">top</span></code> on the compute nodes, using <code class="docutils literal notranslate"><span class="pre">ps</span></code>.)</p>
+<p>One solution to try is to set an environment variable that stops processes being pinned (remember, we saw this earlier). To do this, add the following command to the submission bash script <code class="docutils literal notranslate"><span class="pre">unset</span> <span class="pre">GOMP_CPU_AFFINITY</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="gpus">
+<span id="id12"></span><h2>GPUs<a class="headerlink" href="#gpus" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id13">
+<h3>Exercises<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-exercise-1 admonition">
+<p class="admonition-title">Exercise 1</p>
+<p>In general, what kind of tasks are GPUs faster than CPUs for, and why?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 1</p>
+<p>Generally, GPUs are faster than CPUs for numerical operations, because they were optimised for this purpose using data parallelism where the same computation is done across many elements at once.</p>
+</div>
+<div class="admonition-exercise-2 admonition">
+<p class="admonition-title">Exercise 2</p>
+<p>What Numba decorators can you use to offload a function to GPUs?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 2</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;cuda.jit</span></code></p></li>
+</ul>
+</div>
+<div class="admonition-exercise-3 admonition">
+<p class="admonition-title">Exercise 3</p>
+<p>How would you vectorize the the following function for GPUs?</p>
+<p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">my_serial_function_for_gpu(x):</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">math.cos(x)</span> <span class="pre">**</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">math.sin(x)</span> <span class="pre">**</span> <span class="pre">2</span></code></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 3</p>
+<p>You could add the <code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code> decorator with a signature to target CUDA.</p>
+<p>In the example below, the input and output types are specified as <code class="docutils literal notranslate"><span class="pre">float32</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;vectorize(['float32(float32)'],</span> <span class="pre">target='cuda')</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">my_serial_function_for_gpu(x):</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">math.cos(x)</span> <span class="pre">**</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">math.sin(x)</span> <span class="pre">**</span> <span class="pre">2</span></code></p>
+</div>
+<div class="admonition-exercise-4 admonition">
+<p class="admonition-title">Exercise 4</p>
+<p>What are ways you can check if your Python environment has access to a GPU?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 4</p>
+<p>You could use Numba via:</p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">numba</span> <span class="pre">import</span> <span class="pre">cuda</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">print(cuda.gpus)</span></code></p>
+<p>Or in an IPython cell, you could use:</p>
+<p><code class="docutils literal notranslate"><span class="pre">!nvidia-smi</span></code></p>
+<p>There are other ways too. This is an important step to check.</p>
+</div>
+<div class="admonition-exercise-5 admonition">
+<p class="admonition-title">Exercise 5</p>
+<p>If you wanted to do NumPy style work on GPUs, could you use:</p>
+<ul class="simple">
+<li><p>cuPy</p></li>
+<li><p>JAX</p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 5</p>
+<p>You could use either cuPy or JAX for NumPy work on GPUs.</p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "swd6_hpp"
+        },
+        kernelOptions: {
+            kernelName: "swd6_hpp",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'swd6_hpp'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="06_GPUs.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">GPUs</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="08_summary.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Summary</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Luke Conibear<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
