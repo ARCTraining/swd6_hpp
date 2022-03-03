@@ -1,0 +1,40 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-book:
+    name: Build and Deploy Jupyter Book
+    runs-on: "ubuntu-latest"
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Conda environment
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: swd6_hpp
+          environment-file: environment.yml
+          python-version: 3.9
+          auto-activate-base: false
+          auto-update-conda: false
+
+      - name: Create Jupyter kernelspec
+        run: |
+          python -m ipykernel install --user --name swd6_hpp --display-name "swd6_hpp"
+      
+      - name: Build Jupyter Book
+        run: |
+          jupyter-book build docs
+      
+      - name: Deploy the book's HTML to GitHub Pages action
+        uses: peaceiris/actions-gh-pages@v3.6.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/_build/html

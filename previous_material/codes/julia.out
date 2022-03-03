@@ -1,0 +1,21 @@
+('Length of x:', 1000)
+('Total elements:', 1000000)
+('calculate_z_serial_purepython took', 16.271683931350708, 'seconds')
+         36221995 function calls in 17.371 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   17.371   17.371 {built-in method builtins.exec}
+        1    0.039    0.039   17.371   17.371 julia.py:1(<module>)
+        1    0.896    0.896   17.332   17.332 julia.py:21(calc_pure_python)
+        1   13.389   13.389   16.272   16.272 julia.py:8(calculate_z_serial_purepython)
+ 34219980    2.882    0.000    2.882    0.000 {built-in method builtins.abs}
+  2002000    0.153    0.000    0.153    0.000 {method 'append' of 'list' objects}
+        1    0.011    0.011    0.011    0.011 {built-in method builtins.sum}
+        3    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+        4    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+        2    0.000    0.000    0.000    0.000 {built-in method time.time}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
