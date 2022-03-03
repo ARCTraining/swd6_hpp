@@ -12,4 +12,5 @@ sections:
   - file: 04_compilers
   - file: 05_parallelisation
   - file: 06_GPUs
-- file: 07_summary
+  - file: 07_solutions
+- file: 08_summary
