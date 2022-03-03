@@ -1,0 +1,1384 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GPUs &#8212; SWD6: High Performance Python</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Summary" href="07_summary.html" />
+    <link rel="prev" title="Parallelisation" href="05_parallelisation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SWD6: High Performance Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   SWD6: High Performance Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
+   Overview
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_profiling.html">
+     Profiling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_data_structures_algorithms_libraries.html">
+     Data Structures, Algorithms, and Libraries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_vectorisation.html">
+     Vectorisation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_compilers.html">
+     Compilers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_parallelisation.html">
+     Parallelisation
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     GPUs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_summary.html">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/06_GPUs.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/lukeconibear/swd6_hpp"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/lukeconibear/swd6_hpp/issues/new?title=Issue%20on%20page%20%2F06_GPUs.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lukeconibear/swd6_hpp/main?urlpath=tree/docs/06_GPUs.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numba-for-cuda-gpus">
+   Numba for CUDA GPUs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vectorize-for-gpus">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       vectorize
+      </span>
+     </code>
+     for GPUs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#custom-cuda-kernels">
+     Custom CUDA kernels
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rapids">
+   RAPIDS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cupy">
+     cuPy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagnostics">
+   Diagnostics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jax">
+   JAX
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jax-can-replace-numpy-for-gpus">
+     JAX can replace NumPy for GPUs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jit-compiler">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       @jit
+      </span>
+     </code>
+     compiler
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#automatic-vectorisation-with-vmap">
+     Automatic vectorisation with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       vmap()
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-points">
+   Key Points
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-information">
+   Further information
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#good-practises">
+     Good practises
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-options">
+     Other options
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>GPUs</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numba-for-cuda-gpus">
+   Numba for CUDA GPUs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vectorize-for-gpus">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       vectorize
+      </span>
+     </code>
+     for GPUs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#custom-cuda-kernels">
+     Custom CUDA kernels
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rapids">
+   RAPIDS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cupy">
+     cuPy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagnostics">
+   Diagnostics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jax">
+   JAX
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jax-can-replace-numpy-for-gpus">
+     JAX can replace NumPy for GPUs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jit-compiler">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       @jit
+      </span>
+     </code>
+     compiler
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#automatic-vectorisation-with-vmap">
+     Automatic vectorisation with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       vmap()
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-points">
+   Key Points
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-information">
+   Further information
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#good-practises">
+     Good practises
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-options">
+     Other options
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="gpus">
+<h1>GPUs<a class="headerlink" href="#gpus" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://colab.research.google.com/github/ARCTraining/swd6_hpp/blob/main/docs/06_GPUs.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you’re in COLAB or have a local CUDA GPU, you can follow along with this section (i.e., uncomment the GPU code bits).</p>
+<p>For those in COLAB, ensure the session is using a GPU by going to: Runtime &gt; Change runtime type &gt; Hardware accelerator = GPU.</p>
+</div>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Graphics_processing_unit">GPUs (Graphics Processing Units)</a> are optimised for numerical operations, while <a class="reference external" href="https://en.wikipedia.org/wiki/Central_processing_unit">CPUs (central processing units)</a> perform general computation.</p>
+<p>Originally, GPUs handled computer graphics. However, they are now used to do a wide range of computations too. Hence, the term <a class="reference external" href="https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units">General Purpose GPU (GPGPU)</a>.</p>
+<p>GPU hardware is designed for data parallelism, where high throughputs are achieved when the GPU is computing the same operations on many different elements at once.</p>
+<p>You could use other <a class="reference external" href="https://en.wikipedia.org/wiki/Hardware_acceleration">types of accelerators</a> too, though we’re not going to cover those here.</p>
+<div class="section" id="numba-for-cuda-gpus">
+<h2><a class="reference external" href="http://numba.pydata.org/numba-doc/latest/cuda/index.html">Numba for CUDA GPUs</a><a class="headerlink" href="#numba-for-cuda-gpus" title="Permalink to this headline">¶</a></h2>
+<p>Earlier we covered how Numba works on single CPUs with <a class="reference external" href="https://numba.readthedocs.io/en/stable/glossary.html#term-nopython-mode"><code class="docutils literal notranslate"><span class="pre">&#64;njit</span></code></a> and multiple CPUs with <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p>
+<p>As a recap:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">njit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">1.e7</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, for a single CPU:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@njit</span>
+<span class="k">def</span> <span class="nf">my_serial_function_for_cpu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">my_serial_function_for_cpu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>274 ms ± 1.14 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>And, for multiple CPUs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">my_parallel_function_for_cpu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">my_parallel_function_for_cpu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>151 ms ± 4.31 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here we used <code class="docutils literal notranslate"><span class="pre">njit</span></code> as this automates the parallelisation process.</p>
+<p>This is in contrast to <code class="docutils literal notranslate"><span class="pre">vectorize</span></code> where manual effort is required for parallelisation.</p>
+</div>
+<div class="section" id="vectorize-for-gpus">
+<h3><code class="docutils literal notranslate"><span class="pre">vectorize</span></code> for GPUs<a class="headerlink" href="#vectorize-for-gpus" title="Permalink to this headline">¶</a></h3>
+<p>Numba also works on <a class="reference external" href="https://developer.nvidia.com/how-to-cuda-python">CUDA</a> GPUs using <a class="reference external" href="https://numba.pydata.org/numba-doc/latest/user/vectorize.html"><code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code></a> or <a class="reference external" href="https://numba.readthedocs.io/en/stable/cuda/kernels.html"><code class="docutils literal notranslate"><span class="pre">&#64;cuda.jit</span></code></a>.</p>
+<p>This is suitable for bigger data sizes (&gt; 1 MB) and high compute intensities.</p>
+<p>This adds additional overhead due to moving data to and from GPUs (<a class="reference external" href="https://numba.pydata.org/numba-doc/dev/cuda/memory.html">memory management</a>).</p>
+<p>Similar to our examples in the compiler lesson, we need to specify the types and target in the signature (i.e., the decorator arguments).</p>
+<p>Here, the types are specificed slightly differently i.e., output types(input types).</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Not all NumPy code will work on the GPU. In the following example, we will need to use the <code class="docutils literal notranslate"><span class="pre">math</span></code> library instead.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">vectorize</span><span class="p">,</span> <span class="n">float32</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">1.e7</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@vectorize</span><span class="p">([</span><span class="s1">&#39;float32(float32)&#39;</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">my_serial_function_for_gpu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%timeit</span>
+<span class="c1"># my_serial_function_for_gpu(x)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Numba also supports generalized ufuncs (covered in the compiler lesson) on the GPU using <a class="reference external" href="http://numba.pydata.org/numba-doc/latest/cuda/ufunc.html#generalized-cuda-ufuncs"><code class="docutils literal notranslate"><span class="pre">guvectorize</span></code></a>.</p>
+</div>
+<div class="section" id="custom-cuda-kernels">
+<h3>Custom CUDA kernels<a class="headerlink" href="#custom-cuda-kernels" title="Permalink to this headline">¶</a></h3>
+<p>Kernel functions are GPU functions called from CPU code.</p>
+<p>Kernels cannot explicitly return a value. Instead, all result data must be written to an array passed to the function (e.g., called <code class="docutils literal notranslate"><span class="pre">out</span></code>). This array can then be transferred back to the CPU.</p>
+<p>Kernels work over a grid of threads. This grid needs to be defined in terms of the number of blocks in the grid and the number of threads per block. The indices of this grid are used to add values to the <code class="docutils literal notranslate"><span class="pre">out</span></code> array. The indices can be found using <a class="reference external" href="https://numba.pydata.org/numba-doc/dev/cuda-reference/kernel.html#numba.cuda.grid"><code class="docutils literal notranslate"><span class="pre">cuda.grid()</span></code></a>.</p>
+<p>CUDA kernels are compiled using the <a class="reference external" href="https://numba.pydata.org/numba-doc/dev/cuda-reference/kernel.html#numba.cuda.jit"><code class="docutils literal notranslate"><span class="pre">numba.cuda.jit</span></code></a> decorator.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">numba.cuda.jit</span></code> is different to <code class="docutils literal notranslate"><span class="pre">numba.jit</span></code>, which is for CPUs.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from numba import cuda</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print(cuda.gpus)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This should return a message similar to:<br />
+&lt;Managed Device 0&gt;.</p>
+<p>You can also run the bash command <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code> within the IPython cell:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !nvidia-smi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This returns something like the table below. This shows we have access to a <a class="reference external" href="https://www.nvidia.com/en-gb/data-center/tesla-t4/">NVIDIA Tesla T4 GPU</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Tue Feb <span class="m">22</span> <span class="m">13</span>:59:03 <span class="m">2022</span>       
++-----------------------------------------------------------------------------+
+<span class="p">|</span> NVIDIA-SMI <span class="m">460</span>.32.03    Driver Version: <span class="m">460</span>.32.03    CUDA Version: <span class="m">11</span>.2     <span class="p">|</span>
+<span class="p">|</span>-------------------------------+----------------------+----------------------+
+<span class="p">|</span> GPU  Name        Persistence-M<span class="p">|</span> Bus-Id        Disp.A <span class="p">|</span> Volatile Uncorr. ECC <span class="p">|</span>
+<span class="p">|</span> Fan  Temp  Perf  Pwr:Usage/Cap<span class="p">|</span>         Memory-Usage <span class="p">|</span> GPU-Util  Compute M. <span class="p">|</span>
+<span class="p">|</span>                               <span class="p">|</span>                      <span class="p">|</span>               MIG M. <span class="p">|</span>
+<span class="p">|</span><span class="o">===============================</span>+<span class="o">======================</span>+<span class="o">======================</span><span class="p">|</span>
+<span class="p">|</span>   <span class="m">0</span>  Tesla T4            Off  <span class="p">|</span> <span class="m">00000000</span>:00:04.0 Off <span class="p">|</span>                    <span class="m">0</span> <span class="p">|</span>
+<span class="p">|</span> N/A   66C    P0    30W /  70W <span class="p">|</span>    144MiB / 15109MiB <span class="p">|</span>      <span class="m">0</span>%      Default <span class="p">|</span>
+<span class="p">|</span>                               <span class="p">|</span>                      <span class="p">|</span>                  N/A <span class="p">|</span>
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+<span class="p">|</span> Processes:                                                                  <span class="p">|</span>
+<span class="p">|</span>  GPU   GI   CI        PID   Type   Process name                  GPU Memory <span class="p">|</span>
+<span class="p">|</span>        ID   ID                                                   Usage      <span class="p">|</span>
+<span class="p">|</span><span class="o">=============================================================================</span><span class="p">|</span>
++-----------------------------------------------------------------------------+
+</pre></div>
+</div>
+<p>So, a simple example to add two numbers together:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @cuda.jit</span>
+<span class="c1"># def add_kernel(x, y, out):      </span>
+<span class="c1">#     index = cuda.grid(1)</span>
+<span class="c1">#     out[index] = x[index] + y[index]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s define some input variables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n = 4096</span>
+<span class="c1"># x = np.arange(n).astype(np.int32) # [0...4095] on the host (CPU)</span>
+<span class="c1"># y = np.ones_like(x)               # [1...1] on the host (CPU)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s move these input variables from the host (CPU) to the device (GPU) for the work:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># x_on_device = cuda.to_device(x)</span>
+<span class="c1"># y_on_device = cuda.to_device(y)</span>
+<span class="c1"># out_on_device = cuda.device_array_like(x_on_device)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we <a class="reference external" href="https://numba.pydata.org/numba-doc/latest/cuda/kernels.html#choosing-the-block-size">choose the block size</a>, by defining how many blocks are in the grid and how many threads are in each of those blocks.</p>
+<p>These two numbers multipled together is the size of the grid (for our 1D example).</p>
+<p><img alt="cuda_grid.png" src="_images/cuda_grid.png" /></p>
+<p><em><a class="reference external" href="https://developer.nvidia.com/blog/cuda-refresher-cuda-programming-model/">Image source</a></em></p>
+<p>Some rules of thumb are:</p>
+<ul class="simple">
+<li><p>Blocks per grid should be a multiple of 32.</p></li>
+<li><p>Threads per block should be a multiple of 128.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># blocks_per_grid = 32</span>
+<span class="c1"># threads_per_block = 128</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we can call the kernel function.</p>
+<p>First, add the grid size arguments.</p>
+<p>Then, we pass the input/output variables as arguments to the function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add_kernel[blocks_per_grid, threads_per_block](x_on_device, y_on_device, out_on_device)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As these CUDA kernels don’t return a value, we can synchronise the device (GPU) back to the host (CPU) to get the result back.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cuda.synchronize()</span>
+<span class="c1"># print(out_on_device.copy_to_host())</span>
+<span class="c1"># # Should be [   1    2    3 ... 4094 4095 4096]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For more information on CUDA, see the training courses:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arc.leeds.ac.uk/training/courses/hpc5/">HPC5: Introduction to GPU programming with CUDA</a></p></li>
+<li><p>NVIDIA workshop on <a class="reference external" href="https://www.nvidia.com/en-us/training/instructor-led-workshops/fundamentals-of-accelerated-computing-with-cuda-python/">Fundamentals of Accelerated Computing with CUDA Python</a></p>
+<ul>
+<li><p>Detailed look at <a class="reference external" href="https://numba.pydata.org/numba-doc/dev/cuda/kernels.html">custom CUDA kernels</a> and <a class="reference external" href="https://numba.pydata.org/numba-doc/dev/cuda/memory.html">GPU memory management</a>.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="rapids">
+<h2><a class="reference external" href="https://developer.nvidia.com/rapids">RAPIDS</a><a class="headerlink" href="#rapids" title="Permalink to this headline">¶</a></h2>
+<p>RAPIDS is a range of accelerated data science libraries from NVIDIA.</p>
+<p>There are a wide variety of tools matching up to familiar libraries:</p>
+<ul class="simple">
+<li><p>Arrays and matrices</p>
+<ul>
+<li><p><a class="reference external" href="https://cupy.dev/">cuPy</a> for NumPy and SciPy</p></li>
+</ul>
+</li>
+<li><p>Tabular data</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.rapids.ai/api/cudf/stable/">cuDF</a> for Pandas</p></li>
+</ul>
+</li>
+<li><p>Machine learning</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.rapids.ai/api/cuml/stable/">cuML</a> for scikit-learn</p></li>
+<li><p><a class="reference external" href="https://rapids.ai/xgboost.html">XGBoost</a> on GPUs</p></li>
+</ul>
+</li>
+<li><p>Graphs and networks</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.rapids.ai/api/cugraph/stable/">cuGraph</a> for <a class="reference external" href="https://networkx.org/">NetworkX</a></p></li>
+</ul>
+</li>
+<li><p>Multiple GPUs</p>
+<ul>
+<li><p><a class="reference external" href="https://rapids.ai/dask.html">Dask with CUDA</a>, cuDF, cuML, and others.</p></li>
+<li><p><a class="reference external" href="http://mpi.dask.org/en/latest/gpu.html">Dask-MPI with GPUs</a></p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="cupy">
+<h3><a class="reference external" href="https://cupy.dev/">cuPy</a><a class="headerlink" href="#cupy" title="Permalink to this headline">¶</a></h3>
+<p><strong>NumPy for the CPU</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_cpu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1_000</span><span class="p">,</span> <span class="mi">1_000</span><span class="p">)</span>
+<span class="n">y_cpu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1_000</span><span class="p">,</span> <span class="mi">1_000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">z_cpu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x_cpu</span><span class="p">,</span> <span class="n">y_cpu</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.7 ms ± 1.5 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>CuPy for the GPU</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import cupy as cp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># x_gpu = cp.random.rand(1_000, 1_000)</span>
+<span class="c1"># y_gpu = cp.random.rand(1_000, 1_000)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%timeit</span>
+<span class="c1"># z_gpu = cp.dot(x_gpu, y_gpu)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can move arrays between the CPU and GPU as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># z_gpu = cp.asarray(z_cpu)  # from cpu to gpu</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># z_cpu = cp.asnumpy(z_gpu)  # from gpu to cpu</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For more information on RAPIDS, see the training courses:</p>
+<ul class="simple">
+<li><p>NVIDIA workshop on <a class="reference external" href="https://www.nvidia.com/en-us/training/instructor-led-workshops/fundamentals-of-accelerated-data-science/">Fundamentals of Accelerated Data Science (RAPIDS)</a>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="diagnostics">
+<h2>Diagnostics<a class="headerlink" href="#diagnostics" title="Permalink to this headline">¶</a></h2>
+<p>Similar to the Dask Dashboard, NVIDIA has a GPU Dashboard called <a class="reference external" href="https://github.com/rapidsai/jupyterlab-nvdashboard"><code class="docutils literal notranslate"><span class="pre">NVDashboard</span></code></a>.</p>
+<p>These real-time diagnostics are provided via a Bokeh server and a Jupyter Lab extension.</p>
+<p>They are a great way to manage your GPU utilisation, resources, throughput, and more.</p>
+<p>More information is <a class="reference external" href="https://developer.nvidia.com/blog/gpu-dashboards-in-jupyter-lab/">here</a>.</p>
+<p><img alt="SegmentLocal" src="_images/NVIDIA_GPUDashboard.gif" /></p>
+<p><em><a class="reference external" href="https://developer.nvidia.com/blog/gpu-dashboards-in-jupyter-lab/">Image source</a></em></p>
+</div>
+<div class="section" id="jax">
+<h2><a class="reference external" href="https://jax.readthedocs.io/en/latest/index.html">JAX</a><a class="headerlink" href="#jax" title="Permalink to this headline">¶</a></h2>
+<p>JAX enables:</p>
+<ul class="simple">
+<li><p>NumPy on the CPU and GPU (via <a class="reference external" href="https://www.tensorflow.org/xla">XLA, Accelerated Linear Algebra</a>, a compiler for linear algebra).</p></li>
+<li><p>Automatic differentiation of native Python and NumPy code (via <a class="reference external" href="https://github.com/hips/autograd">Autograd</a>).</p></li>
+<li><p><a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.jit.html#jax.jit"><code class="docutils literal notranslate"><span class="pre">Jit</span></code></a> compiler to speed up code.</p></li>
+<li><p>Automatic vectorisation through <a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.vmap.html#jax.vmap"><code class="docutils literal notranslate"><span class="pre">vmap</span></code></a>.</p></li>
+</ul>
+<div class="section" id="jax-can-replace-numpy-for-gpus">
+<h3>JAX can replace NumPy for GPUs<a class="headerlink" href="#jax-can-replace-numpy-for-gpus" title="Permalink to this headline">¶</a></h3>
+<p>If it can’t find a GPU, then it will fall back to the CPU.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">jax</span>
+<span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x_np</span><span class="p">))</span>
+<span class="n">x_np</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;numpy.ndarray&#39;&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_jnp</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x_jnp</span><span class="p">))</span>
+<span class="n">x_jnp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;jaxlib.xla_extension.DeviceArray&#39;&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], dtype=int32)
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, there are some differences between JAX and NumPy.</p>
+<p>For example, <a class="reference external" href="https://jax.readthedocs.io/en/latest/notebooks/thinking_in_jax.html#jax-vs-numpy">JAX arrays are immutable</a> (i.e., you can’t change them once their made).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_np</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">x_np</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10,  1,  2,  3,  4,  5,  6,  7,  8,  9])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">x_jnp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x_jnp</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sorry, you can&#39;t change JAX arrays once their made.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sorry, you can&#39;t change JAX arrays once their made.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instead, you can create a copy with the change:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">updated_x_jnp</span> <span class="o">=</span> <span class="n">x_jnp</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">updated_x_jnp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeviceArray([10,  1,  2,  3,  4,  5,  6,  7,  8,  9], dtype=int32)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Also, <a class="reference external" href="https://jax.readthedocs.io/en/latest/notebooks/Common_Gotchas_in_JAX.html#random-numbers">random arrays are created differently</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3_000</span><span class="p">,</span> <span class="mi">3_000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">random</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_key</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">x_jnp</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">random_key</span><span class="p">,</span> <span class="p">(</span><span class="mi">3_000</span><span class="p">,</span> <span class="mi">3_000</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, you could multiply arrays:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> np.dot(x_np, x_np.T)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>232 ms ± 3.01 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> jnp.dot(x_jnp, x_jnp.T).block_until_ready()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>229 ms ± 1.7 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>By default, this will transfer data from the host (CPU) to the device (GPU).</p>
+<p>To avoid this and <a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.device_put.html#jax.device_put">put data</a> onto the device (GPU):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">device_put</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_jnp</span> <span class="o">=</span> <span class="n">device_put</span><span class="p">(</span><span class="n">x_jnp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> jnp.dot(x_jnp, x_jnp.T).block_until_ready()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>228 ms ± 403 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>In general, the speed comparison between JAX and NumPy is complicated and depends on a variety of things (<a class="reference external" href="https://jax.readthedocs.io/en/latest/faq.html#faq-jax-vs-numpy">read more here</a>).</p>
+</div>
+<div class="section" id="jit-compiler">
+<h3><a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.jit.html#jax.jit"><code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code></a> compiler<a class="headerlink" href="#jit-compiler" title="Permalink to this headline">¶</a></h3>
+<p>Let’s see an example of using the JAX <code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code> compiler to speed up a function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">jit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">random_key</span><span class="p">,</span> <span class="p">(</span><span class="mi">1_000_000</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here were using an example for the <a class="reference external" href="https://arxiv.org/pdf/1706.02515v5.pdf">SELU (Scaled Exponential Linear Unit)</a> activation function (<em>don’t worry what this is</em>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">slow_selu</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.67</span><span class="p">,</span> <span class="n">lmbda</span><span class="o">=</span><span class="mf">1.05</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">lmbda</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">slow_selu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.75 ms ± 17.9 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fast_selu</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">slow_selu</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remember from our compiler lesson, that the first call to a JIT-decorated function compiles it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it -n 1 -r 1
+<span class="n">fast_selu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36.5 ms ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then all subsequent calls to it use the cached, fast version:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it -n 1 -r 1
+<span class="n">fast_selu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>909 µs ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="automatic-vectorisation-with-vmap">
+<h3>Automatic vectorisation with <a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.vmap.html#jax.vmap"><code class="docutils literal notranslate"><span class="pre">vmap()</span></code></a><a class="headerlink" href="#automatic-vectorisation-with-vmap" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">vmap</span></code> maps a function over array axes.</p>
+<p>This pushes the map loop lower down for better performance.</p>
+<p>Let’s see an example of multiplying a matrix by a batch of vectors (<em>don’t worry what this function does, just focus on the JAX bits</em>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">vmap</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">random_key</span><span class="p">,</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">batch_vectors</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">random_key</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiplying_matrix_by_vector</span><span class="p">(</span><span class="n">vector</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">vector</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, first apply this function in a simple batch:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simple_batch</span><span class="p">(</span><span class="n">batch_vectors</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">multiplying_matrix_by_vector</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span> <span class="k">for</span> <span class="n">vector</span> <span class="ow">in</span> <span class="n">batch_vectors</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> simple_batch(batch_vectors).block_until_ready()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.24 ms ± 445 ns per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s instead use a <code class="docutils literal notranslate"><span class="pre">vmap</span></code> batch to map the function over the matrix:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vmap_batch</span><span class="p">(</span><span class="n">batch_vectors</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">vmap</span><span class="p">(</span><span class="n">multiplying_matrix_by_vector</span><span class="p">)(</span><span class="n">batch_vectors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> vmap_batch(batch_vectors).block_until_ready()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>362 µs ± 453 ns per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>And, let’s get even more performance by combining this with the <code class="docutils literal notranslate"><span class="pre">jit</span></code> compiler:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
+<span class="k">def</span> <span class="nf">faster_vmap_batch</span><span class="p">(</span><span class="n">batch_vectors</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">vmap</span><span class="p">(</span><span class="n">multiplying_matrix_by_vector</span><span class="p">)(</span><span class="n">batch_vectors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> faster_vmap_batch(batch_vectors).block_until_ready()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30.2 µs ± 55.9 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is lots more useful information in the <a class="reference external" href="https://jax.readthedocs.io/en/latest/index.html">documentation</a>, such as <a class="reference external" href="https://jax.readthedocs.io/en/latest/jax-101/index.html">a range of tutorials</a>.</p>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-exercise-1 admonition">
+<p class="admonition-title">Exercise 1</p>
+<p>In general, what kind of tasks are GPUs faster than CPUs for, and why?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Generally, GPUs are faster than CPUs for numerical operations, because they were optimised for this purpose using data parallelism where the same computation is done across many elements at once.</p>
+</div>
+<div class="admonition-exercise-2 admonition">
+<p class="admonition-title">Exercise 2</p>
+<p>What Numba decorators can you use to offload a function to GPUs?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;cuda.jit</span></code></p></li>
+</ul>
+</div>
+<div class="admonition-exercise-3 admonition">
+<p class="admonition-title">Exercise 3</p>
+<p>How would you vectorize the the following function for GPUs?</p>
+<p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">my_serial_function_for_gpu(x):</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">math.cos(x)</span> <span class="pre">**</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">math.sin(x)</span> <span class="pre">**</span> <span class="pre">2</span></code></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>You could add the <code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code> decorator with a signature to target CUDA.</p>
+<p>In the example below, the input and output types are specified as <code class="docutils literal notranslate"><span class="pre">float32</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;vectorize(['float32(float32)'],</span> <span class="pre">target='cuda')</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">my_serial_function_for_gpu(x):</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">math.cos(x)</span> <span class="pre">**</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">math.sin(x)</span> <span class="pre">**</span> <span class="pre">2</span></code></p>
+</div>
+<div class="admonition-exercise-4 admonition">
+<p class="admonition-title">Exercise 4</p>
+<p>What are ways you can check if your Python environment has access to a GPU?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>You could use Numba via:</p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">numba</span> <span class="pre">import</span> <span class="pre">cuda</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">print(cuda.gpus)</span></code></p>
+<p>Or in an IPython cell, you could use:</p>
+<p><code class="docutils literal notranslate"><span class="pre">!nvidia-smi</span></code></p>
+<p>There are other ways too. This is an important step to check.</p>
+</div>
+<div class="admonition-exercise-5 admonition">
+<p class="admonition-title">Exercise 5</p>
+<p>If you wanted to do NumPy style work on GPUs, could you use:</p>
+<ul class="simple">
+<li><p>cuPy</p></li>
+<li><p>JAX</p></li>
+</ul>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>You could use either cuPy or JAX for NumPy work on GPUs.</p>
+</div>
+</div>
+<div class="section" id="key-points">
+<h2>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Use <a class="reference external" href="https://developer.nvidia.com/how-to-cuda-python">CUDA/Numba</a>, <a class="reference external" href="https://developer.nvidia.com/rapids">RAPIDS</a>, and <a class="reference external" href="https://jax.readthedocs.io/en/latest/index.html">JAX</a> to write custom data science code for CUDA GPUs.</em></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="further-information">
+<h2>Further information<a class="headerlink" href="#further-information" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="good-practises">
+<h3>Good practises<a class="headerlink" href="#good-practises" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Test out ideas on CPUs first, before moving to expensive GPUs.</p></li>
+<li><p>Consider whether the calculation is worth the additional overhead of sending data to and from the GPU.</p></li>
+<li><p>Minimise data transfers between the host (CPU) and the device (GPU).</p></li>
+</ul>
+</div>
+<div class="section" id="other-options">
+<h3>Other options<a class="headerlink" href="#other-options" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://documen.tician.de/pycuda/">pycuda</a></p>
+<ul>
+<li><p>An alternative to Numba for accessing NVIDIA’s CUDA GPUs.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/cunumeric">cuNumeric</a></p>
+<ul>
+<li><p>A swap-out replacement for NumPy from NVIDIA for distributed GPUs.</p></li>
+<li><p>Early stages of development.</p></li>
+<li><p>Requires a separate interperter to run (Legate).</p></li>
+</ul>
+</li>
+<li><p>Many libraries can use GPUs automatically if they can detect one e.g., <a class="reference external" href="https://www.tensorflow.org/install/gpu"><code class="docutils literal notranslate"><span class="pre">TensorFlow</span></code></a> and <a class="reference external" href="https://pytorch.org/docs/stable/notes/cuda.html"><code class="docutils literal notranslate"><span class="pre">PyTorch</span></code></a>.</p></li>
+</ul>
+</div>
+<div class="section" id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=_AKDqw6li58">CuPy - Sean Farley</a>, PyBay 2019.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=lV7rtDW94do">cuDF - Mark Harris</a>, PyCon AU 2019.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "swd6_hpp"
+        },
+        kernelOptions: {
+            kernelName: "swd6_hpp",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'swd6_hpp'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="05_parallelisation.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Parallelisation</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="07_summary.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Summary</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Luke Conibear<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
