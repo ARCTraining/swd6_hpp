@@ -6,7 +6,7 @@ Click [here](https://uolr3.leeds.ac.uk/temcatsearch(bD1lbiZjPTUwMA==)/courses.ht
 
 ## Content
 
-Over the past few years, Python and the wider Python ecosystem have become invaluable tools in scientific computing and data analytics. As Python is (for the most part) an interpreted language there are complaints that Python code can be quite slow to execute. In this hands-on workshop you will have the opportunity discover and use a set of tools and techniques that can be used to improve the execution speed of your Python code. The workshop will introduce a number of ways to both measure the efficiency of your code and improve it’s speed of execution by introducing strategies for fast and scalable computation with Python.
+Over the past few years, Python and the wider Python ecosystem have become invaluable tools in scientific computing and data analytics. As Python is (for the most part) an interpreted language there are complaints that Python code can be quite slow to execute. In this hands-on workshop you will have the opportunity discover and use a set of tools and techniques that can be used to improve the execution speed of your Python code. The workshop will introduce a number of ways to both measure the efficiency of your code and improve its speed of execution by introducing strategies for fast and scalable computation with Python.
 
 ## Objectives
 
