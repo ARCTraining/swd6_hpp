@@ -679,6 +679,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
 <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
 <span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
     <span class="o">%</span><span class="k">pip</span> install --quiet dask[dataframe] ray
@@ -775,6 +776,7 @@ Only run the following cells if you’re on a local machine.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">IN_COLAB</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span><span class="p">,</span> <span class="n">LocalCluster</span>
+
     <span class="n">cluster</span> <span class="o">=</span> <span class="n">LocalCluster</span><span class="p">()</span>  <span class="c1"># the Dask manager itself</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>  <span class="c1"># connecting to this Dask manager to see whats doing</span>
 </pre></div>
@@ -793,7 +795,7 @@ Only run the following cells if you’re on a local machine.</p>
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-0a28618c-a07f-11ec-902f-000d3a18003b</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-69718712-a531-11ec-9023-000d3a9be553</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -822,7 +824,7 @@ Only run the following cells if you’re on a local machine.</p>
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">738444e8</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">aa0207c5</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
@@ -859,11 +861,11 @@ Only run the following cells if you’re on a local machine.</p>
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-814a9661-f52c-45f9-9325-740d376090ad</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-a871a53d-e953-42d2-af2e-08bb9de7e2e3</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:43523
+                        <strong>Comm:</strong> tcp://127.0.0.1:39455
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 2
@@ -905,7 +907,7 @@ Only run the following cells if you’re on a local machine.</p>
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:43113
+                            <strong>Comm: </strong> tcp://127.0.0.1:37697
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -913,7 +915,7 @@ Only run the following cells if you’re on a local machine.</p>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:41609/status" target="_blank">http://127.0.0.1:41609/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:42387/status" target="_blank">http://127.0.0.1:42387/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.39 GiB
@@ -921,13 +923,13 @@ Only run the following cells if you’re on a local machine.</p>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:44725
+                            <strong>Nanny: </strong> tcp://127.0.0.1:40643
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /home/runner/work/swd6_hpp/swd6_hpp/docs/dask-worker-space/worker-edae3424
+                            <strong>Local directory: </strong> /home/runner/work/swd6_hpp/swd6_hpp/docs/dask-worker-space/worker-sak1n069
                         </td>
                     </tr>
 
@@ -950,7 +952,7 @@ Only run the following cells if you’re on a local machine.</p>
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:43491
+                            <strong>Comm: </strong> tcp://127.0.0.1:33463
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -958,7 +960,7 @@ Only run the following cells if you’re on a local machine.</p>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:39031/status" target="_blank">http://127.0.0.1:39031/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:43793/status" target="_blank">http://127.0.0.1:43793/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.39 GiB
@@ -966,13 +968,13 @@ Only run the following cells if you’re on a local machine.</p>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:36481
+                            <strong>Nanny: </strong> tcp://127.0.0.1:46747
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /home/runner/work/swd6_hpp/swd6_hpp/docs/dask-worker-space/worker-s8t1mawl
+                            <strong>Local directory: </strong> /home/runner/work/swd6_hpp/swd6_hpp/docs/dask-worker-space/worker-ss2mlj9s
                         </td>
                     </tr>
 
@@ -1024,8 +1026,8 @@ Only run the following cells if you’re on a local machine.</p>
 <p>Here, out example is going to do some maths on arrays. Don’t worry about what it is. Just focus on the Dask bits.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">dask.array</span> <span class="k">as</span> <span class="nn">da</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask.array</span> <span class="k">as</span> <span class="nn">da</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -1037,12 +1039,8 @@ Only run the following cells if you’re on a local machine.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span>
-    <span class="p">(</span><span class="mi">10_000</span><span class="p">,</span> <span class="mi">10_000</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> 
-    <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">1_000</span><span class="p">,</span> <span class="mi">1_000</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span>
-    <span class="p">(</span><span class="mi">10_000</span><span class="p">,</span> <span class="mi">10_000</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> 
-    <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">1_000</span><span class="p">,</span> <span class="mi">1_000</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">10_000</span><span class="p">,</span> <span class="mi">10_000</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">1_000</span><span class="p">,</span> <span class="mi">1_000</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">10_000</span><span class="p">,</span> <span class="mi">10_000</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">1_000</span><span class="p">,</span> <span class="mi">1_000</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">da</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">da</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1360,14 +1358,14 @@ Only run the following cells if you’re on a local machine.</p>
 <p>Can then view this performance report here or in a browser:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;dask-report.html&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;dask-report.html&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1484,7 +1482,7 @@ Only run the following cells if you’re on a local machine.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">IN_COLAB</span><span class="p">:</span>   
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">IN_COLAB</span><span class="p">:</span>
     <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">cluster</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -1840,6 +1838,7 @@ category     -U admiralty,feps-cpu,feps-gpu -l <span class="nv">disk</span><span
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">IN_COLAB</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span>
+
     <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1954,7 +1953,8 @@ category     -U admiralty,feps-cpu,feps-gpu -l <span class="nv">disk</span><span
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Counter</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot; A simple class to manage an incrementing counter &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;A simple class to manage an incrementing counter&quot;&quot;&quot;</span>
+
     <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1963,7 +1963,7 @@ category     -U admiralty,feps-cpu,feps-gpu -l <span class="nv">disk</span><span
     <span class="k">def</span> <span class="nf">increment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span>
-    
+
     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span>
 </pre></div>
@@ -2040,6 +2040,7 @@ category     -U admiralty,feps-cpu,feps-gpu -l <span class="nv">disk</span><span
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ray</span>
+
 <span class="n">ray</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -2107,14 +2108,15 @@ E0303 17:21:46.483518733  324014 fork_posix.cc:70]           Fork support is onl
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@ray</span><span class="o">.</span><span class="n">remote</span>
 <span class="k">class</span> <span class="nc">Counter</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot; A simple class to manage an incrementing counter &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;A simple class to manage an incrementing counter&quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">def</span> <span class="nf">increment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span>
-    
+
     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span>
 </pre></div>
