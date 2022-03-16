@@ -1,4 +1,4 @@
-name: swd6_hpp2
+name: swd6_hpp
 channels:
   - conda-forge
   - defaults
