@@ -1,4 +1,4 @@
-name: swd6_hpp
+name: swd6_hpp2
 channels:
   - conda-forge
   - defaults
@@ -95,6 +95,7 @@ dependencies:
   - ipython_genutils=0.2.0=py_1
   - ipywidgets=7.6.5=pyhd8ed1ab_0
   - iso8601=1.0.2=pyhd8ed1ab_0
+  - isort=5.10.1=pyhd8ed1ab_0
   - jbig=2.1=h7f98852_2003
   - jedi=0.18.1=py39hf3d152e_0
   - jinja2=3.0.3=pyhd8ed1ab_0
@@ -110,6 +111,7 @@ dependencies:
   - jupyter_core=4.9.2=py39hf3d152e_0
   - jupyter_server=1.13.5=pyhd8ed1ab_1
   - jupyterlab=3.2.9=pyhd8ed1ab_0
+  - jupyterlab_code_formatter=1.4.10=pyhd8ed1ab_1
   - jupyterlab_pygments=0.1.2=pyh9f0ad1d_0
   - jupyterlab_server=2.10.3=pyhd8ed1ab_0
   - jupyterlab_widgets=1.0.2=pyhd8ed1ab_0
@@ -341,6 +343,7 @@ dependencies:
     - scipy==1.8.0
     - simpervisor==0.4
     - snakeviz==2.1.1
+    - tokenize-rt==4.2.1
     - tomli==2.0.1
     - wrapt==1.13.3
     - yarl==1.7.2

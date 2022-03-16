@@ -28,9 +28,7 @@ def setup_client_and_cluster(
             f"-pe smp {number_processes}",
             f"-l disk={memory}G",
         ],
-        local_directory=os.sep.join([
-            os.environ.get("PWD"),
-            "dask-worker-space"]),
+        local_directory=os.sep.join([os.environ.get("PWD"), "dask-worker-space"]),
     )
     client = Client(cluster)
     cluster.scale(jobs=number_jobs)
@@ -40,12 +38,8 @@ def setup_client_and_cluster(
 
 
 def example_function():
-    x = da.random.random(
-        (100_000, 100_000, 10),
-        chunks=(10_000, 10_000, 5))
-    y = da.random.random(
-        (100_000, 100_000, 10),
-        chunks=(10_000, 10_000, 5))
+    x = da.random.random((100_000, 100_000, 10), chunks=(10_000, 10_000, 5))
+    y = da.random.random((100_000, 100_000, 10), chunks=(10_000, 10_000, 5))
     z = (da.arcsin(x) + da.arccos(y)).sum(axis=(1, 2))
 
     with performance_report(filename="dask-report_jobqueue.html"):
