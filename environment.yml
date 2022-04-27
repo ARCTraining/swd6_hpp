@@ -22,6 +22,8 @@ dependencies:
     - eliot
     - eliot-tree
     - jax
+    - jaxlib
     - line-profiler
     - pyinstrument
     - ray
+    - snakeviz
