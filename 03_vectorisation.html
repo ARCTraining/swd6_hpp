@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Vectorisation &#8212; SWD6: High Performance Python</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -91,14 +105,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
-   SWD6: High Performance Python
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    SWD6: High Performance Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="00_overview.html">
    Overview
@@ -154,107 +169,209 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/03_vectorisation.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ARCTraining/swd6_hpp"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/ARCTraining/swd6_hpp/issues/new?title=Issue%20on%20page%20%2F03_vectorisation.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ARCTraining/swd6_hpp/master?urlpath=tree/docs/03_vectorisation.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ARCTraining/swd6_hpp/master?urlpath=tree/docs/03_vectorisation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ARCTraining/swd6_hpp"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ARCTraining/swd6_hpp/issues/new?title=Issue%20on%20page%20%2F03_vectorisation.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/03_vectorisation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#broadcasting">
    Broadcasting
@@ -313,12 +430,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Vectorisation</h1>
@@ -393,14 +509,15 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="vectorisation">
-<h1>Vectorisation<a class="headerlink" href="#vectorisation" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="vectorisation">
+<h1>Vectorisation<a class="headerlink" href="#vectorisation" title="Permalink to this headline">#</a></h1>
 <p><a class="reference external" href="https://colab.research.google.com/github/ARCTraining/swd6_hpp/blob/master/docs/03_vectorisation.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
-<div class="section" id="broadcasting">
-<h2><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html">Broadcasting</a><a class="headerlink" href="#broadcasting" title="Permalink to this headline">¶</a></h2>
+<section id="broadcasting">
+<h2><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html">Broadcasting</a><a class="headerlink" href="#broadcasting" title="Permalink to this headline">#</a></h2>
 <p>Broadcasting allows for operations with different shaped arrays.</p>
 <p>It’s implemented in many libraries, such as <a class="reference external" href="https://numpy.org/doc/stable/user/basics.broadcasting.html">NumPy</a> and <a class="reference external" href="https://xarray.pydata.org/en/v0.16.2/computation.html?highlight=Broadcasting#broadcasting-by-dimension-name">xarray</a>.</p>
 <p><img alt="broadcasting.png" src="_images/broadcasting.png" /></p>
@@ -825,7 +942,7 @@ dl.xr-attrs {
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray (col: 4)&gt;
 array([ 0, 10, 20, 30])
 Coordinates:
-  * col      (col) int64 0 10 20 30</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>col</span>: 4</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-6c6f4167-2a26-4c23-a7c6-1f73c98583b9' class='xr-array-in' type='checkbox' checked><label for='section-6c6f4167-2a26-4c23-a7c6-1f73c98583b9' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0 10 20 30</span></div><div class='xr-array-data'><pre>array([ 0, 10, 20, 30])</pre></div></div></li><li class='xr-section-item'><input id='section-a8b994bc-8cee-45fa-a755-1fd4eb6ac13a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a8b994bc-8cee-45fa-a755-1fd4eb6ac13a' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>col</span></div><div class='xr-var-dims'>(col)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 10 20 30</div><input id='attrs-90421610-b871-4fe2-a89b-b246833a14fb' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-90421610-b871-4fe2-a89b-b246833a14fb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e8705611-02cc-4593-8b45-801d127915c4' class='xr-var-data-in' type='checkbox'><label for='data-e8705611-02cc-4593-8b45-801d127915c4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 0, 10, 20, 30])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-48216752-b030-4f53-87ec-3879196b728f' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-48216752-b030-4f53-87ec-3879196b728f' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+  * col      (col) int64 0 10 20 30</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>col</span>: 4</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-837a191c-3106-4cab-b776-5b5a07050e77' class='xr-array-in' type='checkbox' checked><label for='section-837a191c-3106-4cab-b776-5b5a07050e77' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0 10 20 30</span></div><div class='xr-array-data'><pre>array([ 0, 10, 20, 30])</pre></div></div></li><li class='xr-section-item'><input id='section-1dace814-927c-414b-a58e-462b3412df46' class='xr-section-summary-in' type='checkbox'  checked><label for='section-1dace814-927c-414b-a58e-462b3412df46' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>col</span></div><div class='xr-var-dims'>(col)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 10 20 30</div><input id='attrs-94d12d9f-c9dd-4f90-8cdf-262ffb8722b8' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-94d12d9f-c9dd-4f90-8cdf-262ffb8722b8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c3daa7bb-ed90-4816-bebb-f9a6b99a915e' class='xr-var-data-in' type='checkbox'><label for='data-c3daa7bb-ed90-4816-bebb-f9a6b99a915e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 0, 10, 20, 30])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-19eb1ab8-4276-4ac1-aa66-d1b28974466a' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-19eb1ab8-4276-4ac1-aa66-d1b28974466a' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1189,7 +1306,7 @@ dl.xr-attrs {
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray (row: 3)&gt;
 array([0, 1, 2])
 Coordinates:
-  * row      (row) int64 0 1 2</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>row</span>: 3</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-a40b182c-ace4-4c67-9e58-cf4e08b99932' class='xr-array-in' type='checkbox' checked><label for='section-a40b182c-ace4-4c67-9e58-cf4e08b99932' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0 1 2</span></div><div class='xr-array-data'><pre>array([0, 1, 2])</pre></div></div></li><li class='xr-section-item'><input id='section-53720a72-9745-42a3-8fab-e4722439c384' class='xr-section-summary-in' type='checkbox'  checked><label for='section-53720a72-9745-42a3-8fab-e4722439c384' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>row</span></div><div class='xr-var-dims'>(row)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2</div><input id='attrs-987c1254-ec31-4ccc-bbc2-c567a29a7fa7' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-987c1254-ec31-4ccc-bbc2-c567a29a7fa7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0bd5f288-1c2c-4c24-9d38-1bee7f67dc2c' class='xr-var-data-in' type='checkbox'><label for='data-0bd5f288-1c2c-4c24-9d38-1bee7f67dc2c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 2])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-84a289c7-be6e-42c0-b57e-146ccc86142a' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-84a289c7-be6e-42c0-b57e-146ccc86142a' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+  * row      (row) int64 0 1 2</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>row</span>: 3</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-1c0fe8f5-c9e9-4988-b1b8-03c317be3e2d' class='xr-array-in' type='checkbox' checked><label for='section-1c0fe8f5-c9e9-4988-b1b8-03c317be3e2d' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0 1 2</span></div><div class='xr-array-data'><pre>array([0, 1, 2])</pre></div></div></li><li class='xr-section-item'><input id='section-0e738958-8be7-4362-b6e8-51d3412f16f8' class='xr-section-summary-in' type='checkbox'  checked><label for='section-0e738958-8be7-4362-b6e8-51d3412f16f8' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>row</span></div><div class='xr-var-dims'>(row)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2</div><input id='attrs-9b83f77f-23a2-40ec-ac45-b8fd36f2a30b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-9b83f77f-23a2-40ec-ac45-b8fd36f2a30b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c600020e-e587-42f2-807d-c0b4dd92e7f3' class='xr-var-data-in' type='checkbox'><label for='data-c600020e-e587-42f2-807d-c0b4dd92e7f3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 2])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-7f96ef93-d7a0-4f63-bb4c-6cb4911e9363' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-7f96ef93-d7a0-4f63-bb4c-6cb4911e9363' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1556,14 +1673,14 @@ array([[ 0,  1,  2],
        [30, 31, 32]])
 Coordinates:
   * col      (col) int64 0 10 20 30
-  * row      (row) int64 0 1 2</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>col</span>: 4</li><li><span class='xr-has-index'>row</span>: 3</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-5e60397a-6f5d-4039-97ee-649ea4b06469' class='xr-array-in' type='checkbox' checked><label for='section-5e60397a-6f5d-4039-97ee-649ea4b06469' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0 1 2 10 11 12 20 21 22 30 31 32</span></div><div class='xr-array-data'><pre>array([[ 0,  1,  2],
+  * row      (row) int64 0 1 2</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>col</span>: 4</li><li><span class='xr-has-index'>row</span>: 3</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-a907121c-5f14-4834-bbe4-96d4596ad3d1' class='xr-array-in' type='checkbox' checked><label for='section-a907121c-5f14-4834-bbe4-96d4596ad3d1' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0 1 2 10 11 12 20 21 22 30 31 32</span></div><div class='xr-array-data'><pre>array([[ 0,  1,  2],
        [10, 11, 12],
        [20, 21, 22],
-       [30, 31, 32]])</pre></div></div></li><li class='xr-section-item'><input id='section-56008ccb-9e2d-4f00-aaad-7654b0772928' class='xr-section-summary-in' type='checkbox'  checked><label for='section-56008ccb-9e2d-4f00-aaad-7654b0772928' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>col</span></div><div class='xr-var-dims'>(col)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 10 20 30</div><input id='attrs-6b7f65c2-8d94-4953-be0a-9cd5407dfedc' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6b7f65c2-8d94-4953-be0a-9cd5407dfedc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-03a1ba93-8296-4dee-a8ca-4ff3a71af54f' class='xr-var-data-in' type='checkbox'><label for='data-03a1ba93-8296-4dee-a8ca-4ff3a71af54f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 0, 10, 20, 30])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>row</span></div><div class='xr-var-dims'>(row)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2</div><input id='attrs-c48008b2-abca-43e6-99e4-ba669e4789ce' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-c48008b2-abca-43e6-99e4-ba669e4789ce' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4ede4967-e341-4562-a3d1-fc13a49833d2' class='xr-var-data-in' type='checkbox'><label for='data-4ede4967-e341-4562-a3d1-fc13a49833d2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 2])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-a8cb666c-0795-473a-a0b2-ab3e0153e938' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-a8cb666c-0795-473a-a0b2-ab3e0153e938' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+       [30, 31, 32]])</pre></div></div></li><li class='xr-section-item'><input id='section-a32344ee-c698-4f7d-8cb5-77b6d198dfac' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a32344ee-c698-4f7d-8cb5-77b6d198dfac' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>col</span></div><div class='xr-var-dims'>(col)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 10 20 30</div><input id='attrs-e93c323f-2d06-4c82-9fb1-d6c7d0a6ccb7' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-e93c323f-2d06-4c82-9fb1-d6c7d0a6ccb7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e9f3e205-6854-44fd-b71b-f356af995408' class='xr-var-data-in' type='checkbox'><label for='data-e9f3e205-6854-44fd-b71b-f356af995408' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 0, 10, 20, 30])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>row</span></div><div class='xr-var-dims'>(row)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2</div><input id='attrs-c0cbc101-6cb0-44ec-ade1-4d8589ad0a8e' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-c0cbc101-6cb0-44ec-ade1-4d8589ad0a8e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2565a195-a776-4145-8800-e2771d1871c0' class='xr-var-data-in' type='checkbox'><label for='data-2565a195-a776-4145-8800-e2771d1871c0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 2])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-42bf9593-fd46-452b-959d-0af22b4e4268' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-42bf9593-fd46-452b-959d-0af22b4e4268' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
-</div>
-<div class="section" id="id1">
-<h2><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/02.03-computation-on-arrays-ufuncs.html">Vectorisation</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id1">
+<h2><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/02.03-computation-on-arrays-ufuncs.html">Vectorisation</a><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>Vectorisation allows the code to operate on multiple array elements at once, rather than looping through them one at a time.</p>
 <p>NumPy has many functions already vectorised for you, which have been optimised in C (i.e., they’ve been statically typed and compiled).</p>
 <p>These are known as the universal functions (<a class="reference external" href="https://numpy.org/doc/stable/reference/ufuncs.html">ufuncs</a>).</p>
@@ -1584,7 +1701,7 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>186 ms ± 195 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>216 ms ± 864 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1597,7 +1714,7 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>636 µs ± 977 ns per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>699 µs ± 5.91 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -1610,7 +1727,7 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>652 µs ± 2.33 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>716 µs ± 9.48 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -1619,9 +1736,9 @@ Coordinates:
 <p class="admonition-title">Question 1</p>
 <p>If something doesn’t vary for a given loop, should it be inside or outside of that loop?</p>
 </div>
-</div>
-<div class="section" id="create-your-own-ufunc">
-<h2>Create your own ufunc<a class="headerlink" href="#create-your-own-ufunc" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="create-your-own-ufunc">
+<h2>Create your own ufunc<a class="headerlink" href="#create-your-own-ufunc" title="Permalink to this headline">#</a></h2>
 <p>You can vectorise any arbitrary Python function to a NumPy ufunc using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.vectorize.html"><code class="docutils literal notranslate"><span class="pre">np.vectorize</span></code></a>.</p>
 <p><em>Don’t worry about what this function does, just focus on the vectorisation bit.</em></p>
 <div class="cell docutils container">
@@ -1657,7 +1774,7 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.84 s ± 2.79 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.31 s ± 14.4 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1666,14 +1783,14 @@ Coordinates:
 <p class="admonition-title">Question 2</p>
 <p>Can you run the unvectorised <code class="docutils literal notranslate"><span class="pre">my_function</span></code> directly on the same inputs (i.e., all of x)?</p>
 </div>
-<div class="section" id="generalised-universal-functions-gufuncs">
-<h3>Generalised universal functions (<a class="reference external" href="https://numpy.org/doc/stable/reference/c-api/generalized-ufuncs.html">gufuncs</a>)<a class="headerlink" href="#generalised-universal-functions-gufuncs" title="Permalink to this headline">¶</a></h3>
+<section id="generalised-universal-functions-gufuncs">
+<h3>Generalised universal functions (<a class="reference external" href="https://numpy.org/doc/stable/reference/c-api/generalized-ufuncs.html">gufuncs</a>)<a class="headerlink" href="#generalised-universal-functions-gufuncs" title="Permalink to this headline">#</a></h3>
 <p>Whereas ufuncs apply the function element-by-element, the generalized version (gufuncs) supports “sub-array” by “sub-array” operations.</p>
 <p>Numba has a nice implementation of these, which we will explore in the next lesson.</p>
-</div>
-</div>
-<div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <div class="admonition-exercise-1 admonition">
 <p class="admonition-title">Exercise 1</p>
 <p>What is broadcasting?</p>
@@ -1709,7 +1826,7 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.54 s ± 3.78 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.97 s ± 2.26 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1718,12 +1835,12 @@ Coordinates:
 <p class="admonition-title">Exercise 4</p>
 <p>Create your own vectorised ufunc that calculates the cube root of an array over all elements.</p>
 </div>
-</div>
-<div class="section" id="solutions">
-<h2><a class="reference internal" href="07_solutions.html#vectorisation"><span class="std std-ref">Solutions</span></a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="key-points">
-<h2>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="solutions">
+<h2><a class="reference internal" href="07_solutions.html#vectorisation"><span class="std std-ref">Solutions</span></a><a class="headerlink" href="#solutions" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="key-points">
+<h2>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="contains-task-list simple">
@@ -1731,17 +1848,17 @@ Coordinates:
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Use vectorised functions where you can e.g., <a class="reference external" href="https://numpy.org/doc/stable/reference/ufuncs.html">NumPy ufuncs</a>.</em></p></li>
 </ul>
 </div>
-</div>
-<div class="section" id="further-information">
-<h2>Further information<a class="headerlink" href="#further-information" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="more-information">
-<h3>More information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="further-information">
+<h2>Further information<a class="headerlink" href="#further-information" title="Permalink to this headline">#</a></h2>
+<section id="more-information">
+<h3>More information<a class="headerlink" href="#more-information" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/special.html">Special ufuncs from SciPy</a></p></li>
 </ul>
-</div>
-<div class="section" id="other-options">
-<h3>Other options<a class="headerlink" href="#other-options" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="other-options">
+<h3>Other options<a class="headerlink" href="#other-options" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://xarray.pydata.org/en/v0.16.2/dask.html">Lazy loading</a> and <a class="reference external" href="https://tutorial.dask.org/01x_lazy.html">execution</a></p>
 <ul>
@@ -1750,9 +1867,9 @@ Coordinates:
 </ul>
 </li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1776,9 +1893,11 @@ Coordinates:
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="02_data_structures_algorithms_libraries.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1794,24 +1913,28 @@ Coordinates:
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Luke Conibear<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Luke Conibear<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

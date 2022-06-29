@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Data Structures, Algorithms, and Libraries &#8212; SWD6: High Performance Python</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -91,14 +105,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
-   SWD6: High Performance Python
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    SWD6: High Performance Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="00_overview.html">
    Overview
@@ -154,107 +169,209 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/02_data_structures_algorithms_libraries.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ARCTraining/swd6_hpp"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/ARCTraining/swd6_hpp/issues/new?title=Issue%20on%20page%20%2F02_data_structures_algorithms_libraries.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ARCTraining/swd6_hpp/master?urlpath=tree/docs/02_data_structures_algorithms_libraries.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ARCTraining/swd6_hpp/master?urlpath=tree/docs/02_data_structures_algorithms_libraries.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ARCTraining/swd6_hpp"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ARCTraining/swd6_hpp/issues/new?title=Issue%20on%20page%20%2F02_data_structures_algorithms_libraries.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/02_data_structures_algorithms_libraries.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#built-in-functions">
    Built-in functions
@@ -369,12 +486,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Data Structures, Algorithms, and Libraries</h1>
@@ -505,11 +621,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="data-structures-algorithms-and-libraries">
-<h1>Data Structures, Algorithms, and Libraries<a class="headerlink" href="#data-structures-algorithms-and-libraries" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="data-structures-algorithms-and-libraries">
+<h1>Data Structures, Algorithms, and Libraries<a class="headerlink" href="#data-structures-algorithms-and-libraries" title="Permalink to this headline">#</a></h1>
 <p><a class="reference external" href="https://colab.research.google.com/github/ARCTraining/swd6_hpp/blob/master/docs/02_data_structures_algorithms_libraries.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -543,10 +660,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p>And lots more.</p>
 <p>They are optimised in C (statically typed and compiled). Hence, they’re often faster than reimplementing them yourself.</p>
 <p>They provide standardized solutions for many problems that occur in everyday programming.</p>
-<div class="section" id="built-in-functions">
-<h2><a class="reference external" href="https://docs.python.org/3/library/functions.html">Built-in functions</a><a class="headerlink" href="#built-in-functions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="len">
-<h3><a class="reference external" href="https://docs.python.org/3/library/functions.html#len"><code class="docutils literal notranslate"><span class="pre">len</span></code></a><a class="headerlink" href="#len" title="Permalink to this headline">¶</a></h3>
+<section id="built-in-functions">
+<h2><a class="reference external" href="https://docs.python.org/3/library/functions.html">Built-in functions</a><a class="headerlink" href="#built-in-functions" title="Permalink to this headline">#</a></h2>
+<section id="len">
+<h3><a class="reference external" href="https://docs.python.org/3/library/functions.html#len"><code class="docutils literal notranslate"><span class="pre">len</span></code></a><a class="headerlink" href="#len" title="Permalink to this headline">#</a></h3>
 <p>Return the length (the number of items) of an object. The argument may be a sequence (e.g., list) or a collection (e.g., dictionary).</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -569,7 +686,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>34 ms ± 501 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32.9 ms ± 242 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -582,17 +699,17 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50.8 ns ± 1.09 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>61.3 ns ± 0.651 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="data-types-structures">
-<h2><a class="reference external" href="https://docs.python.org/3/library/datatypes.html">Data types/structures</a><a class="headerlink" href="#data-types-structures" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="lists">
-<h3><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">Lists</a><a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="data-types-structures">
+<h2><a class="reference external" href="https://docs.python.org/3/library/datatypes.html">Data types/structures</a><a class="headerlink" href="#data-types-structures" title="Permalink to this headline">#</a></h2>
+<section id="lists">
+<h3><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">Lists</a><a class="headerlink" href="#lists" title="Permalink to this headline">#</a></h3>
 <p>A sequence of objects.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -609,7 +726,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>72.2 µs ± 31.8 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>83.7 µs ± 114 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -624,14 +741,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>43.2 µs ± 17.4 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>48.7 µs ± 27.2 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="dictionaries">
-<h3><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Dictionaries</a><a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="dictionaries">
+<h3><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Dictionaries</a><a class="headerlink" href="#dictionaries" title="Permalink to this headline">#</a></h3>
 <p>A set of key: value pairs, where the keys are unique and immutable indicies.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -665,7 +782,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.24 ms ± 444 ns per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.26 ms ± 2.93 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -681,7 +798,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>205 ns ± 0.724 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>203 ns ± 0.634 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -712,7 +829,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.57 ms ± 311 ns per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.55 ms ± 1.15 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -738,7 +855,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.84 µs ± 14.1 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.46 µs ± 10.8 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -752,12 +869,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><code class="docutils literal notranslate"><span class="pre">np.float64</span></code></p></li>
 </ul>
 </div>
-</div>
-</div>
-<div class="section" id="modules">
-<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="math">
-<h3><a class="reference external" href="https://docs.python.org/3/library/math.html"><code class="docutils literal notranslate"><span class="pre">math</span></code></a><a class="headerlink" href="#math" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">#</a></h2>
+<section id="math">
+<h3><a class="reference external" href="https://docs.python.org/3/library/math.html"><code class="docutils literal notranslate"><span class="pre">math</span></code></a><a class="headerlink" href="#math" title="Permalink to this headline">#</a></h3>
 <p>This module provides access to the mathematical functions.</p>
 <p>So, you could create your own function to calculate the hypotenuse of a triangle:</p>
 <div class="cell docutils container">
@@ -780,7 +897,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>470 ns ± 1.11 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>494 ns ± 4.11 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -800,20 +917,20 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>88.7 ns ± 0.244 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>86.8 ns ± 1.11 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="algorithms">
-<h2>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="algorithms">
+<h2>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">#</a></h2>
 <p>An algortihm is the instructions (/ recipe) to solve the problem.</p>
 <p>Many existing libraries are already optimised (computationally and algorithmically).</p>
 <p>For example, the <a class="reference external" href="https://github.com/keon/algorithms"><code class="docutils literal notranslate"><span class="pre">algorithm</span></code></a> library has minimal examples of data structures and algorithms in Python e.g., breadth first search, depth first search, linked lists, etc.</p>
-<div class="section" id="sorting">
-<h3><a class="reference external" href="https://en.wikipedia.org/wiki/Sorting_algorithm">Sorting</a><a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h3>
+<section id="sorting">
+<h3><a class="reference external" href="https://en.wikipedia.org/wiki/Sorting_algorithm">Sorting</a><a class="headerlink" href="#sorting" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unsorted_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1_000</span><span class="p">)</span>
@@ -821,8 +938,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="selection-sort">
-<h4><a class="reference external" href="https://en.wikipedia.org/wiki/Selection_sort">Selection sort</a><a class="headerlink" href="#selection-sort" title="Permalink to this headline">¶</a></h4>
+<section id="selection-sort">
+<h4><a class="reference external" href="https://en.wikipedia.org/wiki/Selection_sort">Selection sort</a><a class="headerlink" href="#selection-sort" title="Permalink to this headline">#</a></h4>
 <p><em>Time O(n^2), space O(1)</em></p>
 <ol class="simple">
 <li><p>Have two arrays: one unsorted (original) and one sorted (can do in place to avoid extra memory).</p></li>
@@ -843,14 +960,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100 ms ± 1.66 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>101 ms ± 183 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="merge-sort">
-<h4><a class="reference external" href="https://en.wikipedia.org/wiki/Merge_sort">Merge sort</a><a class="headerlink" href="#merge-sort" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="merge-sort">
+<h4><a class="reference external" href="https://en.wikipedia.org/wiki/Merge_sort">Merge sort</a><a class="headerlink" href="#merge-sort" title="Permalink to this headline">#</a></h4>
 <p><em>Time O(nlgn), space O(n or nlgn, depending on implementation)</em></p>
 <ol class="simple">
 <li><p>Divide the array in half.</p></li>
@@ -873,14 +990,14 @@ c. Repeat b, all the way up for this half.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.75 ms ± 6.11 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.31 ms ± 1.91 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="timsort">
-<h4><a class="reference external" href="https://en.wikipedia.org/wiki/Timsort">Timsort</a><a class="headerlink" href="#timsort" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="timsort">
+<h4><a class="reference external" href="https://en.wikipedia.org/wiki/Timsort">Timsort</a><a class="headerlink" href="#timsort" title="Permalink to this headline">#</a></h4>
 <p><em>Time O(nlgn = worst case, n = best case), space O(n)</em></p>
 <ul class="simple">
 <li><p>Timsort is the default implementation of sorting in Python.</p></li>
@@ -901,7 +1018,7 @@ c. Repeat b, all the way up for this half.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>55.7 µs ± 17.5 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>63.3 µs ± 24.3 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -917,16 +1034,16 @@ c. Repeat b, all the way up for this half.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.25 µs ± 5.48 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.91 µs ± 3.35 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <div class="admonition-exercise-1 admonition">
 <p class="admonition-title">Exercise 1</p>
 <p>What data structure would be suitable for finding or removing duplicate values?</p>
@@ -943,12 +1060,12 @@ d. Set</p>
 <p>In the exercise from the profiling lesson, we saw an example of <code class="docutils literal notranslate"><span class="pre">two_sum</span></code> i.e., finding two numbers from an array of unique integers that add up to a target sum.</p>
 <p>What would be a good approach for generalising this sum of two numbers to three, four, or n numbers?</p>
 </div>
-</div>
-<div class="section" id="solutions">
-<h2><a class="reference internal" href="07_solutions.html#data-structures-and-algorithms"><span class="std std-ref">Solutions</span></a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="key-points">
-<h2>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="solutions">
+<h2><a class="reference internal" href="07_solutions.html#data-structures-and-algorithms"><span class="std std-ref">Solutions</span></a><a class="headerlink" href="#solutions" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="key-points">
+<h2>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="contains-task-list simple">
@@ -958,11 +1075,11 @@ d. Set</p>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>See whether there is an algorithm or library that already optimally solves your problem e.g., faster sorting algorithms</em>.</p></li>
 </ul>
 </div>
-</div>
-<div class="section" id="further-information">
-<h2>Further information<a class="headerlink" href="#further-information" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="other-options">
-<h3>Other options<a class="headerlink" href="#other-options" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="further-information">
+<h2>Further information<a class="headerlink" href="#further-information" title="Permalink to this headline">#</a></h2>
+<section id="other-options">
+<h3>Other options<a class="headerlink" href="#other-options" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://realpython.com/introduction-to-python-generators/">Generators</a> save memory by yielding only the next iteration.</p></li>
 <li><p>For NetCDFs, using <a class="reference external" href="https://github.com/shoyer/h5netcdf"><code class="docutils literal notranslate"><span class="pre">engine='h5netcdf'</span></code></a> with <code class="docutils literal notranslate"><span class="pre">xarray</span></code> can be faster, over than the default <a class="reference external" href="https://github.com/Unidata/netcdf4-python"><code class="docutils literal notranslate"><span class="pre">engine='netcdf4'</span></code></a>.</p></li>
@@ -993,16 +1110,16 @@ d. Set</p>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="resources">
-<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>MIT 6.006 ‘<em>Introduction to Algorithms</em>’, 2011: <a class="reference external" href="https://youtube.com/playlist?list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb">video lectures</a></p></li>
 <li><p><a class="reference external" href="https://leetcode.com">LeetCode</a>, <a class="reference external" href="https://www.algoexpert.io/product">AlgoExpert</a></p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1026,9 +1143,11 @@ d. Set</p>
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="01_profiling.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1044,24 +1163,28 @@ d. Set</p>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Luke Conibear<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Luke Conibear<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>GPUs &#8212; SWD6: High Performance Python</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -91,14 +105,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
-   SWD6: High Performance Python
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    SWD6: High Performance Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="00_overview.html">
    Overview
@@ -154,107 +169,209 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/06_GPUs.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ARCTraining/swd6_hpp"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/ARCTraining/swd6_hpp/issues/new?title=Issue%20on%20page%20%2F06_GPUs.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ARCTraining/swd6_hpp/master?urlpath=tree/docs/06_GPUs.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ARCTraining/swd6_hpp/master?urlpath=tree/docs/06_GPUs.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ARCTraining/swd6_hpp"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ARCTraining/swd6_hpp/issues/new?title=Issue%20on%20page%20%2F06_GPUs.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/06_GPUs.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#numba-for-cuda-gpus">
    Numba for CUDA GPUs
@@ -367,12 +484,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>GPUs</h1>
@@ -501,11 +617,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="gpus">
-<h1>GPUs<a class="headerlink" href="#gpus" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="gpus">
+<h1>GPUs<a class="headerlink" href="#gpus" title="Permalink to this headline">#</a></h1>
 <p><a class="reference external" href="https://colab.research.google.com/github/ARCTraining/swd6_hpp/blob/master/docs/06_GPUs.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -516,8 +633,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Originally, GPUs handled computer graphics. However, they are now used to do a wide range of computations too. Hence, the term <a class="reference external" href="https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units">General Purpose GPU (GPGPU)</a>.</p>
 <p>GPU hardware is designed for data parallelism, where high throughputs are achieved when the GPU is computing the same operations on many different elements at once.</p>
 <p>You could use other <a class="reference external" href="https://en.wikipedia.org/wiki/Hardware_acceleration">types of accelerators</a> too, though we’re not going to cover those here.</p>
-<div class="section" id="numba-for-cuda-gpus">
-<h2><a class="reference external" href="http://numba.pydata.org/numba-doc/latest/cuda/index.html">Numba for CUDA GPUs</a><a class="headerlink" href="#numba-for-cuda-gpus" title="Permalink to this headline">¶</a></h2>
+<section id="numba-for-cuda-gpus">
+<h2><a class="reference external" href="http://numba.pydata.org/numba-doc/latest/cuda/index.html">Numba for CUDA GPUs</a><a class="headerlink" href="#numba-for-cuda-gpus" title="Permalink to this headline">#</a></h2>
 <p>Earlier we covered how Numba works on single CPUs with <a class="reference external" href="https://numba.readthedocs.io/en/stable/glossary.html#term-nopython-mode"><code class="docutils literal notranslate"><span class="pre">&#64;njit</span></code></a> and multiple CPUs with <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p>
 <p>As a recap:</p>
 <div class="cell docutils container">
@@ -553,7 +670,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>246 ms ± 1.71 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>290 ms ± 766 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -576,7 +693,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>141 ms ± 516 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>149 ms ± 405 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -586,8 +703,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Here we used <code class="docutils literal notranslate"><span class="pre">njit</span></code> as this automates the parallelisation process.</p>
 <p>This is in contrast to <code class="docutils literal notranslate"><span class="pre">vectorize</span></code> where manual effort is required for parallelisation.</p>
 </div>
-<div class="section" id="vectorize-for-gpus">
-<h3><code class="docutils literal notranslate"><span class="pre">vectorize</span></code> for GPUs<a class="headerlink" href="#vectorize-for-gpus" title="Permalink to this headline">¶</a></h3>
+<section id="vectorize-for-gpus">
+<h3><code class="docutils literal notranslate"><span class="pre">vectorize</span></code> for GPUs<a class="headerlink" href="#vectorize-for-gpus" title="Permalink to this headline">#</a></h3>
 <p>Numba also works on <a class="reference external" href="https://developer.nvidia.com/how-to-cuda-python">CUDA</a> GPUs using <a class="reference external" href="https://numba.pydata.org/numba-doc/latest/user/vectorize.html"><code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code></a> or <a class="reference external" href="https://numba.readthedocs.io/en/stable/cuda/kernels.html"><code class="docutils literal notranslate"><span class="pre">&#64;cuda.jit</span></code></a>.</p>
 <p>This is suitable for bigger data sizes (&gt; 1 MB) and high compute intensities.</p>
 <p>This adds additional overhead due to moving data to and from GPUs (<a class="reference external" href="https://numba.pydata.org/numba-doc/dev/cuda/memory.html">memory management</a>).</p>
@@ -631,9 +748,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Numba also supports generalized ufuncs (covered in the compiler lesson) on the GPU using <a class="reference external" href="http://numba.pydata.org/numba-doc/latest/cuda/ufunc.html#generalized-cuda-ufuncs"><code class="docutils literal notranslate"><span class="pre">guvectorize</span></code></a>.</p>
-</div>
-<div class="section" id="custom-cuda-kernels">
-<h3>Custom CUDA kernels<a class="headerlink" href="#custom-cuda-kernels" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="custom-cuda-kernels">
+<h3>Custom CUDA kernels<a class="headerlink" href="#custom-cuda-kernels" title="Permalink to this headline">#</a></h3>
 <p>Kernel functions are GPU functions called from CPU code.</p>
 <p>Kernels cannot explicitly return a value. Instead, all result data must be written to an array passed to the function (e.g., called <code class="docutils literal notranslate"><span class="pre">out</span></code>). This array can then be transferred back to the CPU.</p>
 <p>Kernels work over a grid of threads. This grid needs to be defined in terms of the number of blocks in the grid and the number of threads per block. The indices of this grid are used to add values to the <code class="docutils literal notranslate"><span class="pre">out</span></code> array. The indices can be found using <a class="reference external" href="https://numba.pydata.org/numba-doc/dev/cuda-reference/kernel.html#numba.cuda.grid"><code class="docutils literal notranslate"><span class="pre">cuda.grid()</span></code></a>.</p>
@@ -765,10 +882,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="rapids">
-<h2><a class="reference external" href="https://developer.nvidia.com/rapids">RAPIDS</a><a class="headerlink" href="#rapids" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="rapids">
+<h2><a class="reference external" href="https://developer.nvidia.com/rapids">RAPIDS</a><a class="headerlink" href="#rapids" title="Permalink to this headline">#</a></h2>
 <p>RAPIDS is a range of accelerated data science libraries from NVIDIA.</p>
 <p>There are a wide variety of tools matching up to familiar libraries:</p>
 <ul class="simple">
@@ -800,8 +917,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-<div class="section" id="cupy">
-<h3><a class="reference external" href="https://cupy.dev/">cuPy</a><a class="headerlink" href="#cupy" title="Permalink to this headline">¶</a></h3>
+<section id="cupy">
+<h3><a class="reference external" href="https://cupy.dev/">cuPy</a><a class="headerlink" href="#cupy" title="Permalink to this headline">#</a></h3>
 <p><strong>NumPy for the CPU</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -826,7 +943,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.7 ms ± 41.8 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.7 ms ± 96.6 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
@@ -874,19 +991,19 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="simple">
 <li><p>NVIDIA workshop on <a class="reference external" href="https://www.nvidia.com/en-us/training/instructor-led-workshops/fundamentals-of-accelerated-data-science/">Fundamentals of Accelerated Data Science (RAPIDS)</a>.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="diagnostics">
-<h2>Diagnostics<a class="headerlink" href="#diagnostics" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="diagnostics">
+<h2>Diagnostics<a class="headerlink" href="#diagnostics" title="Permalink to this headline">#</a></h2>
 <p>Similar to the Dask Dashboard, NVIDIA has a GPU Dashboard called <a class="reference external" href="https://github.com/rapidsai/jupyterlab-nvdashboard"><code class="docutils literal notranslate"><span class="pre">NVDashboard</span></code></a>.</p>
 <p>These real-time diagnostics are provided via a Bokeh server and a Jupyter Lab extension.</p>
 <p>They are a great way to manage your GPU utilisation, resources, throughput, and more.</p>
 <p>More information is <a class="reference external" href="https://developer.nvidia.com/blog/gpu-dashboards-in-jupyter-lab/">here</a>.</p>
 <p><img alt="SegmentLocal" src="_images/NVIDIA_GPUDashboard.gif" /></p>
 <p><em><a class="reference external" href="https://developer.nvidia.com/blog/gpu-dashboards-in-jupyter-lab/">Image source</a></em></p>
-</div>
-<div class="section" id="jax">
-<h2><a class="reference external" href="https://jax.readthedocs.io/en/latest/index.html">JAX</a><a class="headerlink" href="#jax" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="jax">
+<h2><a class="reference external" href="https://jax.readthedocs.io/en/latest/index.html">JAX</a><a class="headerlink" href="#jax" title="Permalink to this headline">#</a></h2>
 <p>JAX enables:</p>
 <ul class="simple">
 <li><p>NumPy on the CPU and GPU (via <a class="reference external" href="https://www.tensorflow.org/xla">XLA, Accelerated Linear Algebra</a>, a compiler for linear algebra).</p></li>
@@ -894,8 +1011,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.jit.html#jax.jit"><code class="docutils literal notranslate"><span class="pre">Jit</span></code></a> compiler to speed up code.</p></li>
 <li><p>Automatic vectorisation through <a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.vmap.html#jax.vmap"><code class="docutils literal notranslate"><span class="pre">vmap</span></code></a>.</p></li>
 </ul>
-<div class="section" id="jax-can-replace-numpy-for-gpus">
-<h3>JAX can replace NumPy for GPUs<a class="headerlink" href="#jax-can-replace-numpy-for-gpus" title="Permalink to this headline">¶</a></h3>
+<section id="jax-can-replace-numpy-for-gpus">
+<h3>JAX can replace NumPy for GPUs<a class="headerlink" href="#jax-can-replace-numpy-for-gpus" title="Permalink to this headline">#</a></h3>
 <p>If it can’t find a GPU, then it will fall back to the CPU.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1019,7 +1136,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>222 ms ± 2.24 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>226 ms ± 2.88 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1031,7 +1148,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>198 ms ± 3.63 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>201 ms ± 2.08 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1059,15 +1176,15 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 ms ± 2.07 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>202 ms ± 1.55 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
 </div>
 <p>In general, the speed comparison between JAX and NumPy is complicated and depends on a variety of things (<a class="reference external" href="https://jax.readthedocs.io/en/latest/faq.html#faq-jax-vs-numpy">read more here</a>).</p>
-</div>
-<div class="section" id="jit-compiler">
-<h3><a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.jit.html#jax.jit"><code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code></a> compiler<a class="headerlink" href="#jit-compiler" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="jit-compiler">
+<h3><a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.jit.html#jax.jit"><code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code></a> compiler<a class="headerlink" href="#jit-compiler" title="Permalink to this headline">#</a></h3>
 <p>Let’s see an example of using the JAX <code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code> compiler to speed up a function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1100,7 +1217,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6 ms ± 6.35 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.75 ms ± 5.79 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -1121,7 +1238,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>31.7 ms ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36.9 ms ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1135,14 +1252,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>914 µs ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.04 ms ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="automatic-vectorisation-with-vmap">
-<h3>Automatic vectorisation with <a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.vmap.html#jax.vmap"><code class="docutils literal notranslate"><span class="pre">vmap()</span></code></a><a class="headerlink" href="#automatic-vectorisation-with-vmap" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="automatic-vectorisation-with-vmap">
+<h3>Automatic vectorisation with <a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.vmap.html#jax.vmap"><code class="docutils literal notranslate"><span class="pre">vmap()</span></code></a><a class="headerlink" href="#automatic-vectorisation-with-vmap" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">vmap</span></code> maps a function over array axes.</p>
 <p>This pushes the map loop lower down for better performance.</p>
 <p>Let’s see an example of multiplying a matrix by a batch of vectors (<em>don’t worry what this function does, just focus on the JAX bits</em>):</p>
@@ -1185,7 +1302,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.13 ms ± 1.46 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.03 ms ± 2.83 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -1206,7 +1323,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>450 µs ± 3.35 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>508 µs ± 3.83 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -1228,16 +1345,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26.6 µs ± 80.1 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>29 µs ± 357 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
 </pre></div>
 </div>
 </div>
 </div>
 <p>There is lots more useful information in the <a class="reference external" href="https://jax.readthedocs.io/en/latest/index.html">documentation</a>, such as <a class="reference external" href="https://jax.readthedocs.io/en/latest/jax-101/index.html">a range of tutorials</a>.</p>
-</div>
-</div>
-<div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
 <div class="admonition-exercise-1 admonition">
 <p class="admonition-title">Exercise 1</p>
 <p>In general, what kind of tasks are GPUs faster than CPUs for, and why?</p>
@@ -1264,31 +1381,31 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>JAX</p></li>
 </ul>
 </div>
-</div>
-<div class="section" id="solutions">
-<h2><a class="reference internal" href="07_solutions.html#gpus"><span class="std std-ref">Solutions</span></a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="key-points">
-<h2>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="solutions">
+<h2><a class="reference internal" href="07_solutions.html#gpus"><span class="std std-ref">Solutions</span></a><a class="headerlink" href="#solutions" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="key-points">
+<h2>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="contains-task-list simple">
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Use <a class="reference external" href="https://developer.nvidia.com/how-to-cuda-python">CUDA/Numba</a>, <a class="reference external" href="https://developer.nvidia.com/rapids">RAPIDS</a>, and <a class="reference external" href="https://jax.readthedocs.io/en/latest/index.html">JAX</a> to write custom data science code for CUDA GPUs.</em></p></li>
 </ul>
 </div>
-</div>
-<div class="section" id="further-information">
-<h2>Further information<a class="headerlink" href="#further-information" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="good-practises">
-<h3>Good practises<a class="headerlink" href="#good-practises" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="further-information">
+<h2>Further information<a class="headerlink" href="#further-information" title="Permalink to this headline">#</a></h2>
+<section id="good-practises">
+<h3>Good practises<a class="headerlink" href="#good-practises" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Test out ideas on CPUs first, before moving to expensive GPUs.</p></li>
 <li><p>Consider whether the calculation is worth the additional overhead of sending data to and from the GPU.</p></li>
 <li><p>Minimise data transfers between the host (CPU) and the device (GPU).</p></li>
 </ul>
-</div>
-<div class="section" id="other-options">
-<h3>Other options<a class="headerlink" href="#other-options" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="other-options">
+<h3>Other options<a class="headerlink" href="#other-options" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://documen.tician.de/pycuda/">pycuda</a></p>
 <ul>
@@ -1304,16 +1421,16 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li><p>Many libraries can use GPUs automatically if they can detect one e.g., <a class="reference external" href="https://www.tensorflow.org/install/gpu"><code class="docutils literal notranslate"><span class="pre">TensorFlow</span></code></a> and <a class="reference external" href="https://pytorch.org/docs/stable/notes/cuda.html"><code class="docutils literal notranslate"><span class="pre">PyTorch</span></code></a>.</p></li>
 </ul>
-</div>
-<div class="section" id="resources">
-<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=_AKDqw6li58">CuPy - Sean Farley</a>, PyBay 2019.</p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=lV7rtDW94do">cuDF - Mark Harris</a>, PyCon AU 2019.</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1337,9 +1454,11 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="05_parallelisation.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1355,24 +1474,28 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Luke Conibear<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Luke Conibear<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
