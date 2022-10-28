@@ -1,0 +1,27 @@
+name: swd6_hpp
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - dask-jobqueue
+  - numpy
+  - xarray
+  - jupyterlab
+  - numba
+  - matplotlib
+  - dask-mpi
+  - python=3.9
+  - cupy
+  - dask
+  - jupyter-book
+  - python-graphviz
+  - cudatoolkit
+  - pip
+  - pip:
+    - algorithms
+    - eliot
+    - eliot-tree
+    - line-profiler
+    - pyinstrument
+    - ray
+    - snakeviz
