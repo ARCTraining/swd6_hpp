@@ -1,10 +1,6 @@
 # SWD6: High Performance Python
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6417586.svg)](https://doi.org/10.5281/zenodo.6417586)
-
 Booking for this course is through the IT Training Unit.  
-
-Click [here](https://uolr3.leeds.ac.uk/temcatsearch(bD1lbiZjPTUwMA==)/courses.htm?sap-params=Z2Rfa2V5d29yZHM9U1dEJTIwNiUzYSUyMEhpZ2glMjBQZXJmb3JtYW5jZSZnZF9zdHlwZT0mZ2RfdHV0b3I9TGFzdCUyMG5hbWUmZGF0ZTE9ZGQlMmZtbSUyZnl5eXkmZGF0ZTI9ZGQlMmZtbSUyZnl5eXkmZGF0ZTE9MDAuMDAuMDAwMCZkYXRlMj0wMC4wMC4wMDAwJnByb3ZpZGVybGlzdD0wJmFuZG9yPUFORCZzb3J0PUJFR0RBJmdkX2NhbGxpZD1JTklUSUFMJnN0eWxlPQ%3d%3d) to book.  
 
 ## Content
 
@@ -12,15 +8,18 @@ Over the past few years, Python and the wider Python ecosystem have become inval
 
 ## Objectives
 
-At the end of this workshop, learners will be able to:
+This year, we are running this workshop in two parts. The first part will focus on general concepts and examples of optimisation of python code, and the second part will focus on more specific tools, and application to high-performance computing (HPC) After the first part of this workshop, learners will be able to:
 
 1. [ ] Understand how to profile Python code and identify bottlenecks
 2. [ ] Understand how to choose the most appropriate data structure, algorithm, and libraries for a problem
-3. [ ] Improve the execution time of Python code using:  
-    - [ ] Vectorisation (with [NumPy](https://numpy.org/doc/stable/reference/ufuncs.html))  
-    - [ ] Compilers (with [Numba](http://numba.pydata.org/))  
-    - [ ] Parallelisation (with [Dask](https://docs.dask.org/en/latest/) and [Ray](https://www.ray.io/))  
-    - [ ] GPUs (with [JAX](https://jax.readthedocs.io/en/latest/index.html), [CUDA/Numba](https://developer.nvidia.com/how-to-cuda-python), and [RAPIDS](https://developer.nvidia.com/rapids))  
+3. [ ] Improve the execution time of Python code using vectorisation (with [NumPy](https://numpy.org/doc/stable/reference/ufuncs.html))  
+
+
+The second part of the course will explore further technologies and techniques, and their application on HPC:
+
+1. [ ] Compilers (with [Numba](http://numba.pydata.org/))  
+2. [ ] Parallelisation (with [Dask](https://docs.dask.org/en/latest/) and [Parsl](https://parsl-project.org/))  
+3. [ ] GPUs (with [JAX](https://jax.readthedocs.io/en/latest/index.html), [CUDA/Numba](https://developer.nvidia.com/how-to-cuda-python), and [RAPIDS](https://developer.nvidia.com/rapids))  
 4. [ ] Understand when to use each technique
 
 ## Prerequisites
