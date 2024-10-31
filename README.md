@@ -12,12 +12,13 @@ This year, we are running this workshop in two parts. The first part will focus 
 
 - [ ] Understand how to profile Python code and identify bottlenecks
 - [ ] Understand how to choose the most appropriate data structure, algorithm, and libraries for a problem
-- [ ] Improve the execution time of Python code using vectorisation (with [NumPy](https://numpy.org/doc/stable/reference/ufuncs.html))  
-
+- [ ] Improve the execution time of Python code using: 
+	- Vectorisation (with [NumPy](https://numpy.org/doc/stable/reference/ufuncs.html))  
+	- Compilers (with [Numba](http://numba.pydata.org/))
 
 The second part of the course will explore further technologies and techniques, and their application on HPC:
 
-- [ ] Compilers (with [Numba](http://numba.pydata.org/))  
+ 
 - [ ] Parallelisation (with [Dask](https://docs.dask.org/en/latest/) and [Parsl](https://parsl-project.org/))  
 - [ ] GPUs (with [JAX](https://jax.readthedocs.io/en/latest/index.html), [CUDA/Numba](https://developer.nvidia.com/how-to-cuda-python), and [RAPIDS](https://developer.nvidia.com/rapids))  
 - [ ] Understanding when to use each technique
@@ -28,7 +29,7 @@ We recommend that attendees have a working knowledge of the Unix shell and are p
 
 ## Duration
 
-2 days
+2 half days
 
 ## Frequency
 
