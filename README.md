@@ -8,7 +8,7 @@ Over the past few years, Python and the wider Python ecosystem have become inval
 
 ## Objectives
 
-This year, we are running this workshop in two parts. The first part will focus on general concepts and examples of optimisation of python code, and the second part will focus on more specific tools, and application to high-performance computing (HPC) After the first part of this workshop, learners will be able to:
+This year, we are running this workshop in two parts. The first part will focus on general concepts and examples of optimisation of python code, and the second part will focus on more specific tools, and application to high-performance computing (HPC). After the first part of this workshop, learners will be able to:
 
 - [ ] Understand how to profile Python code and identify bottlenecks
 - [ ] Understand how to choose the most appropriate data structure, algorithm, and libraries for a problem
