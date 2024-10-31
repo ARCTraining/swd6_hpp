@@ -10,25 +10,25 @@ Over the past few years, Python and the wider Python ecosystem have become inval
 
 This year, we are running this workshop in two parts. The first part will focus on general concepts and examples of optimisation of python code, and the second part will focus on more specific tools, and application to high-performance computing (HPC) After the first part of this workshop, learners will be able to:
 
-1. [ ] Understand how to profile Python code and identify bottlenecks
-2. [ ] Understand how to choose the most appropriate data structure, algorithm, and libraries for a problem
-3. [ ] Improve the execution time of Python code using vectorisation (with [NumPy](https://numpy.org/doc/stable/reference/ufuncs.html))  
+[ ] Understand how to profile Python code and identify bottlenecks
+[ ] Understand how to choose the most appropriate data structure, algorithm, and libraries for a problem
+[ ] Improve the execution time of Python code using vectorisation (with [NumPy](https://numpy.org/doc/stable/reference/ufuncs.html))  
 
 
 The second part of the course will explore further technologies and techniques, and their application on HPC:
 
-1. [ ] Compilers (with [Numba](http://numba.pydata.org/))  
-2. [ ] Parallelisation (with [Dask](https://docs.dask.org/en/latest/) and [Parsl](https://parsl-project.org/))  
-3. [ ] GPUs (with [JAX](https://jax.readthedocs.io/en/latest/index.html), [CUDA/Numba](https://developer.nvidia.com/how-to-cuda-python), and [RAPIDS](https://developer.nvidia.com/rapids))  
-4. [ ] Understand when to use each technique
+[ ] Compilers (with [Numba](http://numba.pydata.org/))  
+[ ] Parallelisation (with [Dask](https://docs.dask.org/en/latest/) and [Parsl](https://parsl-project.org/))  
+[ ] GPUs (with [JAX](https://jax.readthedocs.io/en/latest/index.html), [CUDA/Numba](https://developer.nvidia.com/how-to-cuda-python), and [RAPIDS](https://developer.nvidia.com/rapids))  
+[ ] Understanding when to use each technique
 
 ## Prerequisites
 
-We recommend that attendees have a working knowledge of the Unix shell (although this is not essential) and are proficient Python programmers. If you need to learn how to program in Python, please attend [SWD1a: Introduction to Python programming](https://arc.leeds.ac.uk/training/courses/swd1a/). It is strongly recommended that you bring your own laptop to this workshop with some specific software installed. Further information will be provided when you are accepted onto the course.
+We recommend that attendees have a working knowledge of the Unix shell and are proficient Python programmers. If you need to learn how to program in Python, please attend [SWD1a: Introduction to Python programming](https://arc.leeds.ac.uk/training/courses/swd1a/). It is strongly recommended that you bring your own laptop to this workshop with some specific software installed. Further information will be provided when you are accepted onto the course.
 
 ## Duration
 
-1 day
+2 days
 
 ## Frequency
 
