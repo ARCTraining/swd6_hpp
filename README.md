@@ -10,17 +10,17 @@ Over the past few years, Python and the wider Python ecosystem have become inval
 
 This year, we are running this workshop in two parts. The first part will focus on general concepts and examples of optimisation of python code, and the second part will focus on more specific tools, and application to high-performance computing (HPC) After the first part of this workshop, learners will be able to:
 
-[ ] Understand how to profile Python code and identify bottlenecks
-[ ] Understand how to choose the most appropriate data structure, algorithm, and libraries for a problem
-[ ] Improve the execution time of Python code using vectorisation (with [NumPy](https://numpy.org/doc/stable/reference/ufuncs.html))  
+- [ ] Understand how to profile Python code and identify bottlenecks
+- [ ] Understand how to choose the most appropriate data structure, algorithm, and libraries for a problem
+- [ ] Improve the execution time of Python code using vectorisation (with [NumPy](https://numpy.org/doc/stable/reference/ufuncs.html))  
 
 
 The second part of the course will explore further technologies and techniques, and their application on HPC:
 
-[ ] Compilers (with [Numba](http://numba.pydata.org/))  
-[ ] Parallelisation (with [Dask](https://docs.dask.org/en/latest/) and [Parsl](https://parsl-project.org/))  
-[ ] GPUs (with [JAX](https://jax.readthedocs.io/en/latest/index.html), [CUDA/Numba](https://developer.nvidia.com/how-to-cuda-python), and [RAPIDS](https://developer.nvidia.com/rapids))  
-[ ] Understanding when to use each technique
+- [ ] Compilers (with [Numba](http://numba.pydata.org/))  
+- [ ] Parallelisation (with [Dask](https://docs.dask.org/en/latest/) and [Parsl](https://parsl-project.org/))  
+- [ ] GPUs (with [JAX](https://jax.readthedocs.io/en/latest/index.html), [CUDA/Numba](https://developer.nvidia.com/how-to-cuda-python), and [RAPIDS](https://developer.nvidia.com/rapids))  
+- [ ] Understanding when to use each technique
 
 ## Prerequisites
 
