@@ -12,7 +12,7 @@ In this online hands-on workshop you will have the opportunity to discover and g
 
 ## Objectives
 
-The workshop will introduce a number of ways to measure the efficiency of your code and improve it's speed of execution, including:
+The workshop will introduce a number of ways to measure the efficiency of your code and improve its speed of execution, including:
 
 - [ ] Choosing suitable data structures, algorithms and libraries
 - [ ] Profiling your code to discover what is slow or requires a lot of memory
