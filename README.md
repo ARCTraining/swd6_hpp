@@ -6,7 +6,7 @@ Booking for this course is through the IT Training Unit.
 
 Over the past few years, the Python language and the wider Python ecosystem have become invaluable tools in research computing and data analytics.
  
-Python is (for the most part) an interpreted language and can be slow, but depending on the application, there are ways to speed up Python code and take advantage of multi-core and distributed computational resources.
+Python is (mostly) an interpreted language and can be slow, but depending on the application, there are ways to speed up Python code and take advantage of multi-core and distributed computational resources.
 
 In this online hands-on workshop you will have the opportunity to discover and gain experience with some tools and techniques that can be used to improve the execution speed of your Python code.
 
