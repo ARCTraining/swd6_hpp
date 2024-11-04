@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -381,7 +381,7 @@
 <p class="admonition-title">2. Understand how to choose the most appropriate data structure, algorithm, and libraries for a problem</p>
 <ul class="contains-task-list simple">
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Make use of the built-in functions e.g, use <code class="docutils literal notranslate"><span class="pre">len</span></code> rather than counting the items in an object in a loop.</em></p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Use appropriate data structures e.g., append to lists rather than concatenating, use dictionaries as fast to search look-ups, cache results in dictionaries to reduce repeated calculations.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Use appropriate data structures e.g., append to lists rather than concatenating, use dictionaries as fast to search look-ups, cache results in dictionaries or tuples to reduce repeated calculations.</em></p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Make use of the standard library (optimised in C) e.g., the <code class="docutils literal notranslate"><span class="pre">math</span></code> module.</em></p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>See whether there is an algorithm or library that already optimally solves your problem e.g., faster sorting algorithms</em>.</p></li>
 </ul>
@@ -400,25 +400,6 @@
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Speed up numerical functions with the <a class="reference external" href="http://numba.pydata.org/">Numba</a> <code class="docutils literal notranslate"><span class="pre">&#64;njit</span></code> (nopython) compiler.</em></p></li>
 </ul>
 </li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> Parallelisation</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Use <a class="reference external" href="https://docs.dask.org/en/latest/">Dask</a> or <a class="reference external" href="https://www.ray.io/">Ray</a> to parallelise your numerical work.</em></p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Test locally (single machine) first before moving to a distributed machine (high-performance computer), ensuring that the code is parallelising correctly.</em></p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Use diagnostics to understand your parallel code (e.g., Dask’s dashboard, <code class="docutils literal notranslate"><span class="pre">qacct</span></code>).</em></p></li>
-</ul>
-</li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> GPUs</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Use <a class="reference external" href="https://developer.nvidia.com/how-to-cuda-python">CUDA/Numba</a>, <a class="reference external" href="https://developer.nvidia.com/rapids">RAPIDS</a>, and <a class="reference external" href="https://jax.readthedocs.io/en/latest/index.html">JAX</a> to write custom data science code for CUDA GPUs.</em></p></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="admonition-understand-when-to-use-each-technique admonition">
-<p class="admonition-title">4. Understand when to use each technique</p>
-<ul class="contains-task-list simple">
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Try out, explore, and practise with these options for yourself.</em></p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Read the documentation for more information on things you’re interested in.</em></p></li>
 </ul>
 </div>
 </section>
