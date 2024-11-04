@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Overview &#8212; SWD6: High Performance Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '00_overview';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Profiling" href="01_profiling.html" />
+    <link rel="prev" title="SWD6: High Performance Python" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="SWD6: High Performance Python - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="SWD6: High Performance Python - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    SWD6: High Performance Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Overview</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_profiling.html">Profiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_data_structures_algorithms_libraries.html">Data Structures, Algorithms, and Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_vectorisation.html">Vectorisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_compilers.html">Compilers</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="08_summary.html">Summary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ARCTraining/swd6_hpp" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ARCTraining/swd6_hpp/issues/new?title=Issue%20on%20page%20%2F00_overview.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/00_overview.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Overview</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hang-on-don-t-optimise-too-early">Hang on, don’t optimise too early</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-fast-could-it-go">How fast could it go?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-follow-along">To follow along</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h1>
+<p>Python is great for many reasons including:</p>
+<ul class="simple">
+<li><p>High−level (so you can focus on your problem)</p></li>
+<li><p>Clean, readable, and efficient</p></li>
+<li><p>Easy and fun to learn</p></li>
+<li><p>Dynamic &amp; interactive</p></li>
+<li><p>Fast to write and test code</p></li>
+<li><p>Flexible</p></li>
+<li><p>Well supported</p></li>
+<li><p>Open source</p></li>
+<li><p>Vast range of libraries</p></li>
+</ul>
+<p>However, sometimes it can be slow. Often this isn’t an issue. When it is, however, it’s useful to know how to speed it up; that’s what this workshop is all about.</p>
+<section id="hang-on-don-t-optimise-too-early">
+<h2>Hang on, don’t optimise too early<a class="headerlink" href="#hang-on-don-t-optimise-too-early" title="Link to this heading">#</a></h2>
+<p>There are trade-offs when you pursue faster code. For example, it may become more complex, use more memory, or become less readable. This is in addition to the optimisation process taking time and effort. So, before jumping into optimising code, check that:</p>
+<ul class="simple">
+<li><p>Is the code complete and working?</p>
+<ul>
+<li><p>Have you tested it?</p></li>
+<li><p>Does it have documentation?</p></li>
+</ul>
+</li>
+<li><p>Is optimisation really needed?</p>
+<ul>
+<li><p>Have you profiled the code?</p></li>
+<li><p>If optimisation is needed, then first:</p>
+<ul>
+<li><p>Have you tried more suitable algorithms and data structures?</p></li>
+<li><p>Have you tried vectorisation?</p></li>
+<li><p>Have you tried compiling the code?</p></li>
+</ul>
+</li>
+<li><p>If that’s still not enough, then:</p>
+<ul>
+<li><p>Try parallelisation.</p></li>
+<li><p>Try offloading the work to accelerators.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><em>Plot idea from <a class="reference external" href="https://ml.dask.org/">Dask-ML</a>.</em></p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/4fdf1544a4285ce897dda57ec96f3e2eb3b44892df3868c7ff644a4edd833535.png" src="_images/4fdf1544a4285ce897dda57ec96f3e2eb3b44892df3868c7ff644a4edd833535.png" />
+</div>
+</div>
+</section>
+<section id="how-fast-could-it-go">
+<h2>How fast could it go?<a class="headerlink" href="#how-fast-could-it-go" title="Link to this heading">#</a></h2>
+<p>It’s useful to know how code speed is measured. Miles per hour? Bits per second?</p>
+<p>The speed of code doesn’t have specific units like that. For one reason, this is because computers vary a lot.</p>
+<p>Instead, it’s normally measured in <em>order of operations (O) per element (n)</em>.</p>
+<ul class="simple">
+<li><p>This means how many operations are needed as the number the elements gets bigger.</p></li>
+<li><p>The order of operations is called <a class="reference external" href="https://www.bigocheatsheet.com/">Big O notation</a>.</p></li>
+<li><p>The operations are given as the largest order of a polynomial, ignoring any constants.</p>
+<ul>
+<li><p>For example, O(2n<sup>2</sup> + 3n) would just become O(n<sup>2</sup>).</p></li>
+</ul>
+</li>
+<li><p>This becomes important when the number of elements is large.</p></li>
+<li><p>It’s often measured for a typical case.</p></li>
+<li><p>Constant time means per machine operation.</p></li>
+</ul>
+<p>A nice example from <a class="reference external" href="https://www.youtube.com/watch?v=duvZ-2UK0fc">Ned Batchelder’s</a> PyCon talk is for counting beans in a jar.</p>
+<ul class="simple">
+<li><p><em>Method 1</em>: If you count each bean one by one as you pick it out of the jar, then this would be an O(n) time operation. So for a new jar of beans, you’ll have to repeat this operation for <em>every</em> bean in the jar. Think of making tally marks for each one.</p></li>
+<li><p><em>Method 2</em>: You have a label on the front of the jar, which tells you how many beans are in it. For this method, no matter how many beans are in there, the time of the operation stays the same at O(1).</p></li>
+</ul>
+<p><img alt="counting_beans.png" src="_images/counting_beans.png" /></p>
+<p>Memory is measured in the same way.</p>
+<p>Both of these two measurements together represent the <em>time-space complexity</em> of your code.</p>
+<p>You can compare the lines for the different time-space complexities on the plot below:</p>
+<p><em>Note, logs here are base 2.</em></p>
+<p><em>Plot idea from <a class="reference external" href="https://www.bigocheatsheet.com/">Big O Cheat Sheet</a></em>.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/83a92460e669ceba2ae2df69dad911adc28b4bdbae5df855fc26b68214e6ebd4.png" src="_images/83a92460e669ceba2ae2df69dad911adc28b4bdbae5df855fc26b68214e6ebd4.png" />
+</div>
+</div>
+</section>
+<section id="to-follow-along">
+<h2>To follow along<a class="headerlink" href="#to-follow-along" title="Link to this heading">#</a></h2>
+<p><strong>Option 1:</strong> (recommended) - Run on Google Colab</p>
+<ul class="simple">
+<li><p>Click on the Colab button within each Jupyter notebook to run there.</p></li>
+</ul>
+<p><strong>Option 2:</strong> - Run locally</p>
+<p>a. Clone this GitHub repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ARCTraining/swd6_hpp_interim.git
+<span class="nb">cd</span><span class="w"> </span>swd6_hpp_interim
+</pre></div>
+</div>
+<p>b. Copy this conda environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--file<span class="w"> </span>environment.yml
+conda<span class="w"> </span>activate<span class="w"> </span>swd6_hpp
+
+<span class="c1"># create the kernel for jupyter</span>
+python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--name<span class="w"> </span>swd6_hpp<span class="w"> </span>--display-name<span class="w"> </span><span class="s2">&quot;swd6_hpp&quot;</span>
+</pre></div>
+</div>
+<p>c. Open Jupyter Lab:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab
+</pre></div>
+</div>
+<p>Lessons have questions and exercises at the end.</p>
+<p>The solutions (and sometimes hints) to these are all in the <a class="reference internal" href="07_solutions.html#solutions"><span class="std std-ref">Solutions</span></a> page.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">SWD6: High Performance Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="01_profiling.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Profiling</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hang-on-don-t-optimise-too-early">Hang on, don’t optimise too early</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-fast-could-it-go">How fast could it go?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-follow-along">To follow along</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Luke Conibear
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
