@@ -633,7 +633,7 @@ d. Set</p>
 </div>
 <div class="admonition-question-2 admonition">
 <p class="admonition-title">Question 2</p>
-<p>Can you run the unvectorised <code class="docutils literal notranslate"><span class="pre">my_function</span></code> directly on the same inputs (i.e., all of x)?</p>
+<p>Is it possible to run the unvectorised <code class="docutils literal notranslate"><span class="pre">my_function</span></code> directly on the same inputs (i.e., all of x)?</p>
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution 2</p>
@@ -641,6 +641,9 @@ d. Set</p>
 <p>As the function has not yet been vectorised, it cannot operate across arrays with more than 1 element.</p>
 <p>To check that it does work for 1 element, you could try:<br />
 <code class="docutils literal notranslate"><span class="pre">my_function(x[0],</span> <span class="pre">mean,</span> <span class="pre">sigma)</span></code></p>
+<p>or to run it in a loop:</p>
+<p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">val</span> <span class="pre">in</span> <span class="pre">x:</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160; <span class="pre">my_function(val,</span> <span class="pre">mean,</span> <span class="pre">sigma)</span></code></p>
 </div>
 </section>
 <section id="id6">
@@ -688,7 +691,7 @@ d. Set</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.04 s ± 13.3 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>911 ms ± 6.67 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
