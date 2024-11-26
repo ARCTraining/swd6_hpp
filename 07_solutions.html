@@ -1,110 +1,165 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Solutions &#8212; SWD6: High Performance Python</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '07_solutions';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Summary" href="08_summary.html" />
-    <link rel="prev" title="GPUs" href="06_GPUs.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
     
-    <div class="container-fluid" id="banner"></div>
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
 
-    
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
         
       
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
       
-      <img src="_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">SWD6: High Performance Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="SWD6: High Performance Python - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="SWD6: High Performance Python - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -113,484 +168,238 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00_overview.html">
-   Overview
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="01_profiling.html">
-     Profiling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_data_structures_algorithms_libraries.html">
-     Data Structures, Algorithms, and Libraries
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_vectorisation.html">
-     Vectorisation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_compilers.html">
-     Compilers
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_parallelisation.html">
-     Parallelisation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="06_GPUs.html">
-     GPUs
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Solutions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="08_summary.html">
-   Summary
-  </a>
- </li>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="00_overview.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_profiling.html">Profiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_data_structures_algorithms_libraries.html">Data Structures, Algorithms, and Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_vectorisation.html">Vectorisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_compilers.html">Compilers</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="08_summary.html">Summary</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/ARCTraining/swd6_hpp/master?urlpath=tree/docs/07_solutions.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ARCTraining/swd6_hpp" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ARCTraining/swd6_hpp/issues/new?title=Issue%20on%20page%20%2F07_solutions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/07_solutions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/ARCTraining/swd6_hpp"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
 
-      </li>
-      
-      <li>
-        <a href="https://github.com/ARCTraining/swd6_hpp/issues/new?title=Issue%20on%20page%20%2F07_solutions.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/07_solutions.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
 </button>
 
-      </li>
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
       
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
+    </div>
   
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
-    </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#profiling">
-   Profiling
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercises">
-     Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-structures-algorithms-and-libraries">
-   Data Structures, Algorithms, and Libraries
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#questions">
-     Questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vectorisation">
-   Vectorisation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#compilers">
-   Compilers
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     Questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#parallelisation">
-   Parallelisation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     Questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
-     Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gpus">
-   GPUs
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id14">
-     Exercises
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Solutions</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#profiling">
-   Profiling
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercises">
-     Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-structures-algorithms-and-libraries">
-   Data Structures, Algorithms, and Libraries
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#questions">
-     Questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vectorisation">
-   Vectorisation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#compilers">
-   Compilers
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     Questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#parallelisation">
-   Parallelisation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     Questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
-     Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gpus">
-   GPUs
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id14">
-     Exercises
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Solutions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling">Profiling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structures-algorithms-and-libraries">Data Structures, Algorithms, and Libraries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorisation">Vectorisation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compilers">Compilers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Exercises</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="solutions">
-<span id="id1"></span><h1>Solutions<a class="headerlink" href="#solutions" title="Permalink to this headline">#</a></h1>
+<span id="id1"></span><h1>Solutions<a class="headerlink" href="#solutions" title="Link to this heading">#</a></h1>
 <section id="profiling">
-<span id="id2"></span><h2>Profiling<a class="headerlink" href="#profiling" title="Permalink to this headline">#</a></h2>
+<span id="id2"></span><h2>Profiling<a class="headerlink" href="#profiling" title="Link to this heading">#</a></h2>
 <section id="exercises">
-<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h3>
+<h3>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h3>
 <div class="admonition-exercise-1 admonition">
 <p class="admonition-title">Exercise 1</p>
 <p>What is profiling and why is it useful?</p>
@@ -662,7 +471,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">two_sum_brute_force</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A brute force approach to find two numbers from an array that add up to a target.</span>
 
 <span class="sd">    Steps</span>
@@ -686,7 +495,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">two_sum_cache</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Use caching to find two numbers from an array that add up to a target.</span>
 
 <span class="sd">    Steps</span>
@@ -734,9 +543,9 @@ title="Print to PDF"
 </section>
 </section>
 <section id="data-structures-algorithms-and-libraries">
-<span id="data-structures-and-algorithms"></span><h2>Data Structures, Algorithms, and Libraries<a class="headerlink" href="#data-structures-algorithms-and-libraries" title="Permalink to this headline">#</a></h2>
+<span id="data-structures-and-algorithms"></span><h2>Data Structures, Algorithms, and Libraries<a class="headerlink" href="#data-structures-algorithms-and-libraries" title="Link to this heading">#</a></h2>
 <section id="questions">
-<h3>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">#</a></h3>
+<h3>Questions<a class="headerlink" href="#questions" title="Link to this heading">#</a></h3>
 <div class="admonition-question-1 admonition">
 <p class="admonition-title">Question 1</p>
 <p>Which of the following uses less memory and how can you check?</p>
@@ -763,7 +572,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="id3">
-<h3>Exercises<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<h3>Exercises<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <div class="admonition-exercise-1 admonition">
 <p class="admonition-title">Exercise 1</p>
 <p>What data structure would be suitable for finding or removing duplicate values?</p>
@@ -808,9 +617,9 @@ d. Set</p>
 </section>
 </section>
 <section id="vectorisation">
-<span id="id4"></span><h2>Vectorisation<a class="headerlink" href="#vectorisation" title="Permalink to this headline">#</a></h2>
+<span id="id4"></span><h2>Vectorisation<a class="headerlink" href="#vectorisation" title="Link to this heading">#</a></h2>
 <section id="id5">
-<h3>Questions<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<h3>Questions<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <div class="admonition-question-1 admonition">
 <p class="admonition-title">Question 1</p>
 <p>If something doesn’t vary for a given loop, should it be inside or outside of that loop?</p>
@@ -824,7 +633,7 @@ d. Set</p>
 </div>
 <div class="admonition-question-2 admonition">
 <p class="admonition-title">Question 2</p>
-<p>Can you run the unvectorised <code class="docutils literal notranslate"><span class="pre">my_function</span></code> directly on the same inputs (i.e., all of x)?</p>
+<p>Is it possible to run the unvectorised <code class="docutils literal notranslate"><span class="pre">my_function</span></code> directly on the same inputs (i.e., all of x)?</p>
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution 2</p>
@@ -832,10 +641,13 @@ d. Set</p>
 <p>As the function has not yet been vectorised, it cannot operate across arrays with more than 1 element.</p>
 <p>To check that it does work for 1 element, you could try:<br />
 <code class="docutils literal notranslate"><span class="pre">my_function(x[0],</span> <span class="pre">mean,</span> <span class="pre">sigma)</span></code></p>
+<p>or to run it in a loop:</p>
+<p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">val</span> <span class="pre">in</span> <span class="pre">x:</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160; <span class="pre">my_function(val,</span> <span class="pre">mean,</span> <span class="pre">sigma)</span></code></p>
 </div>
 </section>
 <section id="id6">
-<h3>Exercises<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<h3>Exercises<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <div class="admonition-exercise-1 admonition">
 <p class="admonition-title">Exercise 1</p>
 <p>What is broadcasting?</p>
@@ -859,7 +671,7 @@ d. Set</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_reciprocals</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Divides 1 by an array of values.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">))</span>
@@ -879,7 +691,7 @@ d. Set</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.43 s ± 8.4 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.29 s ± 5.19 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -937,9 +749,9 @@ You could use the optimised ufuncs from NumPy or SciPy (recommended):</p>
 </section>
 </section>
 <section id="compilers">
-<span id="id7"></span><h2>Compilers<a class="headerlink" href="#compilers" title="Permalink to this headline">#</a></h2>
+<span id="id7"></span><h2>Compilers<a class="headerlink" href="#compilers" title="Link to this heading">#</a></h2>
 <section id="id8">
-<h3>Questions<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<h3>Questions<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <div class="admonition-question-1 admonition">
 <p class="admonition-title">Question 1</p>
 <p>For the function below (<code class="docutils literal notranslate"><span class="pre">fast_add</span></code>):</p>
@@ -958,7 +770,7 @@ You could use the optimised ufuncs from NumPy or SciPy (recommended):</p>
 </div>
 </section>
 <section id="id9">
-<h3>Exercises<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<h3>Exercises<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <div class="admonition-exercise-1 admonition">
 <p class="admonition-title">Exercise 1</p>
 <p>What is the default Python distribution?</p>
@@ -1022,423 +834,6 @@ You could use the optimised ufuncs from NumPy or SciPy (recommended):</p>
 </div>
 </section>
 </section>
-<section id="parallelisation">
-<span id="id10"></span><h2>Parallelisation<a class="headerlink" href="#parallelisation" title="Permalink to this headline">#</a></h2>
-<section id="id11">
-<h3>Questions<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
-<div class="admonition-question-1 admonition">
-<p class="admonition-title">Question 1</p>
-<p>What did our Dask Dashboard show?</p>
-</div>
-<div class="dropdown admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Look at the rectangles in the Task Stream.</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 1</p>
-<p>Our specific results show us that:</p>
-<ul class="simple">
-<li><p>All workers were full with numerical tasks (i.e., no white/red blocks).</p></li>
-<li><p>This utilises the CPU cores well.</p></li>
-<li><p>Also, the CPU percentage for the workers increased to ~100 % during the computation.</p></li>
-</ul>
-</div>
-<div class="admonition-question-2 admonition">
-<p class="admonition-title">Question 2</p>
-<p>How can we check that the job used the CPU cores efficiently?</p>
-</div>
-<div class="dropdown admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Use <a class="reference external" href="https://arcdocs.leeds.ac.uk/usage/troubleshooting.html#queue-accounting-data"><code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">JOBID</span></code></a> on the job.</p>
-<p>Then look at the time spent computing things (<code class="docutils literal notranslate"><span class="pre">cpu</span></code>) compared to the total time taken up (<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots</span></code>).</p>
-<p><code class="docutils literal notranslate"><span class="pre">slots</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">8</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">1102s</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">cpu</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">6623.054s</span></code></p>
-<p>What does this comparison tell us?</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 2</p>
-<p>After the job has finished, we can find information on the job using <code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">JOBID</span></code>, where <code class="docutils literal notranslate"><span class="pre">JOBID</span></code> is the unique ID for your job.</p>
-<p>The result is a large table of information. The important variables here are:</p>
-<p><code class="docutils literal notranslate"><span class="pre">slots</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">8</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">1102s</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">cpu</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">6623.054s</span></code></p>
-<p>We can calculate the efficiency of the job by dividing how long the cores were computing things (<code class="docutils literal notranslate"><span class="pre">cpu</span></code>) by the total amount of time they used up (<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots</span></code>). This efficiency should be as close to 100 % as possible.</p>
-<p>For example:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">cpu</span> <span class="pre">/</span> <span class="pre">(ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">6623</span> <span class="pre">/</span> <span class="pre">(1102</span> <span class="pre">*</span> <span class="pre">8)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">75</span> <span class="pre">%</span></code></p>
-<p>The efficiency here of 75 % is pretty good, though why is this not higher? The Task stream was full with computation the whole time, right?</p>
-<p>Well, the reason is because Dask’s scheduler and client are each pinned to their own process. This left only 6 workers for the computation. If we recalculate the efficiency without these 2 processes, then the difference is Dask’s overhead:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">6623</span> <span class="pre">/</span> <span class="pre">(1102</span> <span class="pre">*</span> <span class="pre">6)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">%</span></code></p>
-<p>Hence, the worker efficiency was approximately 100 %, while the overall efficiency with Dask’s overheads was 75 %. So, although Dask’s overheads were assigned a compute node each, they didn’t use up much of these resources (i.e., while they were managing the workers).</p>
-<p>It would be better if Dask’s overheads were run elsewhere (e.g., the login nodes), so the compute nodes only handled this efficient use of resources.</p>
-<p>This alternative does exist. It’s <code class="docutils literal notranslate"><span class="pre">Dask-Jobqueue</span></code> and we’re exploring that next.</p>
-</div>
-<div class="admonition-question-3 admonition">
-<p class="admonition-title">Question 3</p>
-<p>How well did this job use the resources (use the output from <code class="docutils literal notranslate"><span class="pre">qacct</span></code> below, which is from one of the workers)?</p>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ $ qacct -j <span class="nv">3526684</span>
-<span class="o">==============================================================</span>
-qname        feps-cpu.q          
-hostname     d13s0b1.arc4.leeds.ac.uk
-group        EAR                 
-owner        earlacoa            
-project      feps-cpu            
-department   defaultdepartment   
-jobname      dask-worker         
-jobnumber    <span class="m">3526684</span>             
-taskid       undefined
-account      sge                 
-priority     <span class="m">0</span>                   
-qsub_time    Fri Feb <span class="m">25</span> <span class="m">16</span>:25:14 <span class="m">2022</span>
-start_time   Fri Feb <span class="m">25</span> <span class="m">16</span>:25:35 <span class="m">2022</span>
-end_time     Fri Feb <span class="m">25</span> <span class="m">16</span>:38:21 <span class="m">2022</span>
-granted_pe   smp                 
-slots        <span class="m">1</span>                   
-failed       <span class="m">100</span> : assumedly after job
-exit_status  <span class="m">137</span>                  <span class="o">(</span>Killed<span class="o">)</span>
-ru_wallclock 766s
-ru_utime     <span class="m">0</span>.040s
-ru_stime     <span class="m">0</span>.045s
-ru_maxrss    <span class="m">4</span>.879KB
-ru_ixrss     <span class="m">0</span>.000B
-ru_ismrss    <span class="m">0</span>.000B
-ru_idrss     <span class="m">0</span>.000B
-ru_isrss     <span class="m">0</span>.000B
-ru_minflt    <span class="m">15248</span>               
-ru_majflt    <span class="m">0</span>                   
-ru_nswap     <span class="m">0</span>                   
-ru_inblock   <span class="m">0</span>                   
-ru_oublock   <span class="m">16</span>                  
-ru_msgsnd    <span class="m">0</span>                   
-ru_msgrcv    <span class="m">0</span>                   
-ru_nsignals  <span class="m">0</span>                   
-ru_nvcsw     <span class="m">208</span>                 
-ru_nivcsw    <span class="m">38</span>                  
-cpu          <span class="m">728</span>.840s
-mem          <span class="m">6</span>.774TBs
-io           <span class="m">43</span>.651MB
-iow          <span class="m">0</span>.000s
-maxvmem      <span class="m">18</span>.891GB
-arid         undefined
-ar_sub_time  undefined
-category     -U admiralty,feps-cpu,feps-gpu -l <span class="nv">disk</span><span class="o">=</span>48G,env<span class="o">=</span>centos7,h_rt<span class="o">=</span><span class="m">3600</span>,h_vmem<span class="o">=</span>48G,node_type<span class="o">=</span>40core-192G,project<span class="o">=</span>feps-cpu -pe smp <span class="m">1</span>
-</pre></div>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 3</p>
-<p>Instead of one big job with all the workers (as for Dask-MPI), Dask-Jobqueue submits individual workers.</p>
-<p>Similar to before (i.e., using <code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">JOBID</span></code>), we can check the efficiency of each of these individually.</p>
-<p>The results for each worker are:</p>
-<p><code class="docutils literal notranslate"><span class="pre">slots</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">1</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">766</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">cpu</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">728.840s</span></code></p>
-<p>Hence, the efficiency of each worker is:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">cpu</span> <span class="pre">/</span> <span class="pre">(ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">729</span> <span class="pre">/</span> <span class="pre">(766</span> <span class="pre">*</span> <span class="pre">1)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">95</span> <span class="pre">%</span></code></p>
-<p>This is a nice use of HPC resources.</p>
-</div>
-</section>
-<section id="id12">
-<h3>Exercises<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
-<div class="admonition-exercise-1 admonition">
-<p class="admonition-title">Exercise 1</p>
-<p>Why does parallelisation speed up code?</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 1</p>
-<p>Parallelisation divides a large problem into many smaller ones and solves them simultaneously.</p>
-<p>This divides up the time/space complexity.</p>
-</div>
-<div class="admonition-exercise-2 admonition">
-<p class="admonition-title">Exercise 2</p>
-<p>What are there multiple of to split the work over?</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 2</p>
-<ul class="simple">
-<li><p>Multiple processes</p></li>
-<li><p>Multiple threads</p></li>
-</ul>
-</div>
-<div class="admonition-exercise-3 admonition">
-<p class="admonition-title">Exercise 3</p>
-<p>If you need to share memory, would you use MPI or OpenMP?</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 3</p>
-<p>OpenMP is often suitable for shared memory problems.</p>
-</div>
-<div class="admonition-exercise-4 admonition">
-<p class="admonition-title">Exercise 4</p>
-<p>Which Dask library can be tailored to a variety of resource managers (e.g., SGE, SLURM)?</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 4</p>
-<p>Dask-Jobqueue</p>
-</div>
-<div class="admonition-exercise-5 admonition">
-<p class="admonition-title">Exercise 5</p>
-<p>Which is of the 3 examples below is most efficient and why?</p>
-<p><em>Note, the <code class="docutils literal notranslate"><span class="pre">chunks</span></code> keyword argument is the <strong>size</strong> of each chunk.</em></p>
-</div>
-<p><strong>Example 1:</strong> Many, small chunks.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">10_000_000</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">1_000</span><span class="p">,))</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
-</pre></div>
-</div>
-<p><strong>Example 2:</strong> Fewer, large chunks.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">10_000_000</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">100_000</span><span class="p">,))</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
-</pre></div>
-</div>
-<p><strong>Example 3:</strong> Use NumPy.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">10_000_000</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="dropdown admonition hint">
-<p class="admonition-title">Hint</p>
-<p>If you’re not in COLAB, then you could profile them with <code class="docutils literal notranslate"><span class="pre">%%timeit</span></code>.</p>
-<p>Otherwise, you could guess, thinking about overheads and chunks.</p>
-<p>Note, if you’ve closed the Dask client, you may need to restart it:</p>
-<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">dask.distributed</span> <span class="pre">import</span> <span class="pre">Client</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">client</span> <span class="pre">=</span> <span class="pre">Client()</span></code></p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 5</p>
-<p>Dask introduces overhead to parallelise work (i.e., the scheduler and client).</p>
-<p>Hence, Dask is inefficient (i.e., the workers are under-utilised) when doing lots of very small computations.</p>
-<p>Consider using <a class="reference external" href="https://docs.dask.org/en/stable/array-chunks.html">fewer, larger chunks</a> to reduce this overhead.</p>
-<p>Also, consider if parallelisation is really needed.</p>
-<p>For this example:</p>
-<p><strong>Example 1</strong>: Many, small chunks.<br />
-<code class="docutils literal notranslate"><span class="pre">%%timeit</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">da.random.random(10_000_000,</span> <span class="pre">chunks=(1_000,))</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x.sum().compute()</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">12.4</span> <span class="pre">s</span> <span class="pre">±</span> <span class="pre">2.04</span> <span class="pre">s</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">1</span> <span class="pre">loop</span> <span class="pre">each)</span></code></p>
-<p><strong>Example 2</strong>: Fewer, large chunks.<br />
-<code class="docutils literal notranslate"><span class="pre">%%timeit</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">da.random.random(10_000_000,</span> <span class="pre">chunks=(100_000,))</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x.sum().compute()</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">129</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">4.96</span> <span class="pre">ms</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">10</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
-<p>So, for this example fewer big chunks (each of size 100,000) improved things.</p>
-<p>There is a nice feature that let’s Dask <a class="reference external" href="https://docs.dask.org/en/stable/array-chunks.html#automatic-chunking">automatically decide on the chunk size</a>.</p>
-<p>This improves things further:<br />
-<code class="docutils literal notranslate"><span class="pre">%%timeit</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">da.random.random(10_000_000,</span> <span class="pre">chunks='auto')</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x.sum().compute()</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">71.6</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">868</span> <span class="pre">µs</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">10</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
-<p>However, compared to NumPy, Dask only makes things slower for this problem (due to its overheads).</p>
-<p><strong>Example 3:</strong> Use NumPy.<br />
-<code class="docutils literal notranslate"><span class="pre">%%timeit</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">np.random.random(10_000_000)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x.sum()</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">60</span> <span class="pre">ms</span> <span class="pre">±</span> <span class="pre">6.7</span> <span class="pre">ms</span> <span class="pre">per</span> <span class="pre">loop</span> <span class="pre">(mean</span> <span class="pre">±</span> <span class="pre">std.</span> <span class="pre">dev.</span> <span class="pre">of</span> <span class="pre">7</span> <span class="pre">runs,</span> <span class="pre">10</span> <span class="pre">loops</span> <span class="pre">each)</span></code></p>
-<p>This demonstrates that NumPy is already performant for some tasks, and that parallelisation is sometimes not needed.</p>
-</div>
-<div class="admonition-exercise-6 admonition">
-<p class="admonition-title">Exercise 6</p>
-<p>How well did the job below use the HPC resources?</p>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ qacct -j <span class="nv">3524073</span>
-<span class="o">==============================================================</span>
-qname        feps-cpu.q          
-hostname     d9s9b4.arc4.leeds.ac.uk
-group        EAR                 
-owner        earlacoa            
-project      feps-cpu            
-department   defaultdepartment   
-jobname      example_bodo_mpi_sge.bash
-jobnumber    <span class="m">3524073</span>             
-taskid       undefined
-account      sge                 
-priority     <span class="m">0</span>                   
-qsub_time    Thu Feb <span class="m">24</span> <span class="m">12</span>:48:24 <span class="m">2022</span>
-start_time   Thu Feb <span class="m">24</span> <span class="m">12</span>:48:34 <span class="m">2022</span>
-end_time     Thu Feb <span class="m">24</span> <span class="m">12</span>:48:55 <span class="m">2022</span>
-granted_pe   smp                 
-slots        <span class="m">8</span>                   
-failed       <span class="m">0</span>    
-exit_status  <span class="m">0</span>                   
-ru_wallclock 21s
-ru_utime     <span class="m">139</span>.030s
-ru_stime     <span class="m">7</span>.635s
-ru_maxrss    <span class="m">1</span>.687MB
-ru_ixrss     <span class="m">0</span>.000B
-ru_ismrss    <span class="m">0</span>.000B
-ru_idrss     <span class="m">0</span>.000B
-ru_isrss     <span class="m">0</span>.000B
-ru_minflt    <span class="m">764941</span>              
-ru_majflt    <span class="m">2</span>                   
-ru_nswap     <span class="m">0</span>                   
-ru_inblock   <span class="m">0</span>                   
-ru_oublock   <span class="m">80</span>                  
-ru_msgsnd    <span class="m">0</span>                   
-ru_msgrcv    <span class="m">0</span>                   
-ru_nsignals  <span class="m">0</span>                   
-ru_nvcsw     <span class="m">38884</span>               
-ru_nivcsw    <span class="m">665</span>                 
-cpu          <span class="m">146</span>.665s
-mem          <span class="m">112</span>.727GBs
-io           <span class="m">166</span>.518MB
-iow          <span class="m">0</span>.000s
-maxvmem      <span class="m">12</span>.973GB
-arid         undefined
-ar_sub_time  undefined
-category     -U admiralty,feps-cpu,feps-gpu -l <span class="nv">env</span><span class="o">=</span>centos7,h_rt<span class="o">=</span><span class="m">600</span>,h_vmem<span class="o">=</span>24G,node_type<span class="o">=</span>40core-192G,project<span class="o">=</span>feps-cpu -pe smp <span class="m">8</span>
-</pre></div>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 6</p>
-<p><code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">JOBID</span></code> tells us that:</p>
-<p><code class="docutils literal notranslate"><span class="pre">slots</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">8</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">21s</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">cpu</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">146.665s</span></code></p>
-<p>Hence, the efficiency is:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">cpu</span> <span class="pre">/</span> <span class="pre">(ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">147</span> <span class="pre">/</span> <span class="pre">(21</span> <span class="pre">*</span> <span class="pre">8)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">88</span> <span class="pre">%</span></code></p>
-<p>That’s good.</p>
-</div>
-<div class="admonition-exercise-7 admonition">
-<p class="admonition-title">Exercise 7</p>
-<p>How well did this job used the HPC resources?</p>
-<p>If it wasn’t ideal, what went wrong and what might fix it?</p>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ qacct -j <span class="nv">3524046</span>
-<span class="o">==============================================================</span>
-qname        feps-cpu.q          
-hostname     d9s9b4.arc4.leeds.ac.uk
-group        EAR                 
-owner        earlacoa            
-project      feps-cpu            
-department   defaultdepartment   
-jobname      example_bodo_mpi_sge.bash
-jobnumber    <span class="m">3524046</span>             
-taskid       undefined
-account      sge                 
-priority     <span class="m">0</span>                   
-qsub_time    Thu Feb <span class="m">24</span> <span class="m">12</span>:34:54 <span class="m">2022</span>
-start_time   Thu Feb <span class="m">24</span> <span class="m">12</span>:35:08 <span class="m">2022</span>
-end_time     Thu Feb <span class="m">24</span> <span class="m">12</span>:37:14 <span class="m">2022</span>
-granted_pe   smp                 
-slots        <span class="m">8</span>                   
-failed       <span class="m">0</span>    
-exit_status  <span class="m">0</span>                   
-ru_wallclock 126s
-ru_utime     <span class="m">125</span>.250s
-ru_stime     <span class="m">6</span>.542s
-ru_maxrss    <span class="m">1</span>.689MB
-ru_ixrss     <span class="m">0</span>.000B
-ru_ismrss    <span class="m">0</span>.000B
-ru_idrss     <span class="m">0</span>.000B
-ru_isrss     <span class="m">0</span>.000B
-ru_minflt    <span class="m">758663</span>              
-ru_majflt    <span class="m">2</span>                   
-ru_nswap     <span class="m">0</span>                   
-ru_inblock   <span class="m">0</span>                   
-ru_oublock   <span class="m">80</span>                  
-ru_msgsnd    <span class="m">0</span>                   
-ru_msgrcv    <span class="m">0</span>                   
-ru_nsignals  <span class="m">0</span>                   
-ru_nvcsw     <span class="m">35039</span>               
-ru_nivcsw    <span class="m">30366</span>               
-cpu          <span class="m">131</span>.792s
-mem          <span class="m">102</span>.207GBs
-io           <span class="m">166</span>.212MB
-iow          <span class="m">0</span>.000s
-maxvmem      <span class="m">13</span>.432GB
-arid         undefined
-ar_sub_time  undefined
-category     -U admiralty,feps-cpu,feps-gpu -l <span class="nv">env</span><span class="o">=</span>centos7,h_rt<span class="o">=</span><span class="m">600</span>,h_vmem<span class="o">=</span>24G,node_type<span class="o">=</span>40core-192G,project<span class="o">=</span>feps-cpu -pe smp <span class="m">8</span>
-</pre></div>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 7</p>
-<p><code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">JOBID</span></code> tells us that:</p>
-<p><code class="docutils literal notranslate"><span class="pre">slots</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">8</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">ru_wallclock</span> <span class="pre">126s</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">cpu</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">131.792s</span></code></p>
-<p>Hence, the efficiency is:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">cpu</span> <span class="pre">/</span> <span class="pre">(ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">131</span> <span class="pre">/</span> <span class="pre">(126</span> <span class="pre">*</span> <span class="pre">8)</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">13</span> <span class="pre">%</span></code></p>
-<p>That’s very low.</p>
-<p>The likely cause of this low efficiency is that all of the work is being pinned to one process, instead of being distributed across all 8.</p>
-<p>(There are other ways to check this e.g., using <code class="docutils literal notranslate"><span class="pre">top</span></code> on the compute nodes, using <code class="docutils literal notranslate"><span class="pre">ps</span></code>.)</p>
-<p>One solution to try is to set an environment variable that stops processes being pinned (remember, we saw this earlier). To do this, add the following command to the submission bash script <code class="docutils literal notranslate"><span class="pre">unset</span> <span class="pre">GOMP_CPU_AFFINITY</span></code>.</p>
-</div>
-</section>
-</section>
-<section id="gpus">
-<span id="id13"></span><h2>GPUs<a class="headerlink" href="#gpus" title="Permalink to this headline">#</a></h2>
-<section id="id14">
-<h3>Exercises<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h3>
-<div class="admonition-exercise-1 admonition">
-<p class="admonition-title">Exercise 1</p>
-<p>In general, what kind of tasks are GPUs faster than CPUs for, and why?</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 1</p>
-<p>Generally, GPUs are faster than CPUs for numerical operations, because they were optimised for this purpose using data parallelism where the same computation is done across many elements at once.</p>
-</div>
-<div class="admonition-exercise-2 admonition">
-<p class="admonition-title">Exercise 2</p>
-<p>Which Numba decorators can you use to offload a function to GPUs?</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 2</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&#64;cuda.jit</span></code></p></li>
-</ul>
-</div>
-<div class="admonition-exercise-3 admonition">
-<p class="admonition-title">Exercise 3</p>
-<p>How would you vectorize the the following function for GPUs?</p>
-<p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">my_serial_function_for_gpu(x):</span></code><br />
-<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">math.cos(x)</span> <span class="pre">**</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">math.sin(x)</span> <span class="pre">**</span> <span class="pre">2</span></code></p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 3</p>
-<p>You could add the <code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code> decorator with a signature to target CUDA.</p>
-<p>In the example below, the input and output types are specified as <code class="docutils literal notranslate"><span class="pre">float32</span></code>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">&#64;vectorize(['float32(float32)'],</span> <span class="pre">target='cuda')</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">my_serial_function_for_gpu(x):</span></code><br />
-<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">return</span> <span class="pre">math.cos(x)</span> <span class="pre">**</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">math.sin(x)</span> <span class="pre">**</span> <span class="pre">2</span></code></p>
-</div>
-<div class="admonition-exercise-4 admonition">
-<p class="admonition-title">Exercise 4</p>
-<p>What are ways you can check if your Python environment has access to a GPU?</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 4</p>
-<p>You could use Numba via:</p>
-<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">numba</span> <span class="pre">import</span> <span class="pre">cuda</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">print(cuda.gpus)</span></code></p>
-<p>Or in an IPython cell, you could use:</p>
-<p><code class="docutils literal notranslate"><span class="pre">!nvidia-smi</span></code></p>
-<p>There are other ways too. This is an important step to check.</p>
-</div>
-<div class="admonition-exercise-5 admonition">
-<p class="admonition-title">Exercise 5</p>
-<p>If you wanted to do NumPy style work on GPUs, could you use:</p>
-<ul class="simple">
-<li><p>cuPy</p></li>
-<li><p>JAX</p></li>
-</ul>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 5</p>
-<p>You could use either cuPy or JAX for NumPy work on GPUs.</p>
-</div>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1453,7 +848,7 @@ category     -U admiralty,feps-cpu,feps-gpu -l <span class="nv">env</span><span 
             mode: "swd6_hpp"
         },
         kernelOptions: {
-            kernelName: "swd6_hpp",
+            name: "swd6_hpp",
             path: "./."
         },
         predefinedOutput: true
@@ -1461,50 +856,104 @@ category     -U admiralty,feps-cpu,feps-gpu -l <span class="nv">env</span><span 
     </script>
     <script>kernelName = 'swd6_hpp'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="06_GPUs.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">GPUs</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="08_summary.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Summary</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling">Profiling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structures-algorithms-and-libraries">Data Structures, Algorithms, and Libraries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorisation">Vectorisation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compilers">Compilers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Exercises</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Luke Conibear<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Luke Conibear
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

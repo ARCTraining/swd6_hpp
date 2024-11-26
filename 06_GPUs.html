@@ -1,110 +1,165 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>GPUs &#8212; SWD6: High Performance Python</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '06_GPUs';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Solutions" href="07_solutions.html" />
-    <link rel="prev" title="Parallelisation" href="05_parallelisation.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
     
-    <div class="container-fluid" id="banner"></div>
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
 
-    
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
         
       
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
       
-      <img src="_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">SWD6: High Performance Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="SWD6: High Performance Python - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="SWD6: High Performance Python - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -113,516 +168,240 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00_overview.html">
-   Overview
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="01_profiling.html">
-     Profiling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_data_structures_algorithms_libraries.html">
-     Data Structures, Algorithms, and Libraries
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_vectorisation.html">
-     Vectorisation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_compilers.html">
-     Compilers
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_parallelisation.html">
-     Parallelisation
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     GPUs
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="07_solutions.html">
-     Solutions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="08_summary.html">
-   Summary
-  </a>
- </li>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="00_overview.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_profiling.html">Profiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_data_structures_algorithms_libraries.html">Data Structures, Algorithms, and Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_vectorisation.html">Vectorisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_compilers.html">Compilers</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="08_summary.html">Summary</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/ARCTraining/swd6_hpp/master?urlpath=tree/docs/06_GPUs.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ARCTraining/swd6_hpp" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ARCTraining/swd6_hpp/issues/new?title=Issue%20on%20page%20%2F06_GPUs.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/06_GPUs.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/ARCTraining/swd6_hpp"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
 
-      </li>
-      
-      <li>
-        <a href="https://github.com/ARCTraining/swd6_hpp/issues/new?title=Issue%20on%20page%20%2F06_GPUs.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/06_GPUs.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
 </button>
 
-      </li>
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
       
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
+    </div>
   
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
-    </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numba-for-cuda-gpus">
-   Numba for CUDA GPUs
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vectorize-for-gpus">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       vectorize
-      </span>
-     </code>
-     for GPUs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#custom-cuda-kernels">
-     Custom CUDA kernels
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rapids">
-   RAPIDS
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cupy">
-     cuPy
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diagnostics">
-   Diagnostics
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jax">
-   JAX
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jax-can-replace-numpy-for-gpus">
-     JAX can replace NumPy for GPUs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jit-compiler">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       @jit
-      </span>
-     </code>
-     compiler
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#automatic-vectorisation-with-vmap">
-     Automatic vectorisation with
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       vmap()
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solutions">
-   <span class="xref std std-ref">
-    Solutions
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#key-points">
-   Key Points
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#further-information">
-   Further information
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#good-practises">
-     Good practises
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-options">
-     Other options
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#resources">
-     Resources
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>GPUs</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numba-for-cuda-gpus">
-   Numba for CUDA GPUs
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vectorize-for-gpus">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       vectorize
-      </span>
-     </code>
-     for GPUs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#custom-cuda-kernels">
-     Custom CUDA kernels
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rapids">
-   RAPIDS
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cupy">
-     cuPy
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diagnostics">
-   Diagnostics
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jax">
-   JAX
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jax-can-replace-numpy-for-gpus">
-     JAX can replace NumPy for GPUs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jit-compiler">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       @jit
-      </span>
-     </code>
-     compiler
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#automatic-vectorisation-with-vmap">
-     Automatic vectorisation with
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       vmap()
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solutions">
-   <span class="xref std std-ref">
-    Solutions
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#key-points">
-   Key Points
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#further-information">
-   Further information
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#good-practises">
-     Good practises
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-options">
-     Other options
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#resources">
-     Resources
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>GPUs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numba-for-cuda-gpus">Numba for CUDA GPUs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorize-for-gpus"><code class="docutils literal notranslate"><span class="pre">vectorize</span></code> for GPUs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-cuda-kernels">Custom CUDA kernels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rapids">RAPIDS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cupy">cuPy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostics">Diagnostics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jax">JAX</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jax-can-replace-numpy-for-gpus">JAX can replace NumPy for GPUs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jit-compiler"><code class="docutils literal notranslate"><span class="pre">@jit</span></code> compiler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-vectorisation-with-vmap">Automatic vectorisation with <code class="docutils literal notranslate"><span class="pre">vmap()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions"><span class="xref std std-ref">Solutions</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-information">Further information</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#good-practises">Good practises</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-options">Other options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="gpus">
-<h1>GPUs<a class="headerlink" href="#gpus" title="Permalink to this headline">#</a></h1>
+<h1>GPUs<a class="headerlink" href="#gpus" title="Link to this heading">#</a></h1>
 <p><a class="reference external" href="https://colab.research.google.com/github/ARCTraining/swd6_hpp/blob/master/docs/06_GPUs.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -640,7 +419,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 <p>GPU hardware is designed for data parallelism, where high throughputs are achieved when the GPU is computing the same operations on many different elements at once.</p>
 <p>You could use other <a class="reference external" href="https://en.wikipedia.org/wiki/Hardware_acceleration">types of accelerators</a> too, though we’re not going to cover those here.</p>
 <section id="numba-for-cuda-gpus">
-<h2><a class="reference external" href="http://numba.pydata.org/numba-doc/latest/cuda/index.html">Numba for CUDA GPUs</a><a class="headerlink" href="#numba-for-cuda-gpus" title="Permalink to this headline">#</a></h2>
+<h2><a class="reference external" href="http://numba.pydata.org/numba-doc/latest/cuda/index.html">Numba for CUDA GPUs</a><a class="headerlink" href="#numba-for-cuda-gpus" title="Link to this heading">#</a></h2>
 <p>Earlier we covered how Numba works on single CPUs with <a class="reference external" href="https://numba.readthedocs.io/en/stable/glossary.html#term-nopython-mode"><code class="docutils literal notranslate"><span class="pre">&#64;njit</span></code></a> and multiple CPUs with <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p>
 <p>As a recap:</p>
 <div class="cell docutils container">
@@ -676,7 +455,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>297 ms ± 634 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>137 ms ± 2.38 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -699,7 +478,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>146 ms ± 441 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32.6 ms ± 7.66 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -710,7 +489,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 <p>This is in contrast to <code class="docutils literal notranslate"><span class="pre">vectorize</span></code> where manual effort is required for parallelisation.</p>
 </div>
 <section id="vectorize-for-gpus">
-<h3><code class="docutils literal notranslate"><span class="pre">vectorize</span></code> for GPUs<a class="headerlink" href="#vectorize-for-gpus" title="Permalink to this headline">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">vectorize</span></code> for GPUs<a class="headerlink" href="#vectorize-for-gpus" title="Link to this heading">#</a></h3>
 <p>Numba also works on <a class="reference external" href="https://developer.nvidia.com/how-to-cuda-python">CUDA</a> GPUs using <a class="reference external" href="https://numba.pydata.org/numba-doc/latest/user/vectorize.html"><code class="docutils literal notranslate"><span class="pre">&#64;vectorize</span></code></a> or <a class="reference external" href="https://numba.readthedocs.io/en/stable/cuda/kernels.html"><code class="docutils literal notranslate"><span class="pre">&#64;cuda.jit</span></code></a>.</p>
 <p>This is suitable for bigger data sizes (&gt; 1 MB) and high compute intensities.</p>
 <p>This adds additional overhead due to moving data to and from GPUs (<a class="reference external" href="https://numba.pydata.org/numba-doc/dev/cuda/memory.html">memory management</a>).</p>
@@ -744,6 +523,111 @@ However, at present CUDA is the most used platform for GPU programming and there
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">CudaSupportError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nd">@vectorize</span><span class="p">([</span><span class="s2">&quot;float32(float32)&quot;</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">def</span> <span class="nf">my_serial_function_for_gpu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/np/ufunc/decorators.py:131,</span> in <span class="ni">vectorize.&lt;locals&gt;.wrap</span><span class="nt">(func)</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span> <span class="n">vec</span> <span class="o">=</span> <span class="n">Vectorize</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span> <span class="k">for</span> <span class="n">sig</span> <span class="ow">in</span> <span class="n">ftylist</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">131</span>     <span class="n">vec</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ftylist</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span>     <span class="n">vec</span><span class="o">.</span><span class="n">disable_compile</span><span class="p">()</span>
+
+<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/np/ufunc/deviceufunc.py:391,</span> in <span class="ni">DeviceVectorize.add</span><span class="nt">(self, sig)</span>
+<span class="g g-Whitespace">    </span><span class="mi">388</span> <span class="n">funcname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pyfunc</span><span class="o">.</span><span class="vm">__name__</span>
+<span class="g g-Whitespace">    </span><span class="mi">389</span> <span class="n">kernelsource</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_kernel_source</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_kernel_template</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">390</span>                                        <span class="n">devfnsig</span><span class="p">,</span> <span class="n">funcname</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">391</span> <span class="n">corefn</span><span class="p">,</span> <span class="n">return_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compile_core</span><span class="p">(</span><span class="n">devfnsig</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">392</span> <span class="n">glbl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_globals</span><span class="p">(</span><span class="n">corefn</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">393</span> <span class="n">sig</span> <span class="o">=</span> <span class="n">signature</span><span class="p">(</span><span class="n">types</span><span class="o">.</span><span class="n">void</span><span class="p">,</span> <span class="o">*</span><span class="p">([</span><span class="n">a</span><span class="p">[:]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">return_type</span><span class="p">[:]]))</span>
+
+<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/vectorizers.py:202,</span> in <span class="ni">CUDAVectorize._compile_core</span><span class="nt">(self, sig)</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span> <span class="k">def</span> <span class="nf">_compile_core</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sig</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">202</span>     <span class="n">cudevfn</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inline</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">pyfunc</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">203</span>     <span class="k">return</span> <span class="n">cudevfn</span><span class="p">,</span> <span class="n">cudevfn</span><span class="o">.</span><span class="n">overloads</span><span class="p">[</span><span class="n">sig</span><span class="o">.</span><span class="n">args</span><span class="p">]</span><span class="o">.</span><span class="n">signature</span><span class="o">.</span><span class="n">return_type</span>
+
+<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/decorators.py:131,</span> in <span class="ni">jit.&lt;locals&gt;._jit</span><span class="nt">(func)</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span>     <span class="kn">from</span> <span class="nn">numba.core</span> <span class="kn">import</span> <span class="n">typeinfer</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span>     <span class="k">with</span> <span class="n">typeinfer</span><span class="o">.</span><span class="n">register_dispatcher</span><span class="p">(</span><span class="n">disp</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">131</span>         <span class="n">disp</span><span class="o">.</span><span class="n">compile_device</span><span class="p">(</span><span class="n">argtypes</span><span class="p">,</span> <span class="n">restype</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span>     <span class="n">disp</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">argtypes</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/dispatcher.py:882,</span> in <span class="ni">CUDADispatcher.compile_device</span><span class="nt">(self, args, return_type)</span>
+<span class="g g-Whitespace">    </span><span class="mi">875</span> <span class="n">fastmath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">targetoptions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fastmath&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">877</span> <span class="n">nvvm_options</span> <span class="o">=</span> <span class="p">{</span>
+<span class="g g-Whitespace">    </span><span class="mi">878</span>     <span class="s1">&#39;opt&#39;</span><span class="p">:</span> <span class="mi">3</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">targetoptions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;opt&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">879</span>     <span class="s1">&#39;fastmath&#39;</span><span class="p">:</span> <span class="n">fastmath</span>
+<span class="g g-Whitespace">    </span><span class="mi">880</span> <span class="p">}</span>
+<span class="ne">--&gt; </span><span class="mi">882</span> <span class="n">cc</span> <span class="o">=</span> <span class="n">get_current_device</span><span class="p">()</span><span class="o">.</span><span class="n">compute_capability</span>
+<span class="g g-Whitespace">    </span><span class="mi">883</span> <span class="n">cres</span> <span class="o">=</span> <span class="n">compile_cuda</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">py_func</span><span class="p">,</span> <span class="n">return_type</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">884</span>                     <span class="n">debug</span><span class="o">=</span><span class="n">debug</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">885</span>                     <span class="n">lineinfo</span><span class="o">=</span><span class="n">lineinfo</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">888</span>                     <span class="n">nvvm_options</span><span class="o">=</span><span class="n">nvvm_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">889</span>                     <span class="n">cc</span><span class="o">=</span><span class="n">cc</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">890</span> <span class="bp">self</span><span class="o">.</span><span class="n">overloads</span><span class="p">[</span><span class="n">args</span><span class="p">]</span> <span class="o">=</span> <span class="n">cres</span>
+
+<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/api.py:443,</span> in <span class="ni">get_current_device</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">441</span> <span class="k">def</span> <span class="nf">get_current_device</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">442</span>     <span class="s2">&quot;Get current device associated with the current thread&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">443</span>     <span class="k">return</span> <span class="n">current_context</span><span class="p">()</span><span class="o">.</span><span class="n">device</span>
+
+<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py:220,</span> in <span class="ni">get_context</span><span class="nt">(devnum)</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span> <span class="k">def</span> <span class="nf">get_context</span><span class="p">(</span><span class="n">devnum</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Get the current device or use a device by device number, and</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span><span class="sd">     return the CUDA context.</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">220</span>     <span class="k">return</span> <span class="n">_runtime</span><span class="o">.</span><span class="n">get_or_create_context</span><span class="p">(</span><span class="n">devnum</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py:138,</span> in <span class="ni">_Runtime.get_or_create_context</span><span class="nt">(self, devnum)</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="n">attached_ctx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_attached_context</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">137</span> <span class="k">if</span> <span class="n">attached_ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">138</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_or_create_context_uncached</span><span class="p">(</span><span class="n">devnum</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span>     <span class="k">return</span> <span class="n">attached_ctx</span>
+
+<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py:153,</span> in <span class="ni">_Runtime._get_or_create_context_uncached</span><span class="nt">(self, devnum)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;See also ``get_or_create_context(devnum)``.</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span><span class="sd"> This version does not read the cache.</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span>     <span class="c1"># Try to get the active context in the CUDA stack or</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span>     <span class="c1"># activate GPU-0 with the primary context</span>
+<span class="ne">--&gt; </span><span class="mi">153</span>     <span class="k">with</span> <span class="n">driver</span><span class="o">.</span><span class="n">get_active_context</span><span class="p">()</span> <span class="k">as</span> <span class="n">ac</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">154</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">ac</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activate_context_for</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/cudadrv/driver.py:495,</span> in <span class="ni">_ActiveContext.__enter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">493</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">494</span>     <span class="n">hctx</span> <span class="o">=</span> <span class="n">drvapi</span><span class="o">.</span><span class="n">cu_context</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">495</span>     <span class="n">driver</span><span class="o">.</span><span class="n">cuCtxGetCurrent</span><span class="p">(</span><span class="n">byref</span><span class="p">(</span><span class="n">hctx</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">496</span>     <span class="n">hctx</span> <span class="o">=</span> <span class="n">hctx</span> <span class="k">if</span> <span class="n">hctx</span><span class="o">.</span><span class="n">value</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">498</span> <span class="k">if</span> <span class="n">hctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/cudadrv/driver.py:295,</span> in <span class="ni">Driver.__getattr__</span><span class="nt">(self, fname)</span>
+<span class="g g-Whitespace">    </span><span class="mi">292</span> <span class="bp">self</span><span class="o">.</span><span class="n">ensure_initialized</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">294</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialization_error</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">295</span>     <span class="k">raise</span> <span class="n">CudaSupportError</span><span class="p">(</span><span class="s2">&quot;Error at driver init: </span><span class="se">\n</span><span class="si">%s</span><span class="s2">:&quot;</span> <span class="o">%</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>                            <span class="bp">self</span><span class="o">.</span><span class="n">initialization_error</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">298</span> <span class="k">if</span> <span class="n">USE_NV_BINDING</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cuda_python_wrap_fn</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+
+<span class="ne">CudaSupportError</span>: Error at driver init: 
+
+<span class="n">CUDA</span> <span class="n">driver</span> <span class="n">library</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">found</span><span class="o">.</span>
+<span class="n">If</span> <span class="n">you</span> <span class="n">are</span> <span class="n">sure</span> <span class="n">that</span> <span class="n">a</span> <span class="n">CUDA</span> <span class="n">driver</span> <span class="ow">is</span> <span class="n">installed</span><span class="p">,</span>
+<span class="k">try</span> <span class="n">setting</span> <span class="n">environment</span> <span class="n">variable</span> <span class="n">NUMBA_CUDA_DRIVER</span>
+<span class="k">with</span> <span class="n">the</span> <span class="n">file</span> <span class="n">path</span> <span class="n">of</span> <span class="n">the</span> <span class="n">CUDA</span> <span class="n">driver</span> <span class="n">shared</span> <span class="n">library</span><span class="o">.</span>
+<span class="p">:</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -756,7 +640,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 <p>Numba also supports generalized ufuncs (covered in the compiler lesson) on the GPU using <a class="reference external" href="http://numba.pydata.org/numba-doc/latest/cuda/ufunc.html#generalized-cuda-ufuncs"><code class="docutils literal notranslate"><span class="pre">guvectorize</span></code></a>.</p>
 </section>
 <section id="custom-cuda-kernels">
-<h3>Custom CUDA kernels<a class="headerlink" href="#custom-cuda-kernels" title="Permalink to this headline">#</a></h3>
+<h3>Custom CUDA kernels<a class="headerlink" href="#custom-cuda-kernels" title="Link to this heading">#</a></h3>
 <p>Kernel functions are GPU functions called from CPU code.</p>
 <p>Kernels cannot explicitly return a value. Instead, all result data must be written to an array passed to the function (e.g., called <code class="docutils literal notranslate"><span class="pre">out</span></code>). This array can then be transferred back to the CPU.</p>
 <p>Kernels work over a grid of threads. This grid needs to be defined in terms of the number of blocks in the grid and the number of threads per block. The indices of this grid are used to add values to the <code class="docutils literal notranslate"><span class="pre">out</span></code> array. The indices can be found using <a class="reference external" href="https://numba.pydata.org/numba-doc/dev/cuda-reference/kernel.html#numba.cuda.grid"><code class="docutils literal notranslate"><span class="pre">cuda.grid()</span></code></a>.</p>
@@ -790,23 +674,23 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </div>
 <p>This returns something like the table below. This shows we have access to a <a class="reference external" href="https://www.nvidia.com/en-gb/data-center/tesla-t4/">NVIDIA Tesla T4 GPU</a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Tue Feb <span class="m">22</span> <span class="m">13</span>:59:03 <span class="m">2022</span>       
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Tue<span class="w"> </span>Feb<span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">13</span>:59:03<span class="w"> </span><span class="m">2022</span><span class="w">       </span>
 +-----------------------------------------------------------------------------+
-<span class="p">|</span> NVIDIA-SMI <span class="m">460</span>.32.03    Driver Version: <span class="m">460</span>.32.03    CUDA Version: <span class="m">11</span>.2     <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>NVIDIA-SMI<span class="w"> </span><span class="m">460</span>.32.03<span class="w">    </span>Driver<span class="w"> </span>Version:<span class="w"> </span><span class="m">460</span>.32.03<span class="w">    </span>CUDA<span class="w"> </span>Version:<span class="w"> </span><span class="m">11</span>.2<span class="w">     </span><span class="p">|</span>
 <span class="p">|</span>-------------------------------+----------------------+----------------------+
-<span class="p">|</span> GPU  Name        Persistence-M<span class="p">|</span> Bus-Id        Disp.A <span class="p">|</span> Volatile Uncorr. ECC <span class="p">|</span>
-<span class="p">|</span> Fan  Temp  Perf  Pwr:Usage/Cap<span class="p">|</span>         Memory-Usage <span class="p">|</span> GPU-Util  Compute M. <span class="p">|</span>
-<span class="p">|</span>                               <span class="p">|</span>                      <span class="p">|</span>               MIG M. <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>GPU<span class="w">  </span>Name<span class="w">        </span>Persistence-M<span class="p">|</span><span class="w"> </span>Bus-Id<span class="w">        </span>Disp.A<span class="w"> </span><span class="p">|</span><span class="w"> </span>Volatile<span class="w"> </span>Uncorr.<span class="w"> </span>ECC<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>Fan<span class="w">  </span>Temp<span class="w">  </span>Perf<span class="w">  </span>Pwr:Usage/Cap<span class="p">|</span><span class="w">         </span>Memory-Usage<span class="w"> </span><span class="p">|</span><span class="w"> </span>GPU-Util<span class="w">  </span>Compute<span class="w"> </span>M.<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w">                               </span><span class="p">|</span><span class="w">                      </span><span class="p">|</span><span class="w">               </span>MIG<span class="w"> </span>M.<span class="w"> </span><span class="p">|</span>
 <span class="p">|</span><span class="o">===============================</span>+<span class="o">======================</span>+<span class="o">======================</span><span class="p">|</span>
-<span class="p">|</span>   <span class="m">0</span>  Tesla T4            Off  <span class="p">|</span> <span class="m">00000000</span>:00:04.0 Off <span class="p">|</span>                    <span class="m">0</span> <span class="p">|</span>
-<span class="p">|</span> N/A   66C    P0    30W /  70W <span class="p">|</span>    144MiB / 15109MiB <span class="p">|</span>      <span class="m">0</span>%      Default <span class="p">|</span>
-<span class="p">|</span>                               <span class="p">|</span>                      <span class="p">|</span>                  N/A <span class="p">|</span>
+<span class="p">|</span><span class="w">   </span><span class="m">0</span><span class="w">  </span>Tesla<span class="w"> </span>T4<span class="w">            </span>Off<span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="m">00000000</span>:00:04.0<span class="w"> </span>Off<span class="w"> </span><span class="p">|</span><span class="w">                    </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>N/A<span class="w">   </span>66C<span class="w">    </span>P0<span class="w">    </span>30W<span class="w"> </span>/<span class="w">  </span>70W<span class="w"> </span><span class="p">|</span><span class="w">    </span>144MiB<span class="w"> </span>/<span class="w"> </span>15109MiB<span class="w"> </span><span class="p">|</span><span class="w">      </span><span class="m">0</span>%<span class="w">      </span>Default<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w">                               </span><span class="p">|</span><span class="w">                      </span><span class="p">|</span><span class="w">                  </span>N/A<span class="w"> </span><span class="p">|</span>
 +-------------------------------+----------------------+----------------------+
-                                                                               
+<span class="w">                                                                               </span>
 +-----------------------------------------------------------------------------+
-<span class="p">|</span> Processes:                                                                  <span class="p">|</span>
-<span class="p">|</span>  GPU   GI   CI        PID   Type   Process name                  GPU Memory <span class="p">|</span>
-<span class="p">|</span>        ID   ID                                                   Usage      <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>Processes:<span class="w">                                                                  </span><span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>GPU<span class="w">   </span>GI<span class="w">   </span>CI<span class="w">        </span>PID<span class="w">   </span>Type<span class="w">   </span>Process<span class="w"> </span>name<span class="w">                  </span>GPU<span class="w"> </span>Memory<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w">        </span>ID<span class="w">   </span>ID<span class="w">                                                   </span>Usage<span class="w">      </span><span class="p">|</span>
 <span class="p">|</span><span class="o">=============================================================================</span><span class="p">|</span>
 +-----------------------------------------------------------------------------+
 </pre></div>
@@ -891,7 +775,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </section>
 </section>
 <section id="rapids">
-<h2><a class="reference external" href="https://developer.nvidia.com/rapids">RAPIDS</a><a class="headerlink" href="#rapids" title="Permalink to this headline">#</a></h2>
+<h2><a class="reference external" href="https://developer.nvidia.com/rapids">RAPIDS</a><a class="headerlink" href="#rapids" title="Link to this heading">#</a></h2>
 <p>RAPIDS is a range of accelerated data science libraries from NVIDIA.</p>
 <p>There are a wide variety of tools matching up to familiar libraries:</p>
 <ul class="simple">
@@ -924,7 +808,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </li>
 </ul>
 <section id="cupy">
-<h3><a class="reference external" href="https://cupy.dev/">cuPy</a><a class="headerlink" href="#cupy" title="Permalink to this headline">#</a></h3>
+<h3><a class="reference external" href="https://cupy.dev/">cuPy</a><a class="headerlink" href="#cupy" title="Link to this heading">#</a></h3>
 <p><strong>NumPy for the CPU</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -949,7 +833,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.4 ms ± 155 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33.2 ms ± 9.2 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -1000,7 +884,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </section>
 </section>
 <section id="diagnostics">
-<h2>Diagnostics<a class="headerlink" href="#diagnostics" title="Permalink to this headline">#</a></h2>
+<h2>Diagnostics<a class="headerlink" href="#diagnostics" title="Link to this heading">#</a></h2>
 <p>Similar to the Dask Dashboard, NVIDIA has a GPU Dashboard called <a class="reference external" href="https://github.com/rapidsai/jupyterlab-nvdashboard"><code class="docutils literal notranslate"><span class="pre">NVDashboard</span></code></a>.</p>
 <p>These real-time diagnostics are provided via a Bokeh server and a Jupyter Lab extension.</p>
 <p>They are a great way to manage your GPU utilisation, resources, throughput, and more.</p>
@@ -1009,7 +893,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 <p><em><a class="reference external" href="https://developer.nvidia.com/blog/gpu-dashboards-in-jupyter-lab/">Image source</a></em></p>
 </section>
 <section id="jax">
-<h2><a class="reference external" href="https://jax.readthedocs.io/en/latest/index.html">JAX</a><a class="headerlink" href="#jax" title="Permalink to this headline">#</a></h2>
+<h2><a class="reference external" href="https://jax.readthedocs.io/en/latest/index.html">JAX</a><a class="headerlink" href="#jax" title="Link to this heading">#</a></h2>
 <p>JAX enables:</p>
 <ul class="simple">
 <li><p>NumPy on the CPU and GPU (via <a class="reference external" href="https://www.tensorflow.org/xla">XLA, Accelerated Linear Algebra</a>, a compiler for linear algebra).</p></li>
@@ -1018,7 +902,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 <li><p>Automatic vectorisation through <a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.vmap.html#jax.vmap"><code class="docutils literal notranslate"><span class="pre">vmap</span></code></a>.</p></li>
 </ul>
 <section id="jax-can-replace-numpy-for-gpus">
-<h3>JAX can replace NumPy for GPUs<a class="headerlink" href="#jax-can-replace-numpy-for-gpus" title="Permalink to this headline">#</a></h3>
+<h3>JAX can replace NumPy for GPUs<a class="headerlink" href="#jax-can-replace-numpy-for-gpus" title="Link to this heading">#</a></h3>
 <p>If it can’t find a GPU, then it will fall back to the CPU.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1055,7 +939,9 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-25 16:02:15.867936: W external/org_tensorflow/tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-02-25 16:02:15.867960: W external/org_tensorflow/tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;jaxlib.xla_extension.DeviceArray&#39;&gt;
@@ -1142,7 +1028,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>208 ms ± 1.34 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>242 ms ± 18.5 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1154,7 +1040,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>195 ms ± 2.46 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>187 ms ± 1.5 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1182,7 +1068,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>194 ms ± 1.43 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>188 ms ± 1.55 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -1190,7 +1076,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 <p>In general, the speed comparison between JAX and NumPy is complicated and depends on a variety of things (<a class="reference external" href="https://jax.readthedocs.io/en/latest/faq.html#faq-jax-vs-numpy">read more here</a>).</p>
 </section>
 <section id="jit-compiler">
-<h3><a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.jit.html#jax.jit"><code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code></a> compiler<a class="headerlink" href="#jit-compiler" title="Permalink to this headline">#</a></h3>
+<h3><a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.jit.html#jax.jit"><code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code></a> compiler<a class="headerlink" href="#jit-compiler" title="Link to this heading">#</a></h3>
 <p>Let’s see an example of using the JAX <code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code> compiler to speed up a function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1223,7 +1109,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.49 ms ± 4.44 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.12 ms ± 48.9 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -1244,7 +1130,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37.5 ms ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25 ms ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1258,14 +1144,14 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.86 ms ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>489 µs ± 0 ns per loop (mean ± std. dev. of 1 run, 1 loop each)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="automatic-vectorisation-with-vmap">
-<h3>Automatic vectorisation with <a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.vmap.html#jax.vmap"><code class="docutils literal notranslate"><span class="pre">vmap()</span></code></a><a class="headerlink" href="#automatic-vectorisation-with-vmap" title="Permalink to this headline">#</a></h3>
+<h3>Automatic vectorisation with <a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.vmap.html#jax.vmap"><code class="docutils literal notranslate"><span class="pre">vmap()</span></code></a><a class="headerlink" href="#automatic-vectorisation-with-vmap" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">vmap</span></code> maps a function over array axes.</p>
 <p>This pushes the map loop lower down for better performance.</p>
 <p>Let’s see an example of multiplying a matrix by a batch of vectors (<em>don’t worry what this function does, just focus on the JAX bits</em>):</p>
@@ -1308,7 +1194,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.17 ms ± 2.76 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>726 µs ± 32 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -1329,7 +1215,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>583 µs ± 7.4 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>224 µs ± 19.8 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -1351,7 +1237,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>28 µs ± 53 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.1 µs ± 1.88 µs per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -1360,7 +1246,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </section>
 </section>
 <section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <div class="admonition-exercise-1 admonition">
 <p class="admonition-title">Exercise 1</p>
 <p>In general, what kind of tasks are GPUs faster than CPUs for, and why?</p>
@@ -1389,10 +1275,10 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </section>
 <section id="solutions">
-<h2><a class="reference internal" href="07_solutions.html#gpus"><span class="std std-ref">Solutions</span></a><a class="headerlink" href="#solutions" title="Permalink to this headline">#</a></h2>
+<h2><a class="reference internal" href="07_solutions.html#gpus"><span class="std std-ref">Solutions</span></a><a class="headerlink" href="#solutions" title="Link to this heading">#</a></h2>
 </section>
 <section id="key-points">
-<h2>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">#</a></h2>
+<h2>Key Points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="contains-task-list simple">
@@ -1401,9 +1287,9 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </section>
 <section id="further-information">
-<h2>Further information<a class="headerlink" href="#further-information" title="Permalink to this headline">#</a></h2>
+<h2>Further information<a class="headerlink" href="#further-information" title="Link to this heading">#</a></h2>
 <section id="good-practises">
-<h3>Good practises<a class="headerlink" href="#good-practises" title="Permalink to this headline">#</a></h3>
+<h3>Good practises<a class="headerlink" href="#good-practises" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Test out ideas on CPUs first, before moving to expensive GPUs.</p></li>
 <li><p>Consider whether the calculation is worth the additional overhead of sending data to and from the GPU.</p></li>
@@ -1411,7 +1297,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </ul>
 </section>
 <section id="other-options">
-<h3>Other options<a class="headerlink" href="#other-options" title="Permalink to this headline">#</a></h3>
+<h3>Other options<a class="headerlink" href="#other-options" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://documen.tician.de/pycuda/">pycuda</a></p>
 <ul>
@@ -1429,7 +1315,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </ul>
 </section>
 <section id="resources">
-<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">#</a></h3>
+<h3>Resources<a class="headerlink" href="#resources" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=_AKDqw6li58">CuPy - Sean Farley</a>, PyBay 2019.</p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=lV7rtDW94do">cuDF - Mark Harris</a>, PyCon AU 2019.</p></li>
@@ -1450,7 +1336,7 @@ However, at present CUDA is the most used platform for GPU programming and there
             mode: "swd6_hpp"
         },
         kernelOptions: {
-            kernelName: "swd6_hpp",
+            name: "swd6_hpp",
             path: "./."
         },
         predefinedOutput: true
@@ -1458,50 +1344,110 @@ However, at present CUDA is the most used platform for GPU programming and there
     </script>
     <script>kernelName = 'swd6_hpp'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="05_parallelisation.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Parallelisation</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="07_solutions.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Solutions</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numba-for-cuda-gpus">Numba for CUDA GPUs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorize-for-gpus"><code class="docutils literal notranslate"><span class="pre">vectorize</span></code> for GPUs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-cuda-kernels">Custom CUDA kernels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rapids">RAPIDS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cupy">cuPy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostics">Diagnostics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jax">JAX</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jax-can-replace-numpy-for-gpus">JAX can replace NumPy for GPUs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jit-compiler"><code class="docutils literal notranslate"><span class="pre">@jit</span></code> compiler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-vectorisation-with-vmap">Automatic vectorisation with <code class="docutils literal notranslate"><span class="pre">vmap()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions"><span class="xref std std-ref">Solutions</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-information">Further information</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#good-practises">Good practises</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-options">Other options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Luke Conibear<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Luke Conibear
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
