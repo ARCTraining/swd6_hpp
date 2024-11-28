@@ -364,9 +364,8 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hang-on-don-t-optimise-too-early">Hang on, don’t optimise too early</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-fast-could-it-go">How fast could it go?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-follow-along">To follow along</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#think-strategically">Think strategically</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#follow-along">Follow along</a></li>
 </ul>
             </nav>
         </div>
@@ -380,118 +379,60 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h1>
-<p>Python is great for many reasons including:</p>
+<p>Python is a versitile and widely used computer programming language:</p>
 <ul class="simple">
-<li><p>High−level (so you can focus on your problem)</p></li>
-<li><p>Clean, readable, and efficient</p></li>
-<li><p>Easy and fun to learn</p></li>
-<li><p>Dynamic &amp; interactive</p></li>
-<li><p>Fast to write and test code</p></li>
-<li><p>Flexible</p></li>
-<li><p>Well supported</p></li>
+<li><p>High−level (allowing you to focus on your problem and not the hardware)</p></li>
+<li><p>General purpose (can do many things)</p></li>
+<li><p>Easy (and fun) to learn</p></li>
+<li><p>Functions can be passed as arguments and can be returned from other functions</p></li>
 <li><p>Open source</p></li>
-<li><p>Vast range of libraries</p></li>
+<li><p>Large ecosystem of useful libraries and tools</p></li>
+<li><p>It has sophisticated, convenient and useful syntax</p></li>
+<li><p>It is evolving</p></li>
 </ul>
-<p>However, sometimes it can be slow. Often this isn’t an issue. When it is, however, it’s useful to know how to speed it up; that’s what this workshop is all about.</p>
-<section id="hang-on-don-t-optimise-too-early">
-<h2>Hang on, don’t optimise too early<a class="headerlink" href="#hang-on-don-t-optimise-too-early" title="Link to this heading">#</a></h2>
-<p>There are trade-offs when you pursue faster code. For example, it may become more complex, use more memory, or become less readable. This is in addition to the optimisation process taking time and effort. So, before jumping into optimising code, check that:</p>
+<p>This course focuses on how to measure and improve the performance of Python programs. It focusses on processing time whilst also considering memory utilisation. There are 4 parts:- Profiling</p>
+<ul class="simple">
+<li><p>Data Structures, Algorithms and Libraries</p></li>
+<li><p>Vectorisation</p></li>
+<li><p>Compilers</p></li>
+</ul>
+<p>Short breaks are timetabled for every 30 minutes and we have an hour for lunch from 12:30 to 13:30.</p>
+<section id="think-strategically">
+<h2>Think strategically<a class="headerlink" href="#think-strategically" title="Link to this heading">#</a></h2>
+<p>There are usually trade-offs in changing code to do the same thing faster or using less memory:</p>
+<ul class="simple">
+<li><p>The code may become significantly more complicated and less readable</p></li>
+<li><p>A program that runs faster may require more memory</p></li>
+<li><p>A program that requires less memory may run slower</p></li>
+<li><p>The optimisations may only work well on specific platforms or with particular inputs</p></li>
+</ul>
+<p>Before optimising code, consider the following:</p>
 <ul class="simple">
 <li><p>Is the code complete and working?</p>
 <ul>
 <li><p>Have you tested it?</p></li>
-<li><p>Does it have documentation?</p></li>
+<li><p>Is it well documented?</p></li>
 </ul>
 </li>
 <li><p>Is optimisation really needed?</p>
 <ul>
 <li><p>Have you profiled the code?</p></li>
-<li><p>If optimisation is needed, then first:</p>
-<ul>
-<li><p>Have you tried more suitable algorithms and data structures?</p></li>
-<li><p>Have you tried vectorisation?</p></li>
-<li><p>Have you tried compiling the code?</p></li>
-</ul>
-</li>
-<li><p>If that’s still not enough, then:</p>
-<ul>
-<li><p>Try parallelisation.</p></li>
-<li><p>Try offloading the work to accelerators.</p></li>
+<li><p>Is there a better computer that you can use?
+If optimisation seems sensible, then test if simple things (e.g. using a different function or data structure) make sufficient improvement before trying something complicated (e.g. parallelisation - which can be a more major undertaking and involve rethinking and rewriting algorithms)</p></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<p><em>Plot idea from <a class="reference external" href="https://ml.dask.org/">Dask-ML</a>.</em></p>
-<div class="cell tag_remove_input docutils container">
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matplotlib is building the font cache; this may take a moment.
-</pre></div>
-</div>
-<img alt="_images/4fdf1544a4285ce897dda57ec96f3e2eb3b44892df3868c7ff644a4edd833535.png" src="_images/4fdf1544a4285ce897dda57ec96f3e2eb3b44892df3868c7ff644a4edd833535.png" />
-</div>
-</div>
 </section>
-<section id="how-fast-could-it-go">
-<h2>How fast could it go?<a class="headerlink" href="#how-fast-could-it-go" title="Link to this heading">#</a></h2>
-<p>It’s useful to know how code speed is measured. Miles per hour? Bits per second?</p>
-<p>The speed of code doesn’t have specific units like that. For one reason, this is because computers vary a lot.</p>
-<p>Instead, it’s normally measured in <em>order of operations (O) per element (n)</em>.</p>
-<ul class="simple">
-<li><p>This means how many operations are needed as the number the elements gets bigger.</p></li>
-<li><p>The order of operations is called <a class="reference external" href="https://www.bigocheatsheet.com/">Big O notation</a>.</p></li>
-<li><p>The operations are given as the largest order of a polynomial, ignoring any constants.</p>
-<ul>
-<li><p>For example, O(2n<sup>2</sup> + 3n) would just become O(n<sup>2</sup>).</p></li>
-</ul>
-</li>
-<li><p>This becomes important when the number of elements is large.</p></li>
-<li><p>It’s often measured for a typical case.</p></li>
-<li><p>Constant time means per machine operation.</p></li>
-</ul>
-<p>A nice example from <a class="reference external" href="https://www.youtube.com/watch?v=duvZ-2UK0fc">Ned Batchelder’s</a> PyCon talk is for counting beans in a jar.</p>
-<ul class="simple">
-<li><p><em>Method 1</em>: If you count each bean one by one as you pick it out of the jar, then this would be an O(n) time operation. So for a new jar of beans, you’ll have to repeat this operation for <em>every</em> bean in the jar. Think of making tally marks for each one.</p></li>
-<li><p><em>Method 2</em>: You have a label on the front of the jar, which tells you how many beans are in it. For this method, no matter how many beans are in there, the time of the operation stays the same at O(1).</p></li>
-</ul>
-<p><img alt="counting_beans.png" src="_images/counting_beans.png" /></p>
-<p>Memory is measured in the same way.</p>
-<p>Both of these two measurements together represent the <em>time-space complexity</em> of your code.</p>
-<p>You can compare the lines for the different time-space complexities on the plot below:</p>
-<p><em>Note, logs here are base 2.</em></p>
-<p><em>Plot idea from <a class="reference external" href="https://www.bigocheatsheet.com/">Big O Cheat Sheet</a></em>.</p>
-<div class="cell tag_remove_input docutils container">
-<div class="cell_output docutils container">
-<img alt="_images/83a92460e669ceba2ae2df69dad911adc28b4bdbae5df855fc26b68214e6ebd4.png" src="_images/83a92460e669ceba2ae2df69dad911adc28b4bdbae5df855fc26b68214e6ebd4.png" />
-</div>
-</div>
-</section>
-<section id="to-follow-along">
-<h2>To follow along<a class="headerlink" href="#to-follow-along" title="Link to this heading">#</a></h2>
-<p><strong>Option 1:</strong> (recommended) - Run on Google Colab</p>
+<section id="follow-along">
+<h2>Follow along<a class="headerlink" href="#follow-along" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Click on the Colab button within each Jupyter notebook to run there.</p></li>
 </ul>
-<p><strong>Option 2:</strong> - Run locally</p>
-<p>a. Clone this GitHub repository:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ARCTraining/swd6_hpp_interim.git
-<span class="nb">cd</span><span class="w"> </span>swd6_hpp_interim
-</pre></div>
-</div>
-<p>b. Copy this conda environment:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--file<span class="w"> </span>environment.yml
-conda<span class="w"> </span>activate<span class="w"> </span>swd6_hpp
-
-<span class="c1"># create the kernel for jupyter</span>
-python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--name<span class="w"> </span>swd6_hpp<span class="w"> </span>--display-name<span class="w"> </span><span class="s2">&quot;swd6_hpp&quot;</span>
-</pre></div>
-</div>
-<p>c. Open Jupyter Lab:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab
-</pre></div>
-</div>
-<p>Lessons have questions and exercises at the end.</p>
-<p>The solutions (and sometimes hints) to these are all in the <a class="reference internal" href="07_solutions.html#solutions"><span class="std std-ref">Solutions</span></a> page.</p>
+<p>This is a practical course with exercises to help you learn.
+Hints for problems and solutions can be found on the <a class="reference internal" href="07_solutions.html#solutions"><span class="std std-ref">Solutions</span></a> page, but try to have a go without first referring to these.
+If you have a question, want help, want us to go over something again, please ask - raise your hand or ask in the Teams chat.
+We plan to use emoji polls in the chat to check in with you throughout the course.
+After the course has ended the Teams chat will remain open for the rest of this week in case you want to ask anything. We will post a final message in the chat to refer you to a general Teams channel where you can ask further about the course.</p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -562,9 +503,8 @@ python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hang-on-don-t-optimise-too-early">Hang on, don’t optimise too early</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-fast-could-it-go">How fast could it go?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-follow-along">To follow along</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#think-strategically">Think strategically</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#follow-along">Follow along</a></li>
 </ul>
   </nav></div>
 
