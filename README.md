@@ -19,10 +19,6 @@ The workshop will introduce a number of ways to measure the efficiency of your c
 - [ ] Improve the execution time of Python code using: 
 	- Vectorisation (with [NumPy](https://numpy.org/doc/stable/reference/ufuncs.html))  
 	- Compilers (with [Numba](http://numba.pydata.org/))
-
-The content covered in this workshop will prepare you for exploring more advanced and specialised techniques, which will be covered in a future workshop. This will include:
-
- 
 - [ ] Parallelisation (with [Dask](https://docs.dask.org/en/latest/) and [Parsl](https://parsl-project.org/))  
 - [ ] GPUs (with [JAX](https://jax.readthedocs.io/en/latest/index.html), [CUDA/Numba](https://developer.nvidia.com/how-to-cuda-python), and [RAPIDS](https://developer.nvidia.com/rapids))  
 
