@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -63,9 +60,10 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '06_GPUs';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Solutions" href="07_solutions.html" />
+    <link rel="prev" title="Parallelisation" href="05_parallelisation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -81,8 +79,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -90,6 +99,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -97,8 +107,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -114,10 +124,7 @@
       
       
       
-        
-      
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -147,17 +154,21 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="SWD6: High Performance Python - Home"/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="SWD6: High Performance Python - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="SWD6: High Performance Python - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -168,12 +179,15 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="00_overview.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_overview.html">Overview</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_profiling.html">Profiling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_data_structures_algorithms_libraries.html">Data Structures, Algorithms, and Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_vectorisation.html">Vectorisation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_compilers.html">Compilers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_parallelisation.html">Parallelisation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">GPUs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_solutions.html">Solutions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="08_summary.html">Summary</a></li>
@@ -331,16 +345,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -424,8 +446,8 @@ However, at present CUDA is the most used platform for GPU programming and there
 <p>As a recap:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">njit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">njit</span>
 </pre></div>
 </div>
 </div>
@@ -441,7 +463,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@njit</span>
-<span class="k">def</span> <span class="nf">my_serial_function_for_cpu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">my_serial_function_for_cpu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
 </pre></div>
 </div>
@@ -455,7 +477,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>137 ms ± 2.38 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>168 ms ± 506 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -464,7 +486,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">my_parallel_function_for_cpu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">my_parallel_function_for_cpu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
 </pre></div>
 </div>
@@ -478,7 +500,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32.6 ms ± 7.66 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>71 ms ± 157 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -501,9 +523,9 @@ However, at present CUDA is the most used platform for GPU programming and there
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
-<span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">float32</span><span class="p">,</span> <span class="n">vectorize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">float32</span><span class="p">,</span> <span class="n">vectorize</span>
 </pre></div>
 </div>
 </div>
@@ -518,7 +540,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@vectorize</span><span class="p">([</span><span class="s2">&quot;float32(float32)&quot;</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">my_serial_function_for_gpu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">my_serial_function_for_gpu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
 </pre></div>
 </div>
@@ -528,17 +550,17 @@ However, at present CUDA is the most used platform for GPU programming and there
 <span class="ne">CudaSupportError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nd">@vectorize</span><span class="p">([</span><span class="s2">&quot;float32(float32)&quot;</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">def</span> <span class="nf">my_serial_function_for_gpu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">def</span><span class="w"> </span><span class="nf">my_serial_function_for_gpu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
 
-<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/np/ufunc/decorators.py:131,</span> in <span class="ni">vectorize.&lt;locals&gt;.wrap</span><span class="nt">(func)</span>
+<span class="nn">File /usr/share/miniconda/envs/swd6_hpp/lib/python3.9/site-packages/numba/np/ufunc/decorators.py:131,</span> in <span class="ni">vectorize.&lt;locals&gt;.wrap</span><span class="nt">(func)</span>
 <span class="g g-Whitespace">    </span><span class="mi">129</span> <span class="n">vec</span> <span class="o">=</span> <span class="n">Vectorize</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">130</span> <span class="k">for</span> <span class="n">sig</span> <span class="ow">in</span> <span class="n">ftylist</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">131</span>     <span class="n">vec</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">132</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ftylist</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">133</span>     <span class="n">vec</span><span class="o">.</span><span class="n">disable_compile</span><span class="p">()</span>
 
-<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/np/ufunc/deviceufunc.py:391,</span> in <span class="ni">DeviceVectorize.add</span><span class="nt">(self, sig)</span>
+<span class="nn">File /usr/share/miniconda/envs/swd6_hpp/lib/python3.9/site-packages/numba/np/ufunc/deviceufunc.py:391,</span> in <span class="ni">DeviceVectorize.add</span><span class="nt">(self, sig)</span>
 <span class="g g-Whitespace">    </span><span class="mi">388</span> <span class="n">funcname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pyfunc</span><span class="o">.</span><span class="vm">__name__</span>
 <span class="g g-Whitespace">    </span><span class="mi">389</span> <span class="n">kernelsource</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_kernel_source</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_kernel_template</span><span class="p">,</span>
 <span class="g g-Whitespace">    </span><span class="mi">390</span>                                        <span class="n">devfnsig</span><span class="p">,</span> <span class="n">funcname</span><span class="p">)</span>
@@ -546,19 +568,19 @@ However, at present CUDA is the most used platform for GPU programming and there
 <span class="g g-Whitespace">    </span><span class="mi">392</span> <span class="n">glbl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_globals</span><span class="p">(</span><span class="n">corefn</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">393</span> <span class="n">sig</span> <span class="o">=</span> <span class="n">signature</span><span class="p">(</span><span class="n">types</span><span class="o">.</span><span class="n">void</span><span class="p">,</span> <span class="o">*</span><span class="p">([</span><span class="n">a</span><span class="p">[:]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">return_type</span><span class="p">[:]]))</span>
 
-<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/vectorizers.py:202,</span> in <span class="ni">CUDAVectorize._compile_core</span><span class="nt">(self, sig)</span>
-<span class="g g-Whitespace">    </span><span class="mi">201</span> <span class="k">def</span> <span class="nf">_compile_core</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sig</span><span class="p">):</span>
+<span class="nn">File /usr/share/miniconda/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/vectorizers.py:202,</span> in <span class="ni">CUDAVectorize._compile_core</span><span class="nt">(self, sig)</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span> <span class="k">def</span><span class="w"> </span><span class="nf">_compile_core</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sig</span><span class="p">):</span>
 <span class="ne">--&gt; </span><span class="mi">202</span>     <span class="n">cudevfn</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inline</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">pyfunc</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">203</span>     <span class="k">return</span> <span class="n">cudevfn</span><span class="p">,</span> <span class="n">cudevfn</span><span class="o">.</span><span class="n">overloads</span><span class="p">[</span><span class="n">sig</span><span class="o">.</span><span class="n">args</span><span class="p">]</span><span class="o">.</span><span class="n">signature</span><span class="o">.</span><span class="n">return_type</span>
 
-<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/decorators.py:131,</span> in <span class="ni">jit.&lt;locals&gt;._jit</span><span class="nt">(func)</span>
-<span class="g g-Whitespace">    </span><span class="mi">129</span>     <span class="kn">from</span> <span class="nn">numba.core</span> <span class="kn">import</span> <span class="n">typeinfer</span>
+<span class="nn">File /usr/share/miniconda/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/decorators.py:131,</span> in <span class="ni">jit.&lt;locals&gt;._jit</span><span class="nt">(func)</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span>     <span class="kn">from</span><span class="w"> </span><span class="nn">numba.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">typeinfer</span>
 <span class="g g-Whitespace">    </span><span class="mi">130</span>     <span class="k">with</span> <span class="n">typeinfer</span><span class="o">.</span><span class="n">register_dispatcher</span><span class="p">(</span><span class="n">disp</span><span class="p">):</span>
 <span class="ne">--&gt; </span><span class="mi">131</span>         <span class="n">disp</span><span class="o">.</span><span class="n">compile_device</span><span class="p">(</span><span class="n">argtypes</span><span class="p">,</span> <span class="n">restype</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">132</span> <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">133</span>     <span class="n">disp</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">argtypes</span><span class="p">)</span>
 
-<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/dispatcher.py:882,</span> in <span class="ni">CUDADispatcher.compile_device</span><span class="nt">(self, args, return_type)</span>
+<span class="nn">File /usr/share/miniconda/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/dispatcher.py:882,</span> in <span class="ni">CUDADispatcher.compile_device</span><span class="nt">(self, args, return_type)</span>
 <span class="g g-Whitespace">    </span><span class="mi">875</span> <span class="n">fastmath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">targetoptions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fastmath&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">877</span> <span class="n">nvvm_options</span> <span class="o">=</span> <span class="p">{</span>
 <span class="g g-Whitespace">    </span><span class="mi">878</span>     <span class="s1">&#39;opt&#39;</span><span class="p">:</span> <span class="mi">3</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">targetoptions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;opt&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
@@ -573,26 +595,26 @@ However, at present CUDA is the most used platform for GPU programming and there
 <span class="g g-Whitespace">    </span><span class="mi">889</span>                     <span class="n">cc</span><span class="o">=</span><span class="n">cc</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">890</span> <span class="bp">self</span><span class="o">.</span><span class="n">overloads</span><span class="p">[</span><span class="n">args</span><span class="p">]</span> <span class="o">=</span> <span class="n">cres</span>
 
-<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/api.py:443,</span> in <span class="ni">get_current_device</span><span class="nt">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">441</span> <span class="k">def</span> <span class="nf">get_current_device</span><span class="p">():</span>
+<span class="nn">File /usr/share/miniconda/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/api.py:443,</span> in <span class="ni">get_current_device</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">441</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_current_device</span><span class="p">():</span>
 <span class="g g-Whitespace">    </span><span class="mi">442</span>     <span class="s2">&quot;Get current device associated with the current thread&quot;</span>
 <span class="ne">--&gt; </span><span class="mi">443</span>     <span class="k">return</span> <span class="n">current_context</span><span class="p">()</span><span class="o">.</span><span class="n">device</span>
 
-<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py:220,</span> in <span class="ni">get_context</span><span class="nt">(devnum)</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span> <span class="k">def</span> <span class="nf">get_context</span><span class="p">(</span><span class="n">devnum</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="nn">File /usr/share/miniconda/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py:220,</span> in <span class="ni">get_context</span><span class="nt">(devnum)</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_context</span><span class="p">(</span><span class="n">devnum</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="g g-Whitespace">    </span><span class="mi">217</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Get the current device or use a device by device number, and</span>
 <span class="g g-Whitespace">    </span><span class="mi">218</span><span class="sd">     return the CUDA context.</span>
 <span class="g g-Whitespace">    </span><span class="mi">219</span><span class="sd">     &quot;&quot;&quot;</span>
 <span class="ne">--&gt; </span><span class="mi">220</span>     <span class="k">return</span> <span class="n">_runtime</span><span class="o">.</span><span class="n">get_or_create_context</span><span class="p">(</span><span class="n">devnum</span><span class="p">)</span>
 
-<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py:138,</span> in <span class="ni">_Runtime.get_or_create_context</span><span class="nt">(self, devnum)</span>
+<span class="nn">File /usr/share/miniconda/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py:138,</span> in <span class="ni">_Runtime.get_or_create_context</span><span class="nt">(self, devnum)</span>
 <span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="n">attached_ctx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_attached_context</span><span class="p">()</span>
 <span class="g g-Whitespace">    </span><span class="mi">137</span> <span class="k">if</span> <span class="n">attached_ctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">138</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_or_create_context_uncached</span><span class="p">(</span><span class="n">devnum</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">139</span> <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">140</span>     <span class="k">return</span> <span class="n">attached_ctx</span>
 
-<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py:153,</span> in <span class="ni">_Runtime._get_or_create_context_uncached</span><span class="nt">(self, devnum)</span>
+<span class="nn">File /usr/share/miniconda/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py:153,</span> in <span class="ni">_Runtime._get_or_create_context_uncached</span><span class="nt">(self, devnum)</span>
 <span class="g g-Whitespace">    </span><span class="mi">147</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;See also ``get_or_create_context(devnum)``.</span>
 <span class="g g-Whitespace">    </span><span class="mi">148</span><span class="sd"> This version does not read the cache.</span>
 <span class="g g-Whitespace">    </span><span class="mi">149</span><span class="sd"> &quot;&quot;&quot;</span>
@@ -603,14 +625,14 @@ However, at present CUDA is the most used platform for GPU programming and there
 <span class="g g-Whitespace">    </span><span class="mi">154</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">ac</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">155</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_activate_context_for</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/cudadrv/driver.py:495,</span> in <span class="ni">_ActiveContext.__enter__</span><span class="nt">(self)</span>
+<span class="nn">File /usr/share/miniconda/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/cudadrv/driver.py:495,</span> in <span class="ni">_ActiveContext.__enter__</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">    </span><span class="mi">493</span> <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">494</span>     <span class="n">hctx</span> <span class="o">=</span> <span class="n">drvapi</span><span class="o">.</span><span class="n">cu_context</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">495</span>     <span class="n">driver</span><span class="o">.</span><span class="n">cuCtxGetCurrent</span><span class="p">(</span><span class="n">byref</span><span class="p">(</span><span class="n">hctx</span><span class="p">))</span>
 <span class="g g-Whitespace">    </span><span class="mi">496</span>     <span class="n">hctx</span> <span class="o">=</span> <span class="n">hctx</span> <span class="k">if</span> <span class="n">hctx</span><span class="o">.</span><span class="n">value</span> <span class="k">else</span> <span class="kc">None</span>
 <span class="g g-Whitespace">    </span><span class="mi">498</span> <span class="k">if</span> <span class="n">hctx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 
-<span class="nn">File ~/miniconda3/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/cudadrv/driver.py:295,</span> in <span class="ni">Driver.__getattr__</span><span class="nt">(self, fname)</span>
+<span class="nn">File /usr/share/miniconda/envs/swd6_hpp/lib/python3.9/site-packages/numba/cuda/cudadrv/driver.py:295,</span> in <span class="ni">Driver.__getattr__</span><span class="nt">(self, fname)</span>
 <span class="g g-Whitespace">    </span><span class="mi">292</span> <span class="bp">self</span><span class="o">.</span><span class="n">ensure_initialized</span><span class="p">()</span>
 <span class="g g-Whitespace">    </span><span class="mi">294</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialization_error</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">295</span>     <span class="k">raise</span> <span class="n">CudaSupportError</span><span class="p">(</span><span class="s2">&quot;Error at driver init: </span><span class="se">\n</span><span class="si">%s</span><span class="s2">:&quot;</span> <span class="o">%</span>
@@ -812,7 +834,7 @@ However, at present CUDA is the most used platform for GPU programming and there
 <p><strong>NumPy for the CPU</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -906,9 +928,9 @@ However, at present CUDA is the most used platform for GPU programming and there
 <p>If it can’t find a GPU, then it will fall back to the CPU.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jax</span>
-<span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -1007,7 +1029,7 @@ WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">random</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">random</span>
 </pre></div>
 </div>
 </div>
@@ -1049,7 +1071,7 @@ WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 
 <p>To avoid this and <a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.device_put.html#jax.device_put">put data</a> onto the device (GPU):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">device_put</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">device_put</span>
 </pre></div>
 </div>
 </div>
@@ -1080,7 +1102,7 @@ WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 
 <p>Let’s see an example of using the JAX <code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code> compiler to speed up a function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">jit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">jit</span>
 </pre></div>
 </div>
 </div>
@@ -1095,7 +1117,7 @@ WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 
 <p>Here were using an example for the <a class="reference external" href="https://arxiv.org/pdf/1706.02515v5.pdf">SELU (Scaled Exponential Linear Unit)</a> activation function (<em>don’t worry what this is</em>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">slow_selu</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.67</span><span class="p">,</span> <span class="n">lmbda</span><span class="o">=</span><span class="mf">1.05</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">slow_selu</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.67</span><span class="p">,</span> <span class="n">lmbda</span><span class="o">=</span><span class="mf">1.05</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">lmbda</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1157,7 +1179,7 @@ WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 
 <p>Let’s see an example of multiplying a matrix by a batch of vectors (<em>don’t worry what this function does, just focus on the JAX bits</em>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">vmap</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">vmap</span>
 </pre></div>
 </div>
 </div>
@@ -1172,7 +1194,7 @@ WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiplying_matrix_by_vector</span><span class="p">(</span><span class="n">vector</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">multiplying_matrix_by_vector</span><span class="p">(</span><span class="n">vector</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">vector</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1181,7 +1203,7 @@ WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 
 <p>So, first apply this function in a simple batch:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simple_batch</span><span class="p">(</span><span class="n">batch_vectors</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">simple_batch</span><span class="p">(</span><span class="n">batch_vectors</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">multiplying_matrix_by_vector</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span> <span class="k">for</span> <span class="n">vector</span> <span class="ow">in</span> <span class="n">batch_vectors</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1202,7 +1224,7 @@ WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 
 <p>Now, let’s instead use a <code class="docutils literal notranslate"><span class="pre">vmap</span></code> batch to map the function over the matrix:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vmap_batch</span><span class="p">(</span><span class="n">batch_vectors</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vmap_batch</span><span class="p">(</span><span class="n">batch_vectors</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">vmap</span><span class="p">(</span><span class="n">multiplying_matrix_by_vector</span><span class="p">)(</span><span class="n">batch_vectors</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1224,7 +1246,7 @@ WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
-<span class="k">def</span> <span class="nf">faster_vmap_batch</span><span class="p">(</span><span class="n">batch_vectors</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">faster_vmap_batch</span><span class="p">(</span><span class="n">batch_vectors</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">vmap</span><span class="p">(</span><span class="n">multiplying_matrix_by_vector</span><span class="p">)(</span><span class="n">batch_vectors</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1275,7 +1297,7 @@ WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 
 </div>
 </section>
 <section id="solutions">
-<h2><a class="reference internal" href="07_solutions.html#gpus"><span class="std std-ref">Solutions</span></a><a class="headerlink" href="#solutions" title="Link to this heading">#</a></h2>
+<h2><span class="xref std std-ref">Solutions</span><a class="headerlink" href="#solutions" title="Link to this heading">#</a></h2>
 </section>
 <section id="key-points">
 <h2>Key Points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
@@ -1354,6 +1376,24 @@ WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="05_parallelisation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Parallelisation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="07_solutions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Solutions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1361,8 +1401,7 @@ WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1444,8 +1483,8 @@ By Luke Conibear
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
