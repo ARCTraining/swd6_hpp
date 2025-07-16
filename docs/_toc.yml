@@ -10,7 +10,7 @@ sections:
   - file: 02_data_structures_algorithms_libraries
   - file: 03_vectorisation
   - file: 04_compilers
-#  - file: 05_parallelisation
-#  - file: 06_GPUs
-#  - file: 07_solutions
+  - file: 05_parallelisation
+  - file: 06_GPUs
+  - file: 07_solutions
 - file: 08_summary
